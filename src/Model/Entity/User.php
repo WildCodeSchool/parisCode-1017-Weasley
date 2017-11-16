@@ -1,6 +1,6 @@
 <?php
 
-namespace MyApp\Model\Entity;
+namespace weasley\Model\Entity;
 
 /**
  * Class User

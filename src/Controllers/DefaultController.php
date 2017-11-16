@@ -1,8 +1,8 @@
 <?php
 
-namespace MyApp\Controllers;
+namespace weasley\Controllers;
 
-use MyApp\Model\Repository\UserManager;
+use weasley\Model\Repository\UserManager;
 
 /**
  * Class DefaultController
