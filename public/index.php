@@ -4,7 +4,7 @@
 require_once '../vendor/autoload.php';
 require_once '../app/config.php';
 
-use weasley\Controllers\DefaultController;
+use Weasley\Controllers\DefaultController;
 
 if (empty($_GET)){
 	$defaultController = new DefaultController();
