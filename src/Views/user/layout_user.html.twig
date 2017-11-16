@@ -5,6 +5,10 @@
     <link type="text/css" rel="stylesheet" href="assets/css/navbar.css"/>
 {% endblock %}
 
+{% block header %}
+    <div class="header"><img src="assets/pictures/header_final.png" alt="Weasley's Wizard Wheezes"/></div>
+{% endblock %}
+
 {% block nav %}
     <nav class="navbar navbar-inverse">
         <div class="container topBotomBordersOut">
@@ -27,6 +31,7 @@
             </div><!--/.nav-collapse -->
         </div>
     </nav>
+
 {% endblock %}
 
 {% block body %}
@@ -35,7 +40,40 @@
 {% endblock %}
 
 {% block footer %}
-    <footer>user</footer>
+    <footer class="navbar-fixed-bottom">
+        <div class="social-container container ">
+            <div class="row">
+
+            <ul>
+                <li class="col-xs-2">
+                    <a href="mentions_legales.html.twig">Mentions Légales</a>
+                </li>
+                    <div class="line-items col-xs-6">
+                    <li>
+                        <a href="https://www.facebook.com/" target="_blank">
+                            <img src="assets/pictures/social_icon_gold/fb.png" alt="Facebook pictogram"/>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://twitter.com/?lang=fr" target="_blank">
+                            <img src="assets/pictures/social_icon_gold/twitter.png" alt="Twitter pictogram"/>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/?hl=fr" target="_blank">
+                            <img src="assets/pictures/social_icon_gold/insta.png" alt="Instagram pictogram"/>
+                        </a>
+                    </li>
+                    </div>
+
+
+                <li class="col-xs-3">
+                    <a href="contact.html.twig">Nous envoyer un hibou</a></li>
+
+            </ul>
+            </div>
+        </div>
+    </footer>
 {% endblock %}
 
 {% block js %}
