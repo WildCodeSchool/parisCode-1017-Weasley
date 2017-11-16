@@ -1,0 +1,10 @@
+/* Global */
+body {
+    background-image:url(https://www.local.gov.uk/sites/default/files/images/daniel-mayovskiy-303666.jpg);
+}
+
+
+.item {
+    width: 100%;
+    height: 550px;
+}

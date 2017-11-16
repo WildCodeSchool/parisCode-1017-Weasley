@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block css %}
+    <link type="text/css" rel="stylesheet" href="assets/css/style.css"/>
+{% endblock %}
+
+{% block nav %}
+    <nav>
+        <a href="index.php?section=concept">Concept</a>
+        <a href="index.php">Home</a>
+    </nav>
+{% endblock %}
+
+{% block body %}
+    {% block content %}
+    {% endblock %}
+{% endblock %}
+
+{% block footer %}
+    <footer>user</footer>
+{% endblock %}
+
+{% block js %}
+{% endblock %}

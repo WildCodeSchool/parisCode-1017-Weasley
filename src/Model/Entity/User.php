@@ -1,10 +1,10 @@
 <?php
 
-namespace weasley\Model\Entity;
+namespace Weasley\Model\Entity;
 
 /**
  * Class User
- * @package MyApp\Model\Entity
+ * @package Weasley\Model\Entity
  */
 class User
 {
