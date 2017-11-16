@@ -21,7 +21,7 @@ div.container a
 
 
 /* Top and Bottom borders go out */
-div.topBotomBordersOut a:before, div.topBotomBordersOut a:after
+div.topBotomBordersOut a.effect:before, div.topBotomBordersOut a.effect:after
 {
     position: absolute;
     left: 0px;
