@@ -24,6 +24,11 @@ div.container.nav a
     color: #FFF;
 }
 
+/** burger **/
+.navbar-inverse .navbar-toggle .icon-bar{
+    background-color: #C69627;
+}
+
 
 /* Top and Bottom borders go out */
 div.topBotomBordersOut a.effect:before, div.topBotomBordersOut a.effect:after
