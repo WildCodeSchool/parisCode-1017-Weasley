@@ -1,6 +1,6 @@
 
 /**navbar**/
-div.container
+div.container.nav
 {
     font-family: 'Berkshire Swash';
     margin: 0 auto;
@@ -8,9 +8,9 @@ div.container
     text-align: center;
 }
 
-div.container a
+div.container.nav a
 {
-    color: #FFF;
+    color: #C69627;
     text-decoration: none;
     font: 25px 'Berkshire Swash';
     margin: 0px 20px;
@@ -27,7 +27,7 @@ div.topBotomBordersOut a.effect:before, div.topBotomBordersOut a.effect:after
     left: 0px;
     width: 100%;
     height: 2px;
-    background: #FFF;
+    background: #C69627;
     content: "";
     opacity: 0;
     transition: all 0.3s;
