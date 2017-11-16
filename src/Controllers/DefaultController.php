@@ -2,7 +2,7 @@
 
 namespace MyApp\Controllers;
 
-use MyApp\Model\Repository\UserManager;
+use weasley\Model\Repository\UserManager;
 
 /**
  * Class DefaultController
