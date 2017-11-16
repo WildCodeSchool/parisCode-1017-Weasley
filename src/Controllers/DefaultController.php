@@ -1,6 +1,6 @@
 <?php
 
-namespace MyApp\Controllers;
+namespace weasley\Controllers;
 
 use weasley\Model\Repository\UserManager;
 

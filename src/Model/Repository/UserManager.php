@@ -3,7 +3,7 @@
 namespace weasley\Model\Repository;
 
 use PDO;
-use MyApp\Model\Entity\User;
+use weasley\Model\Entity\User;
 
 /**
  * Class UserManager

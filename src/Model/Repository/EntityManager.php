@@ -1,6 +1,6 @@
 <?php
 
-namespace MyApp\Model\Repository;
+namespace weasley\Model\Repository;
 
 use PDO;
 use PDOException;
