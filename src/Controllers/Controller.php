@@ -1,6 +1,6 @@
 <?php
 
-namespace weasley\Controllers;
+namespace Weasley\Controllers;
 
 use Twig_Loader_Filesystem;
 use Twig_Environment;

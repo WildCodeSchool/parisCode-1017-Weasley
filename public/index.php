@@ -6,11 +6,11 @@ require_once '../app/config.php';
 
 use Weasley\Controllers\DefaultController;
 
+$defaultController = new DefaultController();
+
 if (empty($_GET)){
-	$defaultController = new DefaultController();
 	echo $defaultController->indexAction();
 }
-elseif (isset($_GET['id'])){
-	$defaultController = new DefaultController();
-	echo $defaultController->showOneAction();
+elseif ($_GET['section'] == "concept"){
+	echo $defaultController->conceptAction();
 }

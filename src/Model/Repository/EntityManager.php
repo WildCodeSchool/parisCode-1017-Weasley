@@ -1,13 +1,13 @@
 <?php
 
-namespace weasley\Model\Repository;
+namespace Weasley\Model\Repository;
 
 use PDO;
 use PDOException;
 
 /**
  * Class EntityManager
- * @package MyApp\Repository
+ * @package Weasley\Repository
  */
 class EntityManager
 {

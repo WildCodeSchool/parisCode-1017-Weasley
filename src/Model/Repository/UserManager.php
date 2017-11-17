@@ -1,9 +1,9 @@
 <?php
 
-namespace weasley\Model\Repository;
+namespace Weasley\Model\Repository;
 
 use PDO;
-use weasley\Model\Entity\User;
+use Weasley\Model\Entity\User;
 
 /**
  * Class UserManager

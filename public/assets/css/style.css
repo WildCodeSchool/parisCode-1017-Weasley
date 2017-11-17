@@ -1,0 +1,45 @@
+/* Global */
+body {
+    background-image:url(https://www.local.gov.uk/sites/default/files/images/daniel-mayovskiy-303666.jpg);
+}
+
+.header {
+    text-align: center;
+    margin: 12px;
+}
+
+.item {
+    width: 100%;
+    height: 550px;
+}
+
+footer {
+    background-color: black;
+    clear: both;
+    text-align: center;
+}
+
+footer li {
+    display: inline-block;
+    font-family: 'Berkshire Swash', cursive;
+    vertical-align: middle;
+    padding-top: 1%;
+}
+.line-items {
+    padding-top: 0;
+    padding-bottom: 6px;
+}
+
+
+footer li img{
+    width: 2vw;
+}
+footer a {
+    color: #c69627;
+
+}
+
+footer a:hover {
+    text-decoration: none;
+    color: purple;
+}
