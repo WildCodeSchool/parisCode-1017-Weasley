@@ -1,6 +1,6 @@
     /* Global */
     body {
-        background-image:url("https://www.local.gov.uk/sites/default/files/images/daniel-mayovskiy-303666.jpg");
+        background-image:url("../../assets/pictures/fondfirework.jpg");
         background-size: center center no-repeat;
     }
 
@@ -107,6 +107,9 @@ footer li {
     padding-bottom: 6px;
 }
 
+.social img {
+    width: 60%;
+}
 
 footer li img{
     width: 2vw;
@@ -118,5 +121,5 @@ footer a {
 
 footer a:hover {
     text-decoration: none;
-    color: purple;
+    color: white;
 }
