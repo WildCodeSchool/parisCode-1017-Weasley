@@ -1,5 +1,12 @@
 
 /**navbar**/
+
+#logo{
+    font-family: 'Berkshire Swash', cursive;
+}
+#logo:hover{
+    color: #FFF;
+}
 div.container.nav
 {
     font-family: 'Berkshire Swash';
