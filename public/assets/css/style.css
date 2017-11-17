@@ -1,10 +1,76 @@
 /* Global */
 body {
-    background-image:url(https://www.local.gov.uk/sites/default/files/images/daniel-mayovskiy-303666.jpg);
+    background-image:url("https://www.local.gov.uk/sites/default/files/images/daniel-mayovskiy-303666.jpg");
+    background-size: center center no-repeat;
 }
 
 
 .item {
     width: 100%;
-    height: 550px;
+    height: 450px;
 }
+
+@font-face{
+    font-family: 'WeekdaysRomanSlant';
+    src: url(WeekdaysRomanSlant 2.ttf)
+}
+.texte_balai{
+  background-color: #ffffff;
+  /* Fallback for web browsers that don't support RGBa */
+  background-color: rgb(195, 218, 237);
+    /* RGBa with 0.6 opacity */
+  background-color: rgba(195, 218, 237, 0.5);
+    color: black;
+    font-family:'WeekdaysRomanSlant';
+    font-size: 170%;
+
+             }
+
+
+ .un{
+    text-align: center;
+    color: black;
+    font-family: 'WeekdaysRomanSlant';
+}
+
+.caption_map{
+    width: 100%;
+}
+.row{
+    padding: 2em;
+}
+div .retrouvez h1 {
+    color: #F5F5DC;
+    text-align: center;
+    font-family: 'Windlass';
+}
+
+
+.claim {
+    color: #F5F5DC;
+    text-align: center;
+    font-family: 'Windlass';
+    background-color: black;
+    float: left;
+    display:inline;
+}
+
+ .artifices, .friandises {
+    width: 390px;
+    height: 300px;
+    max-width: 100%;
+     display: inline-block;
+     z-index:1;
+     position: relative;
+
+}
+
+ .categories_produits  {
+     font-family: 'Windlass';
+     background-color: beige;
+     color:black;
+     margin-top: -20px;
+     margin-left: 65%;
+     z-index:2;
+     position: absolute;
+ }
