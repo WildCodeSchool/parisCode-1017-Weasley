@@ -8,6 +8,6 @@
 {% macro textarea(name, label, placeholder) %}
     <div class="form-group">
     <label for="{{ name }}">{{ label }}</label>
-    <textarea name="{{ name }}" id="{{ name }}" placeholder="{{ placeholder }}"></textarea>
+    <textarea class="form-control" id="{{ name }}" name="{{ name }}" placeholder="{{ placeholder }}"></textarea>
     </div>
 {% endmacro %}
