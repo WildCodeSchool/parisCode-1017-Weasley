@@ -14,6 +14,12 @@
     width: 60%;
 }
 
+#box{ background-color: rgba(255, 255, 255, 0.3);}
+
+h2{
+    font-family: 'Berkshire Swash', cursive;
+    color: #C69627;
+}
 
 /******************navbar*********************/
 
@@ -93,6 +99,15 @@ div.topBotomBordersOut a:hover:before, div.topBotomBordersOut a:hover:after
     }
 
 /******************* end navbar **********************/
+
+    /************** contact **********************/
+/** bouton */
+    .btn.btn-primary.btn-contact{
+        background-color: #C69627;
+        border-color: #997325;
+    }
+    .btn.btn-primary.btn-contact:hover{
+        background-color: #b08626;
 
     }
     .item {
