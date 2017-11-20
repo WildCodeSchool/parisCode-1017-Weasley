@@ -1,0 +1,26 @@
+{% extends 'user/layout_user.html.twig' %}
+{% import'user/macro_form.html.twig' as form %}
+
+{% block content %}
+    <div class="text-center">
+        <h2>Nous visiter</h2>
+        <p>11 rue de Poissy, 75005 Paris</p>
+        <p>Tous les jours de 9h à 20h</p>
+    </div>
+    <h2 class="text-center">Nous envoyer une chouette</h2>
+    <div class="row">
+        <div class="col-md-offset-2 col-md-8 col-xs-12">
+        <form action="index.php?section=contact" method="post">
+            {{ form.input ('nom','Votre nom','Nom', 'text') }}
+            {{ form.input ('prenom','Votre prénom','Prénom', 'text') }}
+            {{ form.input ('email','Votre email','Dumbledoore@mail.com', 'email') }}
+            {{ form.textarea ('message', 'Votre message', 'Votre message...') }}
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-contact">Envoyer</button>
+            </div>
+
+        </form>
+        </div>
+    </div>
+
+{% endblock %}
