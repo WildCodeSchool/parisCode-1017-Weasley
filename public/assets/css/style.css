@@ -14,14 +14,33 @@
     width: 60%;
 }
 
+/** white box*/
+#box{
+    background-color: rgba(255, 255, 255, 0.3);
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+/***** Fonts *****/
+h2{
+    font-family: 'Berkshire Swash', cursive;
+    color: #C69627;
+}
     /******************navbar*********************/
 
     #logo{
         font-family: 'Berkshire Swash', cursive;
     }
+
     #logo:hover{
         color: #FFF;
     }
+
+    /** burger **/
+    .navbar-inverse .navbar-toggle .icon-bar{
+        background-color: #C69627;
+    }
+
     div.container.nav
     {
         font-family: 'Berkshire Swash';
@@ -40,17 +59,6 @@
         z-index: 0;
         cursor: pointer;
     }
-
-    /** house **/
-    .fa.fa-home.fa-lg:hover{
-        color: #FFF;
-    }
-
-    /** burger **/
-    .navbar-inverse .navbar-toggle .icon-bar{
-        background-color: #C69627;
-    }
-
 
     /* Top and Bottom borders go out */
     div.topBotomBordersOut a.effect:before, div.topBotomBordersOut a.effect:after
@@ -92,6 +100,26 @@
         }
 
         /******************* end navbar **********************/
+
+
+    /************** contact **********************/
+    .visit{ padding-bottom: 30px;}
+
+    form{
+    padding-top: 30px;
+    padding-bottom: 30px;}
+}
+
+/** bouton */
+    .btn.btn-primary.btn-contact{
+        background-color: #C69627;
+        border-color: #997325;
+    }
+    .btn.btn-primary.btn-contact:hover{
+        background-color: #b08626;
+
+    }
+    /************** end contact ********/
 
     .item {
         width: 100%;
