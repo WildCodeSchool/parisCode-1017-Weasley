@@ -19,14 +19,15 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.php"><i class="fa fa-home fa-lg" aria-hidden="true"></i>
+                <a class="navbar-brand" href="index.php" id="logobrand"><img src="assets/pictures/W_logo.png" width="40px">
                 </a>
             </div>
             <div id="navbar" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="#" class="effect">Concept</a></li>
-                    <li><a href="#" class="effect">Produits</a></li>
-                    <li><a href="#" class="effect">Contact</a></li>
+                    <li><a href="index.php" class="effect">Accueil</a></li>
+                    <li><a href="index.php?section=concept" class="effect">Concept</a></li>
+                    <li><a href="index.php?section=produits" class="effect">Produits</a></li>
+                    <li><a href="index.php?section=contact" class="effect">Contact</a></li>
                 </ul>
             </div><!--/.nav-collapse -->
         </div>
@@ -40,7 +41,7 @@
 {% endblock %}
 
 {% block footer %}
-    <footer class="navbar-fixed-bottom">
+    <footer>
         <div class="social-container container ">
             <div class="row">
 
@@ -48,7 +49,7 @@
                 <li class="col-xs-2">
                     <a href="mentions_legales.html.twig">Mentions Légales</a>
                 </li>
-                    <div class="line-items col-xs-6">
+                    <div class="social line-items col-xs-7">
                     <li>
                         <a href="https://www.facebook.com/" target="_blank">
                             <img src="assets/pictures/social_icon_gold/fb.png" alt="Facebook pictogram"/>
@@ -66,9 +67,8 @@
                     </li>
                     </div>
 
-
                 <li class="col-xs-3">
-                    <a href="contact.html.twig">Nous envoyer un hibou</a></li>
+                    <a href="index.php?section=contact">Nous envoyer une chouette</a></li>
 
             </ul>
             </div>

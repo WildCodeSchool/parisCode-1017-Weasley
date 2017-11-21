@@ -14,3 +14,7 @@ if (empty($_GET)){
 elseif ($_GET['section'] == "concept"){
 	echo $defaultController->conceptAction();
 }
+elseif ($_GET['section'] == "contact"){
+	echo $defaultController->contactAction();
+}
+
