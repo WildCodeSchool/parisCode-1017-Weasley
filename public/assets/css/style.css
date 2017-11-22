@@ -250,10 +250,17 @@ h2{
     width: 300px;
     text-align: center;
     box-shadow: 8px 6px 10px #888888;
-
 }
 
+.retour a {
+    color: #C69627;
+    float: right;
+}
 
+.retour a:hover {
+    color: white;
+    text-decoration: none;
+}
 
 /*FOOTER*/
 
