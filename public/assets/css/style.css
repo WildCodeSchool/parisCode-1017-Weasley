@@ -99,6 +99,7 @@ h2{
         #logobrand{
             display: none;
         }
+    }
 
         /******************* end navbar **********************/
 
@@ -169,7 +170,7 @@ h2{
         color: #F5F5DC;
         text-align: center;
         text-transform: uppercase;
-        font-family: 'WeekdaysRomanSlant', cursive;
+        font-family: 'Poppins', cursive;
         background-color: black;
         float: left;
         display:inline;
@@ -206,6 +207,47 @@ h2{
     width: 100%;
     height: 550px;
 }
+
+/*PAGE PRODUITS*/
+
+.vignette_produit{
+    max-width: 100%;
+    display: inline-block;
+    z-index: 1;
+    position: relative;
+}
+.produit{
+    font-family: 'Berkshire Swash', cursive;
+    background-image:url(../../assets/pictures/parchemin.jpg);
+    color:black;
+    margin-top: -15px;
+    width : 180px;
+    z-index:2;
+    position: relative;
+    float: right;
+}
+.row-produits p{
+    margin-top: 25px;
+}
+
+.row-titre-cat{
+    margin-bottom: 35px;
+    margin-left: 0;
+}
+
+.categorie{
+    font-family: 'Berkshire Swash', cursive;
+    background-image:url(../../assets/pictures/gold.jpg);
+    opacity: 0.75;
+    color:black;
+    padding: 7px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 8px 6px 10px #888888;
+
+}
+
+
 
 /*FOOTER*/
 
