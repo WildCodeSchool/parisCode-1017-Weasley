@@ -1,8 +1,9 @@
     /* Global */
     body {
         background-image:url("../../assets/pictures/fondfirework.jpg");
-        background-position: center center no-repeat;
+        background-position: center;
         background-size: cover;
+        font-family: 'Poppins', cursive;
     }
 
 .header {
