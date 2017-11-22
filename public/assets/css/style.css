@@ -156,24 +156,35 @@ h2{
     }
 
     div .retrouvez h1 {
-        color: #F5F5DC;
+        color: black;
+        text-transform: uppercase;
         text-align: center;
-        font-family: 'Windlass';
+        font-family: 'WeekdaysRomanSlant', cursive;
+        padding-bottom: 6%;
+        padding-top: 1%;
     }
 
 
     .claim {
         color: #F5F5DC;
         text-align: center;
-        font-family: 'Windlass';
+        text-transform: uppercase;
+        font-family: 'WeekdaysRomanSlant', cursive;
         background-color: black;
         float: left;
         display:inline;
+        padding: 1%;
+        padding-left: 3%;
+        padding-right: 4%;
+        z-index:3;
+        position: absolute;
+        margin-top: -40px;
+        margin-left: -10%;
     }
 
-     .artifices, .friandises {
+     .vignette_home {
         width: 390px;
-        height: 300px;
+        height: 325px;
         max-width: 100%;
          display: inline-block;
          z-index:1;
@@ -182,14 +193,19 @@ h2{
     }
 
      .categories_produits  {
-         font-family: 'Windlass';
-         background-color: beige;
+         font-family: 'Berkshire Swash', cursive;
+         background-image:url(../../assets/pictures/parchemin.jpg);
          color:black;
          margin-top: -20px;
-         margin-left: 65%;
+         margin-left: 40%;
+         width : 47%;
          z-index:2;
          position: absolute;
      }
+
+.row-vignette-1{
+    padding-bottom: 8%;
+}
 
 .item {
     width: 100%;
