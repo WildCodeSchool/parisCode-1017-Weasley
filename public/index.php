@@ -10,7 +10,7 @@ $defaultController = new DefaultController();
 
 if (empty($_GET)){
 	echo $defaultController->indexAction();
-} elseif ($_GET['login']== "user"){
+} elseif ($_GET['login']== "admin"){
     echo $defaultController->loginAction();
 } elseif ($_GET['user']== "admin"){
     echo $defaultController->adminAction();
