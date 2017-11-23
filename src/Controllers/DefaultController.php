@@ -23,6 +23,12 @@ class DefaultController extends Controller
 	public function conceptAction(){
         return $this->twig->render('user/concept.html.twig');
 	}
+    /**
+     * @return string
+     */
+    public function produitsAction(){
+        return $this->twig->render('user/produits.html.twig');
+    }
 
     /**
      * Render contact
