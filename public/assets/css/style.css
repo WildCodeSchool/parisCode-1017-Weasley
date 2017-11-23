@@ -133,6 +133,11 @@ h2{
 
     /************** end contact ********/
 
+    .item {
+        width: 100%;
+        height: 450px;
+    }
+
     @font-face{
         font-family: 'WeekdaysRomanSlant';
         src: url(WeekdaysRomanSlant 2.ttf)
@@ -210,70 +215,6 @@ h2{
          float: right;
      }
 
-<<<<<<< HEAD
-
-        /******************* page concept **********************/
-
-
-    .fg{
-        text-align: center;
-        width : 100%;
-        /*-webkit-filter: grayscale(60%);*/
-        /*filter: grayscale(60%);*/
-    }
-
-
-    .citation{
-          text-align: center;
-        width:90%;
-            margin-top: -20%;
-          font-size: 2.5em;
-        font-family: 'Berkshire Swash', cursive;
-        color:beige;
-      }
-
-
-    .revelio{
-        margin-top:5%;
-        font-size: 5em;
-        font-family:'Berkshire Swash', cursive;
-        color: black;
-        text-align:center;
-    }
-
-    .revelio_2 {
-        margin-top: 5%;
-        color: black;
-        font-family: 'weekdays';
-        text-align: center;
-    }
-
-    .weasleys{
-    width: 60%;
-    }
-
-    .sommes{
-        color:black;
-        font-size: 1.6em;
-        margin-top: 50px;
-        font-family: poppins;
-    }
-
-    .bonbons{
-        margin-top:50px;
-    }
-
-
-
-
-
-    footer {
-        background-color: black;
-        clear: both;
-        text-align: center;
-        margin-top: 3em;
-    }
-=======
 .espace {
     padding-bottom: 25px;
 }
@@ -360,7 +301,6 @@ footer {
     text-align: center;
     margin-top: 3em;
 }
->>>>>>> b0576d83a4a2d8767cec52080e06f9581b822cce
 
 footer li {
     display: inline-block;
@@ -389,6 +329,3 @@ footer a:hover {
     text-decoration: none;
     color: white;
 }
-
-    /******************* page concept **********************/
-
