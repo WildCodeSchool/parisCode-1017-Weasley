@@ -1,6 +1,6 @@
     /* Global */
     body {
-        background-image:url("../../assets/pictures/fondfirework.jpg");
+        /*background-image:url("../../assets/pictures/fondfirework.jpg");*/
         background-position: center;
         background-size: cover;
         font-family: 'Poppins', cursive;
@@ -12,7 +12,8 @@
 }
 
 .header img {
-    width: 60%;
+    width: 100vw;
+    margin: -15px;
 }
 
 @media (max-width: 760px){
@@ -266,9 +267,30 @@ h2{
     float: right;
 }
 
-.retour a:hover {
-    color: white;
-    text-decoration: none;
+/*.retour a:hover {*/
+    /*color: white;*/
+    /*text-decoration: none;*/
+/*}*/
+
+
+    .icon {
+        display: inline-block;
+        width: 1em;
+        height: 1em;
+        stroke-width: 0;
+        stroke: currentColor;
+        fill: currentColor;
+    }
+
+hr {
+    background-color: #C69627;
+    margin-top: 43px;
+}
+
+@media (max-width: 1200px){
+    hr {
+        display: none;
+    }
 }
 
 /*FOOTER*/
