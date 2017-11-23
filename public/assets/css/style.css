@@ -6,14 +6,8 @@
         font-family: 'Poppins', cursive;
     }
 
-.header {
-    text-align: center;
-    margin: 12px;
-}
-
 .header img {
     width: 100vw;
-    margin: -15px;
 }
 
 /** white box*/
@@ -151,7 +145,7 @@ h2{
         position: relative;
         margin-top: -37px;
     }
-      
+
      .un{
         text-align: center;
         color: black;
@@ -187,7 +181,7 @@ h2{
 
      .vignette_home {
         height: 415px;
-        max-width: 100%;
+        width: 100%;
          display: inline-block;
          z-index:1;
          position: relative;
@@ -293,24 +287,28 @@ footer {
     margin-top: 3em;
 }
 
-footer li {
-    display: inline-block;
+footer div {
     font-family: 'Berkshire Swash', cursive;
-    vertical-align: middle;
-    padding-top: 1%;
-}
-.line-items {
-    padding-top: 0;
-    padding-bottom: 6px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+
+
 }
 
 .social img {
-    width: 60%;
+    max-width: 35px;
 }
 
-footer li img{
-    width: 2vw;
+@media (max-width: 992px){
+    .vignette_home{
+        height: auto;
+    }
+    footer div {
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
 }
+
 footer a {
     color: #c69627;
 }
