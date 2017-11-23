@@ -12,7 +12,8 @@
 }
 
 .header img {
-    width: 60%;
+    width: 100vw;
+    margin: -15px;
 }
 
 /** white box*/
