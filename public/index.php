@@ -10,11 +10,11 @@ $defaultController = new DefaultController();
 
 if (empty($_GET)){
 	echo $defaultController->indexAction();
-} elseif ($_GET['login']== "admin"){
+} elseif ($_GET['section']== "login"){
     echo $defaultController->loginAction();
-} elseif ($_GET['user']== "admin"){
+} elseif ($_GET['section']== "admin"){
     echo $defaultController->adminAction();
-} elseif ($_GET['admin']== "contact"){
+} elseif ($_GET['section']== "admin_contact"){
     echo $defaultController->adminContactAction();
 } elseif ($_GET['section'] == "concept"){
 	echo $defaultController->conceptAction();

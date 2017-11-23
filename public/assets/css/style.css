@@ -97,7 +97,7 @@ h2{
         color: #C69627;
     }
 
-    @media (min-width: 760px){
+    @media (min-width: 768px){
         #logobrand{
             display: none;
         }

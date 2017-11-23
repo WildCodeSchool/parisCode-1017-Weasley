@@ -18,13 +18,13 @@ class DefaultController extends Controller
 	}
 
 	/**
-	 * @return string
+	 * Render concept
 	 */
 	public function conceptAction(){
         return $this->twig->render('user/concept.html.twig');
 	}
     /**
-     * @return string
+     * Render product
      */
     public function produitsAction(){
         return $this->twig->render('user/produits.html.twig');
