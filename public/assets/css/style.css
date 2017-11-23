@@ -107,26 +107,29 @@ h2{
         }
     }
 
-        /******************* end navbar **********************/
+/******************* end navbar **********************/
 
 
-    /************** contact **********************/
+/************** contact **********************/
     .visit{ padding-bottom: 30px;}
 
     form{
     padding-top: 30px;
-    padding-bottom: 30px;}
-}
+    padding-bottom: 30px;
+    }
 
-/** bouton */
+
+/** bouton **********/
+
     .btn.btn-primary.btn-contact{
         background-color: #C69627;
         border-color: #997325;
     }
     .btn.btn-primary.btn-contact:hover{
         background-color: #b08626;
-
     }
+
+
     /************** end contact ********/
 
     .item {
