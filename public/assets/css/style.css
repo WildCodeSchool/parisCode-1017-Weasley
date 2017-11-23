@@ -258,10 +258,10 @@ h2{
     float: right;
 }
 
-.retour a:hover {
-    color: white;
-    text-decoration: none;
-}
+/*.retour a:hover {*/
+    /*color: white;*/
+    /*text-decoration: none;*/
+/*}*/
 
 
     .icon {
@@ -272,6 +272,17 @@ h2{
         stroke: currentColor;
         fill: currentColor;
     }
+
+hr {
+    background-color: #C69627;
+    margin-top: 43px;
+}
+
+@media (max-width: 1200px){
+    hr {
+        display: none;
+    }
+}
 
 /*FOOTER*/
 
