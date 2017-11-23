@@ -10,14 +10,17 @@ $defaultController = new DefaultController();
 
 if (empty($_GET)){
 	echo $defaultController->indexAction();
-}
-elseif ($_GET['section'] == "concept"){
+} elseif ($_GET['login']== "user"){
+    echo $defaultController->loginAction();
+} elseif ($_GET['user']== "admin"){
+    echo $defaultController->adminAction();
+} elseif ($_GET['admin']== "contact"){
+    echo $defaultController->adminContactAction();
+} elseif ($_GET['section'] == "concept"){
 	echo $defaultController->conceptAction();
-}
-elseif ($_GET['section'] == "produits"){
+} elseif ($_GET['section'] == "produits"){
     echo $defaultController->produitsAction();
-}
-elseif ($_GET['section'] == "contact"){
+} elseif ($_GET['section'] == "contact"){
 	echo $defaultController->contactAction();
 }
 
