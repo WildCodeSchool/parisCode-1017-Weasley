@@ -121,11 +121,6 @@ h2{
     }
     /************** end contact ********/
 
-    .item {
-        width: 100%;
-        height: 450px;
-    }
-
     @font-face{
         font-family: 'WeekdaysRomanSlant';
         src: url(WeekdaysRomanSlant 2.ttf)
@@ -190,93 +185,68 @@ h2{
          position: absolute;
      }
 
-.item {
-    width: 100%;
-    height: 550px;
-}
-
-
 
         /******************* page concept **********************/
 
-        .fg{
-        position:absolute;
-            width:60%;
-        }
+
+    .fg{
+        text-align: center;
+        width : 100%;
+        /*-webkit-filter: grayscale(60%);*/
+        /*filter: grayscale(60%);*/
+    }
 
 
-        .citation{
-            position:relative;
-            margin-top:0em;
-            margin-left: 31%;
-            font-size: 1.8em;
-            color: black;
-            font-family: '';
-            width: 70%;
-            display: inline-block;
-            background-color: #ffffff;
-            /* Fallback for web browsers that don't support RGBa */
-            background-color: rgb(195, 218, 237);
-            /* RGBa with 0.6 opacity */
-            background-color: rgba(195, 218, 237, 0.5);
+    .citation{
+          text-align: center;
+        width:90%;
+            margin-top: -20%;
+          font-size: 2.5em;
+        font-family: 'Berkshire Swash', cursive;
+        color:beige;
+      }
 
-        }
 
     .revelio{
         margin-top:5%;
-        font-size: 3em;
-        color: #F5F5DC;
-        font-family: '';
+        font-size: 5em;
+        font-family:'Berkshire Swash', cursive;
+        color: black;
         text-align:center;
     }
 
-    .revelio_2{
-        margin-top:5%;
+    .revelio_2 {
+        margin-top: 5%;
         color: black;
         font-family: 'weekdays';
-        text-align:center;
-        background-color: #ffffff;
-        /* Fallback for web browsers that don't support RGBa */
-        background-color: rgb(195, 218, 237);
-        /* RGBa with 0.6 opacity */
-        background-color: rgba(195, 218, 237, 0.5);
-    }
-
-
-    .sommes{
-        background-color: #ffffff;
-        /* Fallback for web browsers that don't support RGBa */
-        background-color: rgb(195, 218, 237);
-        /* RGBa with 0.6 opacity */
-        background-color
-        color:black;
-        font-family: '';
-        font-size: 1.5em;
+        text-align: center;
     }
 
     .weasleys{
-    width: 100%;
-        height: 80%;
+    width: 60%;
     }
 
-    .weasleysface{
-    width:40%;
-        height:40%;
+    .sommes{
+        color:black;
+        font-size: 1.6em;
+        margin-top: 50px;
+        font-family: poppins;
     }
 
-    .w2{
-    width:60%;
+    .bonbons{
+        margin-top:50px;
     }
 
 
 
 
-        footer {
-    background-color: black;
-    clear: both;
-    text-align: center;
-    margin-top: 3em;
-}
+
+    footer {
+        background-color: black;
+        clear: both;
+        text-align: center;
+        margin-top: 3em;
+    }
 
 footer li {
     display: inline-block;
