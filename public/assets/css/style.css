@@ -1,6 +1,6 @@
     /* Global */
     body {
-        background-image:url("../../assets/pictures/fondfirework.jpg");
+        /*background-image:url("../../assets/pictures/fondfirework.jpg");*/
         background-position: center;
         background-size: cover;
         font-family: 'Poppins', cursive;
@@ -261,6 +261,16 @@ h2{
     color: white;
     text-decoration: none;
 }
+
+
+    .icon {
+        display: inline-block;
+        width: 1em;
+        height: 1em;
+        stroke-width: 0;
+        stroke: currentColor;
+        fill: currentColor;
+    }
 
 /*FOOTER*/
 
