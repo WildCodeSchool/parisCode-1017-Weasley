@@ -8,8 +8,11 @@
         <legend>Modifier vos coordonnées</legend>
         <form action="index.php?section=admin_contact" method="post">
             {{ form.input ('adresse','Votre adresse','Adresse', 'text') }}
+            {% if errors.adresse is defined %}{{ errors.adresse }}{% endif %}
             {{ form.input ('horaire',"Horaires d'ouverture",'Prénom', 'text') }}
-            {{ form.input ('telephone','Votre numéro','0123456789', 'tel') }}
+            {% if errors.horaire is defined %}{{ errors.horaire }}{% endif %}
+            {{ form.input ('numero','Votre numéro','0123456789', 'tel') }}
+            {% if errors.numero is defined %}{{ errors.numero }}{% endif %}
             {{ form.textarea ('commentaire', 'Un commentaire', 'Votre commentaire...') }}
             <div class="form-group">
                 <button type="submit" class="btn btn-primary btn-contact">Envoyer</button>
@@ -20,3 +23,7 @@
 </div>
 
 {% endblock %}
+
+{# Faire les connexions avec db quand elle sera opérationnelle pour un UPDATE table ...
+-> modifier adminContactAction dans DefaultController en checkant tous les champs
+-> Model>UserManager updateContact #}
