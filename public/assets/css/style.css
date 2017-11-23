@@ -267,12 +267,7 @@ h2{
 
 
 
-    footer {
-        background-color: black;
-        clear: both;
-        text-align: center;
-        margin-top: 3em;
-    }
+
 =======
 .espace {
     padding-bottom: 25px;
@@ -352,43 +347,4 @@ hr {
     }
 }
 
-/*FOOTER*/
-
-footer {
-    background-color: black;
-    clear: both;
-    text-align: center;
-    margin-top: 3em;
-}
->>>>>>> b0576d83a4a2d8767cec52080e06f9581b822cce
-
-footer li {
-    display: inline-block;
-    font-family: 'Berkshire Swash', cursive;
-    vertical-align: middle;
-    padding-top: 1%;
-}
-.line-items {
-    padding-top: 0;
-    padding-bottom: 6px;
-}
-
-.social img {
-    width: 60%;
-}
-
-footer li img{
-    width: 2vw;
-}
-footer a {
-    color: #c69627;
-
-}
-
-footer a:hover {
-    text-decoration: none;
-    color: white;
-}
-
-    /******************* page concept **********************/
 
