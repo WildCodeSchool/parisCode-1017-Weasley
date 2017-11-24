@@ -58,7 +58,7 @@ class UserManager extends EntityManager
     }
 }
 
-class ModelManager extends Manager
+/*class ModelManager extends Manager
 {
     public function addUser($nom, $prenom, $pseudo, $date, $adresse){
         $req=$this->db->prepare("INSERT INTO user (nom, prenom, pseudo, date, adresse) VALUES (:nom, :prenom, :pseudo, :date, :adresse)");
@@ -69,4 +69,4 @@ class ModelManager extends Manager
             ':date'=>$date,
             ':adresse'=>$adresse
         ]);
-    }
+    }*/
