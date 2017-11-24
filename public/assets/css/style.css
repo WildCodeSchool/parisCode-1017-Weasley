@@ -6,14 +6,8 @@ body {
     font-family: 'Poppins', cursive;
 }
 
-.header {
-    text-align: center;
-    margin: 12px;
-}
-
 .header img {
     width: 100vw;
-    margin: -15px;
 }
 
 @media (max-width: 760px){
@@ -119,7 +113,6 @@ form{
     padding-bottom: 30px;
 }
 
-
 /** bouton **********/
 
 .btn.btn-primary.btn-contact{
@@ -130,11 +123,6 @@ form{
     background-color: #b08626;
 }
 
-
-/************** end contact ********/
-
-
-
 @font-face{
     font-family: 'WeekdaysRomanSlant';
     src: url(WeekdaysRomanSlant 2.ttf)
@@ -143,11 +131,6 @@ form{
 /*Section Home - balai*/
 
 .texte_balai{
-    background-color: #ffffff;
-    /* Fallback for web browsers that don't support RGBa */
-    background-color: rgb(195, 218, 237);
-    /* RGBa with 0.6 opacity */
-    background-color: rgba(195, 218, 237, 0.5);
     color: black;
     font-family:'Poppins', cursive;
     text-align: center;
@@ -157,6 +140,14 @@ form{
     position: relative;
     margin-top: -37px;
 }
+
+.vignette_home {
+     height: 415px;
+     width: 100%;
+     display: inline-block;
+     z-index: 1;
+     position: relative;
+ }
 
 .un{
     text-align: center;
@@ -191,14 +182,6 @@ div .retrouvez h2 {
 
 }
 
-.vignette_home {
-    height: 415px;
-    max-width: 100%;
-    display: inline-block;
-    z-index:1;
-    position: relative;
-
-}
 
 .categories_produits  {
     font-family: 'Berkshire Swash', cursive;
@@ -261,12 +244,6 @@ div .retrouvez h2 {
     float: right;
 }
 
-/*.retour a:hover {*/
-/*color: white;*/
-/*text-decoration: none;*/
-/*}*/
-
-
 .icon {
     display: inline-block;
     width: 1em;
@@ -321,27 +298,28 @@ footer {
     margin-top: 3em;
 }
 
-footer li {
-    display: inline-block;
+footer div {
     font-family: 'Berkshire Swash', cursive;
-    vertical-align: middle;
-    padding-top: 1%;
-}
-.line-items {
-    padding-top: 0;
-    padding-bottom: 6px;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
 .social img {
-    width: 60%;
+    max-width: 35px;
 }
 
-footer li img{
-    width: 2vw;
+@media (max-width: 992px){
+    .vignette_home{
+        height: auto;
+    }
+    footer div {
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
 }
+
 footer a {
     color: #c69627;
-
 }
 
 footer a:hover {
