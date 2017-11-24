@@ -10,11 +10,13 @@ body {
     width: 100vw;
 }
 
+
 @media (max-width: 760px){
     .header img{
         width: 100%;
     }
 }
+
 
 /** white box*/
 #box{
@@ -96,9 +98,11 @@ div.topBotomBordersOut a:hover:before, div.topBotomBordersOut a:hover:after
     color: #C69627;
 }
 
+
 @media (min-width: 760px){
     #logobrand{
         display: none;
+
     }
 }
 
@@ -123,10 +127,6 @@ form{
     background-color: #b08626;
 }
 
-@font-face{
-    font-family: 'WeekdaysRomanSlant';
-    src: url(WeekdaysRomanSlant 2.ttf)
-}
 
 /*Section Home - balai*/
 
