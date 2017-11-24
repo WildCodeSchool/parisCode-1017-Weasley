@@ -1,19 +1,20 @@
-    /* Global */
-    body {
-        /*background-image:url("../../assets/pictures/fondfirework.jpg");*/
-        background-position: center;
-        background-size: cover;
-        font-family: 'Poppins', cursive;
-    }
-
-.header {
-    text-align: center;
-    margin: 12px;
+/* Global */
+body {
+    /*background-image:url("../../assets/pictures/fondfirework.jpg");*/
+    background-position: center;
+    background-size: cover;
+    font-family: 'Poppins', cursive;
 }
 
 .header img {
     width: 100vw;
-    margin: -15px;
+}
+
+
+@media (max-width: 760px){
+    .header img{
+        width: 100%;
+    }
 }
 
 
@@ -29,194 +30,175 @@ h2{
     font-family: 'Berkshire Swash', cursive;
     color: #C69627;
 }
-    /******************navbar*********************/
+/******************navbar*********************/
 
-    #logo{
-        font-family: 'Berkshire Swash', cursive;
-    }
+#logo{
+    font-family: 'Berkshire Swash', cursive;
+}
 
-    #logo:hover{
-        color: #FFF;
-    }
+#logo:hover{
+    color: #FFF;
+}
 
-    /** burger **/
-    .navbar-inverse .navbar-toggle .icon-bar{
-        background-color: #C69627;
-    }
+/** burger **/
+.navbar-inverse .navbar-toggle .icon-bar{
+    background-color: #C69627;
+}
 
-    div.container.nav
-    {
-        font-family: 'Berkshire Swash';
-        margin: 0 auto;
-        padding: 1em 2em;
-        text-align: center;
-    }
+div.container.nav
+{
+    font-family: 'Berkshire Swash';
+    margin: 0 auto;
+    padding: 1em 2em;
+    text-align: center;
+}
 
-    div.container.nav a
-    {
-        color: #C69627;
-        text-decoration: none;
-        font: 25px 'Berkshire Swash';
-        margin: 0px 20px;
-        position: relative;
-        z-index: 0;
-        cursor: pointer;
-    }
+div.container.nav a
+{
+    color: #C69627;
+    text-decoration: none;
+    font: 25px 'Berkshire Swash';
+    margin: 0px 20px;
+    position: relative;
+    z-index: 0;
+    cursor: pointer;
+}
 
-    /* Top and Bottom borders go out */
-    div.topBotomBordersOut a.effect:before, div.topBotomBordersOut a.effect:after
-    {
-        position: absolute;
-        left: 0px;
-        width: 100%;
-        height: 2px;
-        background: #C69627;
-        content: "";
-        opacity: 0;
-        transition: all 0.3s;
-    }
+/* Top and Bottom borders go out */
+div.topBotomBordersOut a.effect:before, div.topBotomBordersOut a.effect:after
+{
+    position: absolute;
+    left: 0px;
+    width: 100%;
+    height: 2px;
+    background: #C69627;
+    content: "";
+    opacity: 0;
+    transition: all 0.3s;
+}
 
-    div.topBotomBordersOut a:before
-    {
-        top: 0px;
-        transform: translateY(10px);
-    }
+div.topBotomBordersOut a:before
+{
+    top: 0px;
+    transform: translateY(10px);
+}
 
-    div.topBotomBordersOut a:after
-    {
-        bottom: 0px;
-        transform: translateY(-10px);
-    }
+div.topBotomBordersOut a:after
+{
+    bottom: 0px;
+    transform: translateY(-10px);
+}
 
-    div.topBotomBordersOut a:hover:before, div.topBotomBordersOut a:hover:after
-    {
-        opacity: 1;
-        transform: translateY(0px);
-    }
-    .navbar-inverse .navbar-brand:focus, .navbar-inverse .navbar-brand:hover{
-        color: #C69627;
-    }
+div.topBotomBordersOut a:hover:before, div.topBotomBordersOut a:hover:after
+{
+    opacity: 1;
+    transform: translateY(0px);
+}
+.navbar-inverse .navbar-brand:focus, .navbar-inverse .navbar-brand:hover{
+    color: #C69627;
+}
 
-    @media (min-width: 768px){
-        #logobrand{
-            display: none;
-        }
+
+@media (min-width: 760px){
+    #logobrand{
+        display: none;
+
     }
+}
 
 /******************* end navbar **********************/
 
 
 /************** contact **********************/
-    .visit{ padding-bottom: 30px;}
+.visit{ padding-bottom: 30px;}
 
-    form{
+form{
     padding-top: 30px;
     padding-bottom: 30px;
-    }
-
+}
 
 /** bouton **********/
 
-    .btn.btn-primary.btn-contact{
-        background-color: #C69627;
-        border-color: #997325;
-    }
-    .btn.btn-primary.btn-contact:hover{
-        background-color: #b08626;
-    }
+.btn.btn-primary.btn-contact{
+    background-color: #C69627;
+    border-color: #997325;
+}
+.btn.btn-primary.btn-contact:hover{
+    background-color: #b08626;
+}
 
 
-    /************** end contact ********/
+/*Section Home - balai*/
 
-    .item {
-        width: 100%;
-        height: 450px;
-    }
+.texte_balai{
+    color: black;
+    font-family:'Poppins', cursive;
+    text-align: center;
+    position: relative;
+}
+.balai_icone{
+    position: relative;
+    margin-top: -37px;
+}
 
-    @font-face{
-        font-family: 'WeekdaysRomanSlant';
-        src: url(WeekdaysRomanSlant 2.ttf)
-    }
+.vignette_home {
+     height: 415px;
+     width: 100%;
+     display: inline-block;
+     z-index: 1;
+     position: relative;
+ }
 
-    /*Section Home - balai*/
+.un{
+    text-align: center;
+    color: black;
+    font-family: 'Poppins', cursive;
+    margin-top: 0;
+}
 
-    .texte_balai{
-      background-color: #ffffff;
-      /* Fallback for web browsers that don't support RGBa */
-      background-color: rgb(195, 218, 237);
-        /* RGBa with 0.6 opacity */
-      background-color: rgba(195, 218, 237, 0.5);
-        color: black;
-        font-family:'Poppins', cursive;
-        text-align: center;
-        position: relative;
-      }
-    .balai_icone{
-        position: relative;
-        margin-top: -37px;
-    }
-      
-     .un{
-        text-align: center;
-        color: black;
-        font-family: 'Poppins', cursive;
-         margin-top: 0;
-    }
+.caption_map{
+    width: 100%;
+}
 
-    .caption_map{
-        width: 100%;
-    }
+/*Section Home "retrouver nos produits"*/
+div .retrouvez h2 {
+    text-align: center;
+    color: black;
+    padding-bottom: 20px;
+    padding-top: 20px;
 
-    /*Section Home "retrouver nos produits"*/
-    div .retrouvez h2 {
-        text-align: center;
-        color: black;
-        padding-bottom: 20px;
-        padding-top: 20px;
+}
 
-    }
+.claim {
+    color: #F5F5DC;
+    text-align: center;
+    font-family: 'Berkshire Swash', cursive;
+    background-color: black;
+    float: left;
+    display:inline;
+    padding: 5px;
+    padding-left: 12px;
+    padding-right: 12px;
 
-    .claim {
-        color: #F5F5DC;
-        text-align: center;
-        font-family: 'Berkshire Swash', cursive;
-        background-color: black;
-        float: left;
-        display:inline;
-        padding: 5px;
-        padding-left: 12px;
-        padding-right: 12px;
+}
 
-    }
 
-     .vignette_home {
-        height: 415px;
-        max-width: 100%;
-         display: inline-block;
-         z-index:1;
-         position: relative;
-
-    }
-
-     .categories_produits  {
-         font-family: 'Berkshire Swash', cursive;
-         background-image:url(../../assets/pictures/parchemin.jpg);
-         color:black;
-         margin-top: -20px;
-         padding: 5px;
-         width : 270px;
-         z-index:2;
-         position: relative;
-         float: right;
-     }
+.categories_produits  {
+    font-family: 'Berkshire Swash', cursive;
+    background-image:url(../../assets/pictures/parchemin.jpg);
+    color:black;
+    margin-top: -20px;
+    padding: 5px;
+    width : 270px;
+    z-index:2;
+    position: relative;
+    float: right;
+}
 
 .espace {
     padding-bottom: 25px;
 }
-.item {
-    width: 100%;
-    height: 550px;
-}
+
 
 /*PAGE PRODUITS*/
 
@@ -262,20 +244,14 @@ h2{
     float: right;
 }
 
-/*.retour a:hover {*/
-    /*color: white;*/
-    /*text-decoration: none;*/
-/*}*/
-
-
-    .icon {
-        display: inline-block;
-        width: 1em;
-        height: 1em;
-        stroke-width: 0;
-        stroke: currentColor;
-        fill: currentColor;
-    }
+.icon {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    stroke-width: 0;
+    stroke: currentColor;
+    fill: currentColor;
+}
 
 hr {
     background-color: #C69627;
@@ -288,6 +264,31 @@ hr {
     }
 }
 
+/**page concept**/
+.revelio{
+    font-family: 'Berkshire Swash', cursive;
+    padding: 7px;
+    width: 300px;
+    text-align: center;
+}
+
+.bro{
+    height: auto;
+    width:100%;
+}
+
+.brothers{
+    font-family: Poppins;
+    font-size: 1.2em;
+    margin-top: 15px;
+}
+.divspace{
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+/**end page concept**/
+
+
 /*FOOTER*/
 
 footer {
@@ -297,27 +298,28 @@ footer {
     margin-top: 3em;
 }
 
-footer li {
-    display: inline-block;
+footer div {
     font-family: 'Berkshire Swash', cursive;
-    vertical-align: middle;
-    padding-top: 1%;
-}
-.line-items {
-    padding-top: 0;
-    padding-bottom: 6px;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
 .social img {
-    width: 60%;
+    max-width: 35px;
 }
 
-footer li img{
-    width: 2vw;
+@media (max-width: 992px){
+    .vignette_home{
+        height: auto;
+    }
+    footer div {
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
 }
+
 footer a {
     color: #c69627;
-
 }
 
 footer a:hover {
