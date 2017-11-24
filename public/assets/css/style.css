@@ -7,7 +7,7 @@ body {
 }
 
 .header img {
-    width: 100vw;
+    width: 100%;
 }
 
 
@@ -97,7 +97,9 @@ div.topBotomBordersOut a:hover:before, div.topBotomBordersOut a:hover:after
 .navbar-inverse .navbar-brand:focus, .navbar-inverse .navbar-brand:hover{
     color: #C69627;
 }
-
+.navbar{
+    border-radius: 0px;
+}
 
 @media (min-width: 760px){
     #logobrand{
