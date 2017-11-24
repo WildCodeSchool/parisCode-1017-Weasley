@@ -5,7 +5,37 @@
 {% endblock %}
 
 {% block nav %}
-    faire sidebar avec retour accueil et logout
+    <nav>
+        <ul>
+            <li>
+                <a href="index.php?section=admin">
+                    <i class="fa fa-home fa-2x" aria-hidden="true"></i>
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="index.php?section=admin_contact">
+                    <i class="fa fa-address-card fa-2x" aria-hidden="true"></i>
+                    <span>Contact</span>
+                </a>
+            </li>
+            <li>
+                <a href="index.php">
+                    <i class="fa fa-laptop fa-2x" aria-hidden="true"></i>
+                    <span>Revenir au site</span>
+                </a>
+            </li>
+            <li>
+                <a href="index.php?section=login">
+                    <<i class="fa fa-sign-out fa-2x" aria-hidden="true"></i>
+                    <span>Déconnexion</span>
+                </a>
+            </li>
+        </ul>
+
+
+
+    </nav>
 {% endblock %}
 
 {% block body %}
