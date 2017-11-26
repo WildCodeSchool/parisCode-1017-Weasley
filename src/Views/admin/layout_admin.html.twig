@@ -1,24 +1,51 @@
 {% extends 'base.html.twig' %}
 
 {% block css %}
-    <link rel="stylesheet" href="admin">
+    <link rel="stylesheet" href="assets/css/admin.css"/>
 {% endblock %}
 
 {% block nav %}
     <nav>
-        admin
+        <ul>
+            <li>
+                <a href="index.php?section=admin">
+                    <i class="fa fa-home fa-2x" aria-hidden="true"></i>
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="index.php?section=admin_contact">
+                    <i class="fa fa-address-card fa-2x" aria-hidden="true"></i>
+                    <span>Contact</span>
+                </a>
+            </li>
+            <li>
+                <a href="index.php">
+                    <i class="fa fa-laptop fa-2x" aria-hidden="true"></i>
+                    <span>Revenir au site</span>
+                </a>
+            </li>
+            <li>
+                <a href="index.php?section=login">
+                    <<i class="fa fa-sign-out fa-2x" aria-hidden="true"></i>
+                    <span>Déconnexion</span>
+                </a>
+            </li>
+        </ul>
+
+
+
     </nav>
 {% endblock %}
 
 {% block body %}
+    <h1>Administration du site Weasleys' wizard wheezes</h1>
     {% block content %}
     {% endblock %}
 {% endblock %}
 
 {% block footer %}
-    <footer>admin</footer>
 {% endblock %}
 
 {% block js %}
-    <script>admin</script>
 {% endblock %}

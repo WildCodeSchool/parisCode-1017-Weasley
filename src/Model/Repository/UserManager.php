@@ -53,4 +53,20 @@ class UserManager extends EntityManager
 	public function delete(){
 //		....
 	}
+	public function updateContact(){
+	    $statement = $this->db->query('UPDATE table_coordonnes SET 'adresse=)
+    }
 }
+
+/*class ModelManager extends Manager
+{
+    public function addUser($nom, $prenom, $pseudo, $date, $adresse){
+        $req=$this->db->prepare("INSERT INTO user (nom, prenom, pseudo, date, adresse) VALUES (:nom, :prenom, :pseudo, :date, :adresse)");
+        $req->execute([
+            ':nom'=>$nom,
+            ':prenom'=>$prenom,
+            ':pseudo'=>$pseudo,
+            ':date'=>$date,
+            ':adresse'=>$adresse
+        ]);
+    }*/
