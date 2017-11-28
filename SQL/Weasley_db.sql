@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.5.42, for osx10.6 (i386)
+-- MySQL dump 10.13  Distrib 5.6.35, for osx10.9 (x86_64)
 --
--- Host: localhost    Database: Weasley
+-- Host: localhost    Database: weasley
 -- ------------------------------------------------------
--- Server version	5.5.42
+-- Server version	5.6.35
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -16,31 +16,12 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `categories`
+-- Current Database: `weasley`
 --
 
-DROP TABLE IF EXISTS `categories`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `categories` (
-  `id_categorie` int(11) NOT NULL AUTO_INCREMENT,
-  `nom_categorie` varchar(100) DEFAULT NULL,
-  `claim` varchar(100) DEFAULT NULL,
-  `id_image` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id_categorie`),
-  KEY `id_image` (`id_image`),
-  CONSTRAINT `categories_ibfk_1` FOREIGN KEY (`id_image`) REFERENCES `images` (`id_image`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/ `weasley` /*!40100 DEFAULT CHARACTER SET utf8 */;
 
---
--- Dumping data for table `categories`
---
-
-LOCK TABLES `categories` WRITE;
-/*!40000 ALTER TABLE `categories` DISABLE KEYS */;
-/*!40000 ALTER TABLE `categories` ENABLE KEYS */;
-UNLOCK TABLES;
+USE `weasley`;
 
 --
 -- Table structure for table `contact`
@@ -56,7 +37,7 @@ CREATE TABLE `contact` (
   `ouverture` varchar(250) DEFAULT NULL,
   `commentaire` varchar(250) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -65,36 +46,8 @@ CREATE TABLE `contact` (
 
 LOCK TABLES `contact` WRITE;
 /*!40000 ALTER TABLE `contact` DISABLE KEYS */;
+INSERT INTO `contact` VALUES (1,'11 rue de Poissy, 75005 Paris.','08 36 65 65 65','Du lundi au samedi de 9h à 20h.','Le dimanche nous sommes à l\'entraînement de Quidditch.\r\n\r\n');
 /*!40000 ALTER TABLE `contact` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `images`
---
-
-DROP TABLE IF EXISTS `images`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `images` (
-  `id_image` int(11) NOT NULL AUTO_INCREMENT,
-  `url_image` varchar(200) DEFAULT NULL,
-  `id_cat` int(11) DEFAULT NULL,
-  `id_produit` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id_image`),
-  KEY `id_cat` (`id_cat`),
-  KEY `id_produit` (`id_produit`),
-  CONSTRAINT `images_ibfk_1` FOREIGN KEY (`id_cat`) REFERENCES `categories` (`id_categorie`),
-  CONSTRAINT `images_ibfk_2` FOREIGN KEY (`id_produit`) REFERENCES `produits` (`id_produit`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `images`
---
-
-LOCK TABLES `images` WRITE;
-/*!40000 ALTER TABLE `images` DISABLE KEYS */;
-/*!40000 ALTER TABLE `images` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -108,14 +61,9 @@ CREATE TABLE `produits` (
   `id_produit` int(11) NOT NULL AUTO_INCREMENT,
   `nom_produit` varchar(100) DEFAULT NULL,
   `description_produit` text,
-  `id_cat` int(11) DEFAULT NULL,
-  `id_image` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id_produit`),
-  KEY `id_cat` (`id_cat`),
-  KEY `id_image` (`id_image`),
-  CONSTRAINT `produits_ibfk_2` FOREIGN KEY (`id_image`) REFERENCES `images` (`id_image`),
-  CONSTRAINT `produits_ibfk_1` FOREIGN KEY (`id_cat`) REFERENCES `categories` (`id_categorie`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `image_url` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id_produit`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -160,4 +108,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-11-21 17:20:39
+-- Dump completed on 2017-11-28 16:41:24

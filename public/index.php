@@ -27,7 +27,7 @@ if (empty($_GET)){
     echo $productsController->produitsAction();
 
 } elseif ($_GET['section'] == "contact"){
-	echo $contactController->contactAction();
+    echo $contactController->contactAction();
 
 } elseif ($_GET['section']== "login"){
     echo $adminController->loginAction();
