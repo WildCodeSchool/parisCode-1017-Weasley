@@ -10,10 +10,10 @@
         </div>
             <div class="panel-body">
             {# Remplacer par les données de la db quand elle sera opérationnelle #}
-            <p>11 rue de Poissy, 75005 Paris</p>
-            <p>Du lundi au samedi de 9h à 20h</p>
-            <p>Le dimanche nous sommes à l'entraînement de Quidditch</p>
-            <p>tel: 08 36 65 65 65 </p>
+                <p>{{ coordonnees . adresse }}</p>
+                <p>tel: {{ coordonnees . telephone }}</p>
+                <p>{{ coordonnees . ouverture }}</p>
+                <p>{{ coordonnees . commentaire }}</p>
             <a href="index.php?section=admin_contact" class="btn btn-primary">Modifier</a>
         </div>
     </div>

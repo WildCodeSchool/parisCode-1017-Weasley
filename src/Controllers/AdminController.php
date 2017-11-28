@@ -33,6 +33,10 @@ class AdminController extends Controller
      */
     public function adminContactAction()
     {
+        $contact = new AdminManager();
+        $coordonnees = $contact -> getContact();
+        var_dump($coordonnees); die();
+
         return $this->twig->render('admin/admin_contact.html.twig');/*
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $errors = [];
