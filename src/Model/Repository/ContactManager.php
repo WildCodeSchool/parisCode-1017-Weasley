@@ -9,14 +9,14 @@ use Weasley\Model\Entity\User;
  * Class UserManager
  * @package MyApp\Repository
  */
-class UserManager extends EntityManager
+class ContactManager extends EntityManager
 {
 	/**
 	 * Get all user
 	 * @return array
 	 */
 	public function getAll(){
-		$statement = $this->db->query('SELECT * FROM user');
+		$statement = $this->db->query('SELECT * FROM contact');
 		return $statement->fetchAll(PDO::FETCH_OBJ, User::class);
 	}
 
@@ -26,35 +26,19 @@ class UserManager extends EntityManager
 	 * @return mixed
 	 */
 	public function getOne($id){
-		$statement = $this->db->prepare("SELECT * FROM user WHERE id = :id");
+		$statement = $this->db->prepare("SELECT * FROM contact WHERE id = :id");
 		$statement->execute([
 			':id' => $id
 		]);
 		return $statement->fetch();
 	}
 
-	/**
-	 * Add one user
-	 */
-	public function add(){
-//		....
-	}
 
 	/**
-	 * Update one user
+	 * Update contact
 	 */
-	public function update(){
-//		....
-	}
-
-	/**
-	 * Delete one user
-	 */
-	public function delete(){
-//		....
-	}
 	public function updateContact(){
-	    $statement = $this->db->query('UPDATE table_coordonnes SET 'adresse=)
+	    $statement = $this->db->query('UPDATE contact SET WHERE'adresse= :adresse, telephone= :telephone, ouverture= :ouverture, commentaire= :commentaire)
     }
 }
 
