@@ -232,12 +232,9 @@ div .retrouvez h2 {
 
 .categorie{
     font-family: 'Berkshire Swash', cursive;
-    background-image:url(../../assets/pictures/textures/gold.jpg);
-    color:black;
+    color:#C69627;
     padding: 7px;
     width: 300px;
-    text-align: center;
-    box-shadow: 8px 6px 10px #888888;
 }
 
 .retour a {
