@@ -9,6 +9,8 @@
 namespace Weasley\Controllers;
 
 use Weasley\Model\Repository\UserManager;
+use Weasley\Model\Repository\ContactManager;
+use Weasley\Model\Repository\ProductManager;
 
 class AdminController extends Controller
 
