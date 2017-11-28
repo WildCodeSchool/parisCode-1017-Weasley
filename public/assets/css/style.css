@@ -305,10 +305,6 @@ footer div {
     padding-bottom: 15px;
 }
 
-.social img {
-    max-width: 35px;
-}
-
 @media (max-width: 992px){
     .vignette_home{
         height: auto;
@@ -319,6 +315,9 @@ footer div {
     }
 }
 
+.fa-2x {
+    padding : 3px;
+}
 footer a {
     color: #c69627;
 }
