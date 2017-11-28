@@ -10,13 +10,12 @@ body {
     width: 100%;
 }
 
-
 @media (max-width: 760px){
     .header img{
+        display: none;
         width: 100%;
     }
 }
-
 
 /** white box*/
 #box{
