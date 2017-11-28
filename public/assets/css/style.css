@@ -186,7 +186,7 @@ div .retrouvez h2 {
 
 .categories_produits  {
     font-family: 'Berkshire Swash', cursive;
-    background-image:url(../../assets/pictures/parchemin.jpg);
+    background-image:url(../../assets/pictures/textures/parchemin.jpg);
     color:black;
     margin-top: -20px;
     padding: 5px;
@@ -211,7 +211,7 @@ div .retrouvez h2 {
 }
 .produit{
     font-family: 'Berkshire Swash', cursive;
-    background-image:url(../../assets/pictures/parchemin.jpg);
+    background-image:url(../../assets/pictures/textures/parchemin.jpg);
     color:black;
     margin-top: -20px;
     width : 230px;
@@ -232,7 +232,7 @@ div .retrouvez h2 {
 
 .categorie{
     font-family: 'Berkshire Swash', cursive;
-    background-image:url(../../assets/pictures/gold.jpg);
+    background-image:url(../../assets/pictures/textures/gold.jpg);
     color:black;
     padding: 7px;
     width: 300px;
