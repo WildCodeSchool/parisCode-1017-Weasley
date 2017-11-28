@@ -26,21 +26,5 @@ class DefaultController extends Controller
         return $this->twig->render('user/concept.html.twig');
     }
 
-    /**
-     * Render product
-     */
-    public function produitsAction()
-    {
-        return $this->twig->render('user/produits.html.twig');
-    }
-
-    /**
-     * Render contact
-     */
-    public function contactAction()
-    {
-        return $this->twig->render('user/contact.html.twig');
-    }
-
 
 }

@@ -7,9 +7,16 @@
  */
 
 namespace Weasley\Controllers;
+use Weasley\Model\Repository\UserManager;
 
-
-class ProductsController
+class ProductsController extends Controller
 {
+    /**
+     * Render product
+     */
+    public function produitsAction()
+    {
+        return $this->twig->render('user/produits.html.twig');
+    }
 
 }
