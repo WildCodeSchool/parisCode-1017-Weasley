@@ -35,11 +35,18 @@ if (empty($_GET)){
 } elseif ($_GET['section']== "login"){
     echo $adminController->loginAction();
 
-} elseif ($_GET['section']== "admin"){
-    echo $adminController->adminAction();
+} elseif ($_GET['section']== "admin") {
+    if (!isset ($_GET['page'])) {
 
-} elseif ($_GET['section']== "admin_contact") {
-    echo $adminController->adminContactAction();
+        echo $adminController->adminAction();
+
+    } elseif ($_GET['page']== "admin_contact") {
+        echo $adminController->adminContactAction();
+
+    } elseif ($_GET['page']== "admin_product") {
+        echo $adminController->adminProductAction();
+    }
+
 }
 
 //$adminController !!!
