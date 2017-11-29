@@ -41,7 +41,12 @@ class AdminController extends Controller
         $contact = new ContactManager();
         $coordonnees = $contact->getContact();
 
-        return $this->twig->render('admin/admin_contact.html.twig');/*
+        return $this->twig->render('admin/admin_contact.html.twig', array(
+            "coordonnees" => $coordonnees
+        ));
+    }
+
+        /*
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $errors = [];
             foreach ($_POST as $key => $value) {
@@ -65,7 +70,7 @@ class AdminController extends Controller
             }
             return $this->twig->render('admin/admin_contact.html.twig');
         }*/
-    }
+
     public function adminProductAction()
     {
         $productManager = new ProductManager();
