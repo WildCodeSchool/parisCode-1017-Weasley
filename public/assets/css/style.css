@@ -251,15 +251,15 @@ div .retrouvez h2 {
 .categorie{
     font-family: 'Berkshire Swash', cursive;
     color:#C69627;
-    padding: 7px;
-    width: 300px;
-    padding-left: 30px;
+    text-align: center;
+    padding: 0 !important;
 }
 
 /*traits dorés autour du nom de la categorie*/
 hr {
     background-color: #C69627;
     margin-top: 43px;
+    padding: 0 !important;
 }
 /*disparition du hr en dessous de 1200 px*/
 @media (max-width: 1200px){
