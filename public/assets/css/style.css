@@ -240,6 +240,7 @@ div .retrouvez h2 {
 .retour a {
     color: #C69627;
     float: right;
+    padding-top: 20px;
 }
 
 .icon {
@@ -262,12 +263,16 @@ hr {
     }
 }
 
-/**page concept**/
+/**PAGE CONCEPT**/
 .revelio{
     font-family: 'Berkshire Swash', cursive;
     padding: 7px;
     width: 300px;
     text-align: center;
+}
+
+.padding-bro{
+    padding-left:0;
 }
 
 .bro{
@@ -323,3 +328,4 @@ footer a:hover {
     text-decoration: none;
     color: white;
 }
+
