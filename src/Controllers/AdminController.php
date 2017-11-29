@@ -38,8 +38,8 @@ class AdminController extends Controller
      */
     public function adminContactAction()
     {
-        $contact = new AdminManager();
-        $coordonnees = $contact -> getContact();
+        $contact = new ContactManager();
+        $coordonnees = $contact->getContact();
 
         return $this->twig->render('admin/admin_contact.html.twig');/*
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
@@ -66,5 +66,14 @@ class AdminController extends Controller
             return $this->twig->render('admin/admin_contact.html.twig');
         }*/
     }
+    public function adminProductAction()
+    {
+        $productManager = new ProductManager();
+        $products = $productManager->getAllProducts();
+        return $this->twig->render('admin/admin_produits.html.twig', array (
+            'products' => $products
 
+        ));
+
+    }
 }

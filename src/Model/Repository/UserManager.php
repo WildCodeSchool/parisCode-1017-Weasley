@@ -15,9 +15,9 @@ class UserManager extends EntityManager
 	 * Get all user
 	 * @return array
 	 */
-	public function getAll(){
+	public function getUser(){
 		$statement = $this->db->query('SELECT * FROM user');
-		return $statement->fetchAll(PDO::FETCH_OBJ, User::class);
+		return $statement->fetchObject( User::class);
 	}
 
 	/**
@@ -33,40 +33,3 @@ class UserManager extends EntityManager
 		return $statement->fetch();
 	}
 
-	/**
-	 * Add one user
-	 */
-	public function add(){
-//		....
-	}
-
-	/**
-	 * Update one user
-	 */
-	public function update(){
-//		....
-	}
-
-	/**
-	 * Delete one user
-	 */
-	public function delete(){
-//		....
-	}
-	public function updateContact(){
-	    $statement = $this->db->query('UPDATE table_coordonnes SET 'adresse=)
-    }
-}
-
-/*class ModelManager extends Manager
-{
-    public function addUser($nom, $prenom, $pseudo, $date, $adresse){
-        $req=$this->db->prepare("INSERT INTO user (nom, prenom, pseudo, date, adresse) VALUES (:nom, :prenom, :pseudo, :date, :adresse)");
-        $req->execute([
-            ':nom'=>$nom,
-            ':prenom'=>$prenom,
-            ':pseudo'=>$pseudo,
-            ':date'=>$date,
-            ':adresse'=>$adresse
-        ]);
-    }*/

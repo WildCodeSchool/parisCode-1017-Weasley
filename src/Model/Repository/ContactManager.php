@@ -21,20 +21,6 @@ class ContactManager extends EntityManager
 		return $statement->fetchObject(Contact::class);
 	}
 
-//	/**
-//	 * Get one user
-//	 * @param $id int
-//	 * @return mixed
-//	 */
-//	public function getOne($id){
-//		$statement = $this->db->prepare("SELECT * FROM contact WHERE id = :id");
-//		$statement->execute([
-//			':id' => $id
-//		]);
-//		return $statement->fetch();
-//	}
-
-
 	/**
 	 * Update contact
 //	 */

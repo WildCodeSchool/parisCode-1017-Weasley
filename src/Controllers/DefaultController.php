@@ -34,5 +34,19 @@ class DefaultController extends Controller
         return $this->twig->render('user/mentions_legales.html.twig');
     }
 
+    /**
+     * Render contact
+     */
+    public function contactAction()
+    {
+        $contact = new ContactManager();
+        $coordonnees = $contact -> getContact();
+
+
+        return $this->twig->render('user/contact.html.twig', array (
+            "coordonnees" => $coordonnees
+        ) );
+    }
+
 
 }

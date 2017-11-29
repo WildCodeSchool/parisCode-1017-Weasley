@@ -12,7 +12,6 @@ use Weasley\Model\Repository\UserManager;
 
 class ContactController extends Controller
 {
-
     /**
      * Render contact
      */
