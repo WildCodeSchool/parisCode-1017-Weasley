@@ -18,25 +18,41 @@ class ContactController extends Controller
     public function contactAction()
     {
         $contact = new ContactManager();
-        $coordonnees = $contact -> getContact();
+        $coordonnees = $contact->getContact();
 
 
-        return $this->twig->render('user/contact.html.twig', array (
+        return $this->twig->render('user/contact.html.twig', array(
             "coordonnees" => $coordonnees
-        ) );
+        ));
     }
 
     public function contactUpdateAction()
     {
-        $adresse = $_POST ['adresse'];
-        $telephone = $_POST ['telephone'];
-        $ouverture = $_POST ['ouverture'];
-        $commentaire = $_POST ['commentaire'];
+        if ($_SERVER['REQUEST_METHOD'] == "POST") {
+            $errors = [];
+            foreach ($_POST as $key => $value) {
+                if (empty($_POST[$key])) {
+                    $errors[$key] = "Veuillez renseigner le champ " . $key;
+                }
+            }
 
-        $contactManager = new ContactManager();
-        $contactManager -> updateContact();
+            if (!empty($errors)) {
+                return $this->twig->render('admin_contact.html.twig', array(
+                    'errors' => $errors
+                ));
+            } else {
 
+                $adresse = $_POST ['adresse'];
+                $telephone = $_POST ['telephone'];
+                $ouverture = $_POST ['ouverture'];
+                $commentaire = $_POST ['commentaire'];
 
+                $contactManager = new ContactManager();
+                $contactManager->updateContact($adresse, $telephone, $ouverture, $commentaire);
+
+            }
+        } return $this->twig->render('user/contact.html.twig');
     }
+
 
 }
