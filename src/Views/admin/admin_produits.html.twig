@@ -1,0 +1,47 @@
+{% extends 'admin/layout_admin.html.twig' %}
+
+
+
+{% block content %}
+
+<h1>My products</h1>
+
+    <table id="produitTables" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>Nom produit</th>
+                <th>Description produit</th>
+                <th>Image</th>
+                <th>Catégorie</th>
+                <th>Action</th>
+
+            </tr>
+        </thead>
+        <tbody>
+        {% for product in products %}
+            <tr>
+                <td>
+                    {{ product.nomProduit }}
+                </td>
+                <td>
+                    {{ product.descriptionProduit }}
+                </td>
+                <td>
+                    <img src="{{ product.imageUrl }}" alt="{{ product.nomProduit }}" class="thumbnail">
+                </td>
+                <td>
+                    {{ product.catProduits }}
+                </td>
+                <td>
+                    <a href="#">Modifier</a>
+                    <a href="#">Supprimer</a>
+                </td>
+            </tr>
+            {% endfor %}
+
+        </tbody>
+
+
+    </table>
+
+{% endblock %}

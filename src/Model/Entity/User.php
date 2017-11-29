@@ -8,46 +8,39 @@ namespace Weasley\Model\Entity;
  */
 class User
 {
-	/**
-	 * @var string
-	 */
-	private $name;
+    /**
+     * @var string
+     */
+    private $login;
 
-	/**
-	 * @var string
-	 */
-	private $firstname;
+    /**
+     * @var string
+     */
+    private $password;
 
-	/**
-	 * @return string
-	 */
-	public function getName()
-	{
-		return $this->name;
-	}
 
-	/**
-	 * @param string $name
-	 */
-	public function setName($name)
-	{
-		$this->name = $name;
-	}
+    /**
+     * @return string
+     */
+    public function getLogin(): string
+    {
+        return $this->login;
+    }
 
-	/**
-	 * @return string
-	 */
-	public function getFirstname()
-	{
-		return $this->firstname;
-	}
+    /**
+     * @return string
+     */
+    public function getPassword(): string
+    {
+        return $this->password;
+    }
 
-	/**
-	 * @param string $firstname
-	 */
-	public function setFirstname($firstname)
-	{
-		$this->firstname = $firstname;
-	}
+    /**
+     * @param string $password
+     */
+    public function setPassword(string $password)
+    {
+        $this->password = $password;
+    }
 
 }

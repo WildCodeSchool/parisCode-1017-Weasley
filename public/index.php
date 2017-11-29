@@ -4,9 +4,18 @@
 require_once '../vendor/autoload.php';
 require_once '../app/config.php';
 
+// Rappel des controllers
+
 use Weasley\Controllers\DefaultController;
+use Weasley\Controllers\AdminController;
+use Weasley\Controllers\ContactController;
+use Weasley\Controllers\ProductsController;
 
 $defaultController = new DefaultController();
+$adminController = new AdminController();
+$contactController = new ContactController();
+$productsController = new ProductsController();
+
 
 if (empty($_GET)){
 	echo $defaultController->indexAction();
@@ -15,19 +24,29 @@ if (empty($_GET)){
 	echo $defaultController->conceptAction();
 
 } elseif ($_GET['section'] == "produits"){
-    echo $defaultController->produitsAction();
+    echo $productsController->produitsAction();
 
 } elseif ($_GET['section'] == "contact"){
-	echo $defaultController->contactAction();
+    echo $contactController->contactAction();
+
+} elseif ($_GET['section'] == "mentions"){
+    echo $defaultController->mentionsAction();
 
 } elseif ($_GET['section']== "login"){
-    echo $defaultController->loginAction();
+    echo $adminController->loginAction();
 
-} elseif ($_GET['section']== "admin"){
-    echo $defaultController->adminAction();
+} elseif ($_GET['section']== "admin") {
+    if (!isset ($_GET['page'])) {
 
-} elseif ($_GET['section']== "admin_contact") {
-    echo $defaultController->adminContactAction();
+        echo $adminController->adminAction();
+
+    } elseif ($_GET['page']== "admin_contact") {
+        echo $adminController->adminContactAction();
+
+    } elseif ($_GET['page']== "admin_product") {
+        echo $adminController->adminProductAction();
+    }
+
 }
 
 //$adminController !!!

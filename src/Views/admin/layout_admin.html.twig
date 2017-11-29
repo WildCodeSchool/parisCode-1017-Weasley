@@ -2,6 +2,8 @@
 
 {% block css %}
     <link rel="stylesheet" href="assets/css/admin.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.css"/>
+
 {% endblock %}
 
 {% block nav %}
@@ -14,7 +16,13 @@
                 </a>
             </li>
             <li>
-                <a href="index.php?section=admin_contact">
+                <a href="index.php?section=admin&page=admin_product">
+                    <i class="fa fa-address-card fa-2x" aria-hidden="true"></i>
+                    <span>Produits</span>
+                </a>
+            </li>
+            <li>
+                <a href="index.php?section=admin&page=admin_contact">
                     <i class="fa fa-address-card fa-2x" aria-hidden="true"></i>
                     <span>Contact</span>
                 </a>
@@ -48,4 +56,12 @@
 {% endblock %}
 
 {% block js %}
+
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#produitTables').DataTable();
+        } );
+    </script>
+
 {% endblock %}

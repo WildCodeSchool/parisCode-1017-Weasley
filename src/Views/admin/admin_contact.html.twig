@@ -6,16 +6,16 @@
 <div class="row">
     <div class="col-md-offset-3 col-md-6 col-xs-12">
         <legend>Modifier vos coordonnées</legend>
-        <form action="index.php?section=admin_contact" method="post">
+        <form action="index.php?section=admin&page=admin_contact" method="post">
             {{ form.input ('adresse','Votre adresse','Adresse', 'text') }}
             {% if errors.adresse is defined %}{{ errors.adresse }}{% endif %}
-            {{ form.input ('horaire',"Horaires d'ouverture",'Prénom', 'text') }}
+            {{ form.input ('horaire','Horaires d\'ouverture','horaires', 'text') }}
             {% if errors.horaire is defined %}{{ errors.horaire }}{% endif %}
             {{ form.input ('numero','Votre numéro','0123456789', 'tel') }}
             {% if errors.numero is defined %}{{ errors.numero }}{% endif %}
             {{ form.textarea ('commentaire', 'Un commentaire', 'Votre commentaire...') }}
             <div class="form-group">
-                <button type="submit" class="btn btn-primary btn-contact">Envoyer</button>
+                <button type="submit" class="btn btn-primary btn-contact">Envoyerx</button>
             </div>
 
         </form>
