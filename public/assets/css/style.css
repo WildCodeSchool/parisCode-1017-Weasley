@@ -143,12 +143,12 @@ form{
 }
 
 .vignette_home {
-     height: 415px;
-     width: 100%;
-     display: inline-block;
-     z-index: 1;
-     position: relative;
- }
+    height: 415px;
+    width: 100%;
+    display: inline-block;
+    z-index: 1;
+    position: relative;
+}
 
 .un{
     text-align: center;
@@ -328,4 +328,3 @@ footer a:hover {
     text-decoration: none;
     color: white;
 }
-
