@@ -26,5 +26,13 @@ class DefaultController extends Controller
         return $this->twig->render('user/concept.html.twig');
     }
 
+    /**
+     * Render concept
+     */
+    public function mentionsAction()
+    {
+        return $this->twig->render('user/mentions_legales.html.twig');
+    }
+
 
 }
