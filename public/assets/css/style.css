@@ -6,14 +6,32 @@ body {
     font-family: 'Poppins', cursive;
 }
 
+/*lien retour haut de page*/
+.retour a {
+    color: #C69627;
+    float: right;
+    padding-top: 20px;
+}
+.thunder{
+    color: #C69627;
+    float: right;
+}
+
+/***** Fonts *****/
+h2{
+    font-family: 'Berkshire Swash', cursive;
+    color: #C69627;
+}
+
+/*image du header Weasley's Wizard Wheezes*/
 .header img {
     width: 100%;
 }
 
+/*Disparition du header en dessous de 760px*/
 @media (max-width: 760px){
     .header img{
         display: none;
-        width: 100%;
     }
 }
 
@@ -24,11 +42,6 @@ body {
     padding-bottom: 50px;
 }
 
-/***** Fonts *****/
-h2{
-    font-family: 'Berkshire Swash', cursive;
-    color: #C69627;
-}
 /******************navbar*********************/
 
 #logo{
@@ -106,9 +119,7 @@ div.topBotomBordersOut a:hover:before, div.topBotomBordersOut a:hover:after
 
     }
 }
-
 /******************* end navbar **********************/
-
 
 /************** contact **********************/
 .visit{ padding-bottom: 30px;}
@@ -128,7 +139,10 @@ form{
     background-color: #b08626;
 }
 
+/*end contact*/
 
+
+/*Home Page*/
 /*Section Home - balai*/
 
 .texte_balai{
@@ -142,14 +156,6 @@ form{
     margin-top: -37px;
 }
 
-.vignette_home {
-     height: 415px;
-     width: 100%;
-     display: inline-block;
-     z-index: 1;
-     position: relative;
- }
-
 .un{
     text-align: center;
     color: black;
@@ -157,6 +163,7 @@ form{
     padding-top: 30px;
 }
 
+/*Carte Pre au lard*/
 .caption_map{
     width: 100%;
 }
@@ -169,7 +176,7 @@ div .retrouvez h2 {
     padding-top: 20px;
 
 }
-
+/*Cartouche des claims des catégories*/
 .claim {
     color: #F5F5DC;
     text-align: center;
@@ -182,8 +189,15 @@ div .retrouvez h2 {
     padding-right: 12px;
 
 }
-
-
+/*Images des catégories de la home*/
+.vignette_home {
+    height: 415px;
+    width: 100%;
+    display: inline-block;
+    z-index: 1;
+    position: relative;
+}
+/*cartouches des titres de catégories*/
 .categories_produits  {
     font-family: 'Berkshire Swash', cursive;
     background-image:url(../../assets/pictures/textures/parchemin.jpg);
@@ -200,15 +214,18 @@ div .retrouvez h2 {
     padding-bottom: 25px;
 }
 
+/*end home page*/
 
 /*PAGE PRODUITS*/
-
+/*image produit*/
 .vignette_produit{
     max-width: 100%;
     display: inline-block;
     z-index: 1;
     position: relative;
 }
+
+/*cartouche nom produit*/
 .produit{
     font-family: 'Berkshire Swash', cursive;
     background-image:url(../../assets/pictures/textures/parchemin.jpg);
@@ -230,6 +247,7 @@ div .retrouvez h2 {
     margin-left: 0;
 }
 
+/*Nom categorie*/
 .categorie{
     font-family: 'Berkshire Swash', cursive;
     color:#C69627;
@@ -237,31 +255,19 @@ div .retrouvez h2 {
     width: 300px;
 }
 
-.retour a {
-    color: #C69627;
-    float: right;
-    padding-top: 20px;
-}
-
-.icon {
-    display: inline-block;
-    width: 1em;
-    height: 1em;
-    stroke-width: 0;
-    stroke: currentColor;
-    fill: currentColor;
-}
-
+/*traits dorés autour du nom de la categorie*/
 hr {
     background-color: #C69627;
     margin-top: 43px;
 }
-
+/*disparition du hr en dessous de 1200 px*/
 @media (max-width: 1200px){
     hr {
         display: none;
     }
 }
+
+/*END PAGE PRODUIT*/
 
 /**PAGE CONCEPT**/
 .revelio{
@@ -329,3 +335,4 @@ footer a:hover {
     color: white;
 }
 
+/*END FOOTER*/
