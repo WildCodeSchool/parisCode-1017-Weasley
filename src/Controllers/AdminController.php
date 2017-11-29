@@ -27,7 +27,10 @@ class AdminController extends Controller
      */
     public function adminAction()
     {
-        return $this->twig->render('admin/admin.html.twig');
+        $contact = new ContactManager();
+        $coordonnees = $contact -> getContact();
+        return $this->twig->render('admin/admin.html.twig', array (
+            "coordonnees" => $coordonnees));
     }
 
     /**
@@ -37,7 +40,6 @@ class AdminController extends Controller
     {
         $contact = new AdminManager();
         $coordonnees = $contact -> getContact();
-        var_dump($coordonnees); die();
 
         return $this->twig->render('admin/admin_contact.html.twig');/*
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
