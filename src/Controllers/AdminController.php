@@ -38,15 +38,11 @@ class AdminController extends Controller
      */
     public function adminContactAction()
     {
-        $contact = new ContactManager();
-        $coordonnees = $contact->getContact();
+        $contactManager = new ContactManager();
+        $coordonnees = $contactManager->getContact();
+/*        return $this->twig->render('admin/admin_contact.html.twig', array (
+            "coordonnees" => $coordonnees));*/
 
-        return $this->twig->render('admin/admin_contact.html.twig', array(
-            "coordonnees" => $coordonnees
-        ));
-    }
-
-        /*
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $errors = [];
             foreach ($_POST as $key => $value) {
@@ -56,20 +52,24 @@ class AdminController extends Controller
             }
 
             if (!empty($errors)) {
-                return $this->twig->render('admin/admin_contact.html.twig', array(
+                return $this->twig->render('admin_contact.html.twig', array(
                     'errors' => $errors
                 ));
-
             } else {
-                $adresse = $_POST['adresse'];
-                $horaire = $_POST['horaire'];
-                $numero = $_POST['numero'];
-                $commentaire = $_POST['commentaire'];
-                $manager = new ModelManager();
-                $manager->updateContact($adresse, $horaire, $numero, $commentaire);
+                $id = $_GET['id'];
+                $adresse = $_POST ['adresse'];
+                $telephone = $_POST ['telephone'];
+                $ouverture = $_POST ['ouverture'];
+                $commentaire = $_POST ['commentaire'];
+
+                $contactManager->updateContact($id, $adresse, $telephone, $ouverture, $commentaire);
+
             }
-            return $this->twig->render('admin/admin_contact.html.twig');
-        }*/
+        }  return $this->twig->render('admin/admin_contact.html.twig', array(
+        "coordonnees" => $coordonnees
+        ));
+    }
+
 
     public function adminProductAction()
     {
