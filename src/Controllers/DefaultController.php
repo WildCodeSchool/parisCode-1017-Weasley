@@ -3,6 +3,7 @@
 namespace Weasley\Controllers;
 
 use Weasley\Model\Repository\UserManager;
+use Weasley\Model\Repository\ProductManager;
 
 /**
  * Class DefaultController
@@ -48,5 +49,19 @@ class DefaultController extends Controller
         ) );
     }
 
+    public function produitsAction()
+    {
+        $productManager = new ProductManager();
+        $friandises = $productManager->getAllFriandises();
+        $farces = $productManager->getAllFarces();
+        $accessoires = $productManager->getAllAccessoires();
+        $packs = $productManager->getAllPacks();
+        return $this->twig->render('user/produits.html.twig', array (
+            "friandises"=>$friandises,
+            "farces"=>$farces,
+            "accessoires"=>$accessoires,
+            "packs"=>$packs
+            ));
+    }
 
 }
