@@ -46,7 +46,7 @@ if (empty($_GET)){
     } elseif ($_GET['page']== "admin_product") {
         echo $adminController->adminProductAction();
 
-    } elseif ($_GET['page']== "admin_update_product") {
+    } elseif ($_GET['page']== "admin_update_products") {
         echo $adminController->adminUpdateProductAction();
     }
 
