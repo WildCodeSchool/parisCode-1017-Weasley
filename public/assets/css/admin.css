@@ -12,6 +12,8 @@ legend{
     padding-top: 30px;
     padding-bottom: 30px;
 }
+/******************* end login page ***************/
+
 
 /**************** navbar ****************/
 ul{
@@ -19,9 +21,24 @@ ul{
     display: flex;
 }
 li{
-    padding: 10px;
+    padding: 20px;
 }
+/**************** end navbar **************/
 
+
+
+/**************** product page **************/
 .thumbnail {
     width: 200px;
 }
+
+/**************** end product page ****************/
+
+/*************** success page *********************/
+.gif{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 20px;
+}
+/**************** end success page ****************/
