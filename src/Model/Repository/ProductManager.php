@@ -22,5 +22,25 @@ class ProductManager extends EntityManager
 		return $statement->fetchAll(PDO::FETCH_CLASS,Product::class);
 	}
 
+    public function getAllFriandises(){
+        $statement = $this->db->query('SELECT * FROM produits WHERE catProduit= "friandises"');
+        return $statement->fetchAll(PDO::FETCH_CLASS,Product::class);
+    }
+
+    public function getAllFarces(){
+        $statement = $this->db->query('SELECT * FROM produits WHERE catProduit= "farces"');
+        return $statement->fetchAll(PDO::FETCH_CLASS,Product::class);
+    }
+
+    public function getAllAccessoires(){
+        $statement = $this->db->query('SELECT * FROM produits WHERE catProduit= "accessoires"');
+        return $statement->fetchAll(PDO::FETCH_CLASS,Product::class);
+    }
+
+    public function getAllPacks(){
+        $statement = $this->db->query('SELECT * FROM produits WHERE catProduit= "packs"');
+        return $statement->fetchAll(PDO::FETCH_CLASS,Product::class);
+    }
+
 }
 

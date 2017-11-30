@@ -24,7 +24,7 @@ if (empty($_GET)){
 	echo $defaultController->conceptAction();
 
 } elseif ($_GET['section'] == "produits"){
-    echo $productsController->produitsAction();
+    echo $defaultController->produitsAction();
 
 } elseif ($_GET['section'] == "contact"){
     echo $contactController->contactAction();

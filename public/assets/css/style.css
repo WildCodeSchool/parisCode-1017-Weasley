@@ -238,6 +238,12 @@ div .retrouvez h2 {
     padding-top: 5px;
     padding-bottom: 5px;
 }
+.description{
+    text-overflow: ellipsis;
+    height: 40px;
+    text-align: right;
+    overflow: hidden;
+}
 .row-produits p{
     margin-top: 27px;
 }
