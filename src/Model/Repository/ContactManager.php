@@ -23,14 +23,15 @@ class ContactManager extends EntityManager
 
 	/**
 	 * Update contact
-//	 */
-	public function updateContact(){
-	    $statement = $this->db->query('UPDATE contact SET (adresse= :adresse, telephone= :telephone, ouverture= :ouverture, commentaire= :commentaire) WHERE id=1');
-	    $statement -> execute([
+	 */
+	public function updateContact($id, $adresse, $telephone, $ouverture, $commentaire){
+	    $statement = $this->db->prepare('UPDATE contact SET adresse = :adresse, telephone = :telephone, ouverture = :ouverture, commentaire = :commentaire WHERE id = :id');
+	    $statement->execute([
+	        ':id' => $id,
 	        ':adresse' => $adresse,
             ':telephone' => $telephone,
             ':ouverture' => $ouverture,
-            ':commentaire' => $commentaire,
+            ':commentaire' => $commentaire
 
         ]);
     }
