@@ -40,8 +40,6 @@ class AdminController extends Controller
     {
         $contactManager = new ContactManager();
         $coordonnees = $contactManager->getContact();
-/*        return $this->twig->render('admin/admin_contact.html.twig', array (
-            "coordonnees" => $coordonnees));*/
 
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $errors = [];
@@ -64,7 +62,7 @@ class AdminController extends Controller
 
                 $contactManager->updateContact($id, $adresse, $telephone, $ouverture, $commentaire);
 
-            }
+            }   return $this->twig->render('admin/admin_success.html.twig');
         }  return $this->twig->render('admin/admin_contact.html.twig', array(
         "coordonnees" => $coordonnees
         ));
