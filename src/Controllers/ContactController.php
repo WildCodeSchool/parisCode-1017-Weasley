@@ -51,7 +51,7 @@ class ContactController extends Controller
                 $contactManager->updateContact($adresse, $telephone, $ouverture, $commentaire);
 
             }
-        } return $this->twig->render('user/contact.html.twig');
+        } return $this->twig->render('admin/.html.twig');
     }
 
 

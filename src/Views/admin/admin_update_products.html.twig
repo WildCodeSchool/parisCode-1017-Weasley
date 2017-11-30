@@ -3,30 +3,30 @@
 
 {% block content %}
 
-<div class="row">
-    <div class="col-md-offset-3 col-md-6 col-xs-12">
-        <fieldset>
-        <legend>Modifier le produit</legend>
-        <form action="index.php?section=admin&page=admin_update_products&id={{ coordonnees.id }}" method="post">
-            {{ form.update ('adresse','Votre adresse',coordonnees.adresse , 'text') }}
-            {% if errors.adresse is defined %}{{ errors.adresse }}{% endif %}
-            {{ form.update ('telephone','Votre numéro',coordonnees.telephone, 'tel') }}
-            {% if errors.telephone is defined %}{{ errors.telephone }}{% endif %}
-            {{ form.update ('ouverture','Horaires d\'ouverture',coordonnees.ouverture, 'text') }}
-            {% if errors.ouverture is defined %}{{ errors.ouverture }}{% endif %}
-            {{ form.updatearea('commentaire', 'Un commentaire', coordonnees.commentaire) }}
-            <div class="form-group">
-                <button type="submit" class="btn btn-primary btn-contact">Enregistrer</button>
-            </div>
+    <div class="row">
+        <div class="col-md-offset-2 col-md-8 col-xs-12">
+            <fieldset>
+                <legend>Modifier le produit</legend>
+                <form action="index.php?section=admin&page=admin_update_products&id={{ products.idProduit }}" method="post">
+                    {{ form.update ('nom','Nom du produit',products.nomProduit , 'text') }}
+                    {% if errors.nom is defined %}{{ errors.nom }}{% endif %}
+                    <div class="form-group">
+                    <label for="categorie">Catégorie du produit</label>
+                    <select id="categorie" class="form-control">
+                        <option value="valeur1">Valeur 1</option>
+                        <option value="valeur2" selected>Valeur 2</option>
+                        <option value="valeur3">Valeur 3</option>
+                    </select>
+                    </div>
+                    {{ form.updatearea('description', 'Description du produit', products.descriptionProduit) }}
+                    {% if errors.description is defined %}{{ errors.description }}{% endif %}
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-contact">Enregistrer</button>
+                    </div>
 
-        </form>
-        </fieldset>
+                </form>
+            </fieldset>
+        </div>
     </div>
-</div>
 
 {% endblock %}
-
-{# Faire les connexions avec db quand elle sera opérationnelle pour un UPDATE table ...
--> modifier adminContactAction dans DefaultController en checkant tous les champs
--> Model>UserManager updateContact #}
-{# ContactController !!!!! #}

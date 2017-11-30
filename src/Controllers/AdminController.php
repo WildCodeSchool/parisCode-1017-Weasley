@@ -13,6 +13,8 @@ use Weasley\Model\Repository\ContactManager;
 use Weasley\Model\Repository\ProductManager;
 
 class AdminController extends Controller
+/**********************************************************************************
+********************Ici on met les simples vues côté admin! *********************/
 
 { /**
  * Render login
@@ -68,8 +70,15 @@ class AdminController extends Controller
         ));
     }
 
-
     public function adminProductAction()
+    {
+        $productManager = new ProductManager();
+        $products = $productManager->getAllProducts();
+        return $this->twig->render('admin/admin_products.html.twig', array (
+            "products" => $products));
+    }
+
+    public function adminUpdateProductAction()
     {
         $productManager = new ProductManager();
         $products = $productManager->getAllProducts();
@@ -96,12 +105,8 @@ class AdminController extends Controller
                 $productManager->updateProducts($id, $nomProduit, $descriptionProduit, $imageUrl, $catProduit);
 
             }   return $this->twig->render('admin/admin_success.html.twig');
-
-
-        return $this->twig->render('admin/admin_products.html.twig', array (
+        }   return $this->twig->render('admin/admin_products.html.twig', array (
             'products' => $products
-
         ));
-
     }
 }
