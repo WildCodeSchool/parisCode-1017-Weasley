@@ -42,5 +42,17 @@ class ProductManager extends EntityManager
         return $statement->fetchAll(PDO::FETCH_CLASS,Product::class);
     }
 
+    public function updateProducts($id, $nomProduit, $descriptionProduit, $imageUrl, $catProduit){
+        $statement = $this->db->prepare('UPDATE produits SET nomProduit = :nomProduit, descriptionProduit = :descriptionProduit, imageUrl = :imageUrl, catProduit = :catProduit WHERE id = :id');
+        $statement->execute([
+            ':id' => $id,
+            ':nomProduit' => $nomProduit,
+            ':descriptionProduit' => $descriptionProduit,
+            ':imageUrl' => $imageUrl,
+            ':catProduit' => $catProduit
+
+        ]);
+    }
+
 }
 

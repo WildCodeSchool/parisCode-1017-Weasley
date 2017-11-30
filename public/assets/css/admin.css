@@ -26,7 +26,6 @@ li{
 /**************** end navbar **************/
 
 
-
 /**************** product page **************/
 .thumbnail {
     width: 200px;
@@ -40,5 +39,8 @@ li{
     margin-left: auto;
     margin-right: auto;
     padding-top: 20px;
+    padding-bottom: 20px;
 }
+
+
 /**************** end success page ****************/

@@ -50,7 +50,7 @@ class AdminController extends Controller
             }
 
             if (!empty($errors)) {
-                return $this->twig->render('admin_contact.html.twig', array(
+                return $this->twig->render('admin/admin_contact.html.twig', array(
                     'errors' => $errors
                 ));
             } else {
@@ -73,7 +73,32 @@ class AdminController extends Controller
     {
         $productManager = new ProductManager();
         $products = $productManager->getAllProducts();
-        return $this->twig->render('admin/admin_produits.html.twig', array (
+
+        if ($_SERVER['REQUEST_METHOD'] == "POST") {
+            $errors = [];
+            foreach ($_POST as $key => $value) {
+                if (empty($_POST[$key])) {
+                    $errors[$key] = "Veuillez renseigner le champ " . $key;
+                }
+            }
+
+            if (!empty($errors)) {
+                return $this->twig->render('admin/admin_update_products.html.twig', array(
+                    'errors' => $errors
+                ));
+            } else {
+                $id = $_GET['id'];
+                $nomProduit = $_POST ['nom'];
+                $descriptionProduit = $_POST ['description'];
+                $imageUrl = $_POST ['image'];
+                $catProduit = $_POST ['categorie'];
+
+                $productManager->updateProducts($id, $nomProduit, $descriptionProduit, $imageUrl, $catProduit);
+
+            }   return $this->twig->render('admin/admin_success.html.twig');
+
+
+        return $this->twig->render('admin/admin_products.html.twig', array (
             'products' => $products
 
         ));
