@@ -116,11 +116,5 @@ class AdminController extends Controller
         ));
     }
 
-    public function adminDeleteProductAction()
-    {
-        $id= $_GET['id'];
-        $productManager = new ProductManager();
-        $productManager->deleteProducts($id);
-        header('Location: index.php?section=admin&page=admin_products');
-    }
+
 }
