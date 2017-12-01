@@ -48,8 +48,10 @@ if (empty($_GET)){
 
     } elseif ($_GET['page']== "admin_update_products") {
         echo $adminController->adminUpdateProductAction();
-    }
+    } elseif ($_GET['page']== "admin_delete_products") {
+        echo $productsController->deleteProductAction();
 
+    }
 }
 
 //$adminController !!!

@@ -13,9 +13,20 @@ use Weasley\Model\Repository\ProductManager;
 
 class ProductsController extends Controller
 {
-    /**
-     * Render product
+     /**
+     *
      */
 
+    public function deleteProductAction()
+    {
+        $id= $_GET['id'];
+        $productManager = new ProductManager();
+        $productManager->deleteProducts($id);
+        header('Location: index.php?section=admin&page=admin_products');
+    }
 
 }
+
+
+
+
