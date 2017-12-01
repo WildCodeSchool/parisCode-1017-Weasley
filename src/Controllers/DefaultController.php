@@ -41,13 +41,38 @@ class DefaultController extends Controller
     public function contactAction()
     {
         $contact = new ContactManager();
-        $coordonnees = $contact -> getContact();
+        $coordonnees = $contact->getContact();
 
 
-        return $this->twig->render('user/contact.html.twig', array (
+        return $this->twig->render('user/contact.html.twig', array(
             "coordonnees" => $coordonnees
-        ) );
+        ));
     }
+
+/*    public function formAction()
+    {
+        if ($_SERVER['REQUEST_METHOD'] == "POST") {
+            $errors = [];
+            foreach ($_POST as $key => $value) {
+                if (empty($_POST[$key])) {
+                    $errors[$key] = "Veuillez renseigner le champ " . $key;
+                }
+            }
+
+            if (!empty($errors)) {
+                return $this->twig->render('admin/admin_update_products.html.twig', array(
+                    'errors' => $errors
+                ));
+            } else {
+                //faire le lien mail reception et envoi
+            }
+            return $this->twig->render('user/success.html.twig');
+        }
+        return $this->twig->render('user/contact.html.twig', array(
+            'products' => $products
+        ));
+    }*/
+
 
     public function produitsAction()
     {
@@ -56,12 +81,12 @@ class DefaultController extends Controller
         $farces = $productManager->getAllFarces();
         $accessoires = $productManager->getAllAccessoires();
         $packs = $productManager->getAllPacks();
-        return $this->twig->render('user/produits.html.twig', array (
-            "friandises"=>$friandises,
-            "farces"=>$farces,
-            "accessoires"=>$accessoires,
-            "packs"=>$packs
-            ));
+        return $this->twig->render('user/produits.html.twig', array(
+            "friandises" => $friandises,
+            "farces" => $farces,
+            "accessoires" => $accessoires,
+            "packs" => $packs
+        ));
     }
 
 }

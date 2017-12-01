@@ -41,10 +41,13 @@ if (empty($_GET)){
         echo $adminController->adminAction();
 
     } elseif ($_GET['page']== "admin_contact") {
-        echo $adminController->adminContactAction();
+        echo $contactController->contactUpdateAction();
 
-    } elseif ($_GET['page']== "admin_product") {
+    } elseif ($_GET['page']== "admin_products") {
         echo $adminController->adminProductAction();
+
+    } elseif ($_GET['page']== "admin_update_products") {
+        echo $adminController->adminUpdateProductAction();
     }
 
 }

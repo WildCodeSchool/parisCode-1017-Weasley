@@ -4,7 +4,7 @@
 
 {% block content %}
 
-<h1>My products</h1>
+<h1>Mes produits</h1>
 
     <table id="produitTables" class="display" cellspacing="0" width="100%">
         <thead>
@@ -30,11 +30,11 @@
                     <img src="{{ product.imageUrl }}" alt="{{ product.nomProduit }}" class="thumbnail">
                 </td>
                 <td>
-                    {{ product.catProduits }}
+                    {{ product.catProduit }}
                 </td>
                 <td>
-                    <a href="#">Modifier</a>
-                    <a href="#">Supprimer</a>
+                    <a href="index.php?section=admin&page=admin_update_products&id={{ product.idProduit }}">Modifier</a>
+                    <a href="index.php?section=admin&page=admin_delete_products&id={{ product.idProduit }}">Supprimer</a>
                 </td>
             </tr>
             {% endfor %}

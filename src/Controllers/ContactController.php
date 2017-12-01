@@ -28,6 +28,9 @@ class ContactController extends Controller
 
     public function contactUpdateAction()
     {
+        $contactManager = new ContactManager();
+        $coordonnees = $contactManager->getContact();
+
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $errors = [];
             foreach ($_POST as $key => $value) {
@@ -37,22 +40,21 @@ class ContactController extends Controller
             }
 
             if (!empty($errors)) {
-                return $this->twig->render('admin_contact.html.twig', array(
+                return $this->twig->render('admin/admin_contact.html.twig', array(
                     'errors' => $errors
                 ));
             } else {
-
+                $id = $_GET['id'];
                 $adresse = $_POST ['adresse'];
                 $telephone = $_POST ['telephone'];
                 $ouverture = $_POST ['ouverture'];
                 $commentaire = $_POST ['commentaire'];
 
-                $contactManager = new ContactManager();
-                $contactManager->updateContact($adresse, $telephone, $ouverture, $commentaire);
+                $contactManager->updateContact($id, $adresse, $telephone, $ouverture, $commentaire);
 
-            }
-        } return $this->twig->render('user/contact.html.twig');
+            }   return $this->twig->render('admin/admin_success.html.twig');
+        }  return $this->twig->render('admin/admin_contact.html.twig', array(
+        "coordonnees" => $coordonnees
+    ));
     }
-
-
 }
