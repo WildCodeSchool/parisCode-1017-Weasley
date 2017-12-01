@@ -64,5 +64,13 @@ class ProductManager extends EntityManager
         ]);
     }
 
+    public function deleteProducts($id) {
+        $statement = $this->db->prepare('DELETE FROM produits WHERE idProduit = :id');
+        $statement->bindParam(':id', $_GET['id'], PDO ::PARAM_INT );
+        $statement->execute(array(
+            ':id' => $id
+        ));
+    }
+
 }
 
