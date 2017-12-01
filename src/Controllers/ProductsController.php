@@ -13,9 +13,14 @@ use Weasley\Model\Repository\ProductManager;
 
 class ProductsController extends Controller
 {
-    /**
-     * Render product
+     /**
+     *
      */
 
 
+
 }
+
+
+
+

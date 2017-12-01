@@ -11,25 +11,28 @@ use Weasley\Model\Entity\User;
  */
 class UserManager extends EntityManager
 {
-	/**
-	 * Get all user
-	 * @return array
-	 */
-	public function getUser(){
-		$statement = $this->db->query('SELECT * FROM user');
-		return $statement->fetchObject( User::class);
-	}
+    /**
+     * Get all user
+     * @return array
+     */
+    public function getUser()
+    {
+        $statement = $this->db->query('SELECT * FROM user');
+        return $statement->fetchObject(User::class);
+    }
 
-	/**
-	 * Get one user
-	 * @param $id int
-	 * @return mixed
-	 */
-	public function getOne($id){
-		$statement = $this->db->prepare("SELECT * FROM user WHERE id = :id");
-		$statement->execute([
-			':id' => $id
-		]);
-		return $statement->fetch();
-	}
+    /**
+     * Get one user
+     * @param $id int
+     * @return mixed
+     */
+    public function getOne($id)
+    {
+        $statement = $this->db->prepare("SELECT * FROM user WHERE id = :id");
+        $statement->execute([
+            ':id' => $id
+        ]);
+        return $statement->fetch();
+    }
 
+}
