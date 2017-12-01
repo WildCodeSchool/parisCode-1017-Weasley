@@ -4,6 +4,7 @@ namespace Weasley\Controllers;
 
 use Weasley\Model\Repository\UserManager;
 use Weasley\Model\Repository\ProductManager;
+use Weasley\Model\Repository\ContactManager;
 
 /**
  * Class DefaultController
@@ -49,29 +50,29 @@ class DefaultController extends Controller
         ));
     }
 
-/*    public function formAction()
-    {
-        if ($_SERVER['REQUEST_METHOD'] == "POST") {
-            $errors = [];
-            foreach ($_POST as $key => $value) {
-                if (empty($_POST[$key])) {
-                    $errors[$key] = "Veuillez renseigner le champ " . $key;
+    /*    public function formAction()
+        {
+            if ($_SERVER['REQUEST_METHOD'] == "POST") {
+                $errors = [];
+                foreach ($_POST as $key => $value) {
+                    if (empty($_POST[$key])) {
+                        $errors[$key] = "Veuillez renseigner le champ " . $key;
+                    }
                 }
-            }
 
-            if (!empty($errors)) {
-                return $this->twig->render('admin/admin_update_products.html.twig', array(
-                    'errors' => $errors
-                ));
-            } else {
-                //faire le lien mail reception et envoi
+                if (!empty($errors)) {
+                    return $this->twig->render('user/contact.html.twig', array(
+                        'errors' => $errors
+                    ));
+                } else {
+                    //faire le lien mail reception et envoi
+                }
+                return $this->twig->render('user/success.html.twig');
             }
-            return $this->twig->render('user/success.html.twig');
-        }
-        return $this->twig->render('user/contact.html.twig', array(
-            'products' => $products
-        ));
-    }*/
+            return $this->twig->render('user/contact.html.twig', array(
+                'products' => $products
+            ));
+        }*/
 
 
     public function produitsAction()
