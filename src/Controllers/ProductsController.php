@@ -48,5 +48,18 @@ class ProductsController extends Controller
         ));
     }
 
+    public function deleteProductAction()
+    {
+        $id= $_GET['id'];
+        $productManager = new ProductManager();
+        $productManager->deleteProducts($id);
+        $products = $productManager->getAllProducts();
+        return $this->twig->render('admin/admin_products.html.twig', array(
+        'products' => $products
+        ));
+    }
 
 }
+
+
+

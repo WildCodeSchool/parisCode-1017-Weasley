@@ -8,6 +8,7 @@
 
 namespace Weasley\Controllers;
 
+use Weasley\Model\Entity\Product;
 use Weasley\Model\Repository\UserManager;
 use Weasley\Model\Repository\ContactManager;
 use Weasley\Model\Repository\ProductManager;
@@ -47,5 +48,4 @@ class AdminController extends Controller
         return $this->twig->render('admin/admin_products.html.twig', array(
             "products" => $products));
     }
-
 }

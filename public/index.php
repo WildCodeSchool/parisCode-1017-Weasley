@@ -17,39 +17,42 @@ $contactController = new ContactController();
 $productsController = new ProductsController();
 
 
-if (empty($_GET)){
-	echo $defaultController->indexAction();
+if (empty($_GET)) {
+    echo $defaultController->indexAction();
 
-} elseif ($_GET['section'] == "concept"){
-	echo $defaultController->conceptAction();
+} elseif ($_GET['section'] == "concept") {
+    echo $defaultController->conceptAction();
 
-} elseif ($_GET['section'] == "produits"){
+} elseif ($_GET['section'] == "produits") {
     echo $defaultController->produitsAction();
+
 
 } elseif ($_GET['section'] == "contact"){
     echo $defaultController->contactAction();
 
-} elseif ($_GET['section'] == "mentions"){
+} elseif ($_GET['section'] == "mentions") {
     echo $defaultController->mentionsAction();
 
-} elseif ($_GET['section']== "login"){
+} elseif ($_GET['section'] == "login") {
     echo $adminController->loginAction();
 
-} elseif ($_GET['section']== "admin") {
+} elseif ($_GET['section'] == "admin") {
     if (!isset ($_GET['page'])) {
 
         echo $adminController->adminAction();
 
-    } elseif ($_GET['page']== "admin_contact") {
+    } elseif ($_GET['page'] == "admin_contact") {
         echo $contactController->contactUpdateAction();
 
-    } elseif ($_GET['page']== "admin_products") {
+    } elseif ($_GET['page'] == "admin_products") {
         echo $adminController->adminProductAction();
 
-    } elseif ($_GET['page']== "admin_update_products") {
+    } elseif ($_GET['page'] == "admin_update_products") {
         echo $productsController->updateProductAction();
+      
+    } elseif ($_GET['page'] == "admin_delete_products") {
+        echo $productsController->deleteProductAction();
     }
-
 }
 
 /******* Au dessus manque DeleteProductAction et AddProductAction **************/
