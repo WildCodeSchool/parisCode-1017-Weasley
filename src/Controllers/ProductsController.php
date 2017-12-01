@@ -14,9 +14,6 @@ use Weasley\Model\Repository\ProductManager;
 
 class ProductsController extends Controller
 {
-     /**
-     *
-     */
     public function updateProductAction()
     {
         $productManager = new ProductManager();
@@ -50,7 +47,6 @@ class ProductsController extends Controller
             'products' => $products
         ));
     }
-
 
     public function deleteProductAction()
     {

@@ -26,7 +26,8 @@ if (empty($_GET)) {
 } elseif ($_GET['section'] == "produits") {
     echo $defaultController->produitsAction();
 
-} elseif ($_GET['section'] == "contact") {
+
+} elseif ($_GET['section'] == "contact"){
     echo $defaultController->contactAction();
 
 } elseif ($_GET['section'] == "mentions") {
@@ -48,6 +49,7 @@ if (empty($_GET)) {
 
     } elseif ($_GET['page'] == "admin_update_products") {
         echo $productsController->updateProductAction();
+      
     } elseif ($_GET['page'] == "admin_delete_products") {
         echo $productsController->deleteProductAction();
     }
