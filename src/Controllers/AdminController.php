@@ -112,7 +112,7 @@ class AdminController extends Controller
             return $this->twig->render('admin/admin_success.html.twig');
         }
         return $this->twig->render('admin/admin_update_products.html.twig', array(
-            'products' => $products
+            'product' => $products
         ));
     }
 
