@@ -76,7 +76,7 @@ class ProductsController extends Controller
                 $productManager->createProduct($nomProduit, $descriptionProduit, $catProduit);
             }
             // Redirection vers la page de succès
-            return $this->twig->render('admin/admin_success.html.twig');
+            return $this->twig->render('admin/admin_successAddProduit.html.twig');
 
         } return $this->twig->render('admin/admin_new_product.html.twig');
     }
