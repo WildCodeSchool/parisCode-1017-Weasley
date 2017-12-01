@@ -12,9 +12,10 @@ use Weasley\Model\Repository\UserManager;
 use Weasley\Model\Repository\ContactManager;
 use Weasley\Model\Repository\ProductManager;
 
+/**********************************************************************************
+ ********************Ici on met les simples vues côté admin! *********************/
+
 class AdminController extends Controller
-   // /**********************************************************************************
-   //  ********************Ici on met les simples vues côté admin! *********************/
 
 {
     /**
@@ -26,7 +27,7 @@ class AdminController extends Controller
     }
 
     /**
-     * Render admin
+     * Render admin page with contact datas from database
      */
     public function adminAction()
     {
@@ -36,43 +37,9 @@ class AdminController extends Controller
             "coordonnees" => $coordonnees));
     }
 
-//    /**
-//     * Render admin contact update form
-//     */
-//    public function adminContactAction()
-//    {
-//        $contactManager = new ContactManager();
-//        $coordonnees = $contactManager->getContact();
-//
-//        if ($_SERVER['REQUEST_METHOD'] == "POST") {
-//            $errors = [];
-//            foreach ($_POST as $key => $value) {
-//                if (empty($_POST[$key])) {
-//                    $errors[$key] = "Veuillez renseigner le champ " . $key;
-//                }
-//            }
-//
-//            if (!empty($errors)) {
-//                return $this->twig->render('admin/admin_contact.html.twig', array(
-//                    'errors' => $errors
-//                ));
-//            } else {
-//                $id = $_GET['id'];
-//                $adresse = $_POST ['adresse'];
-//                $telephone = $_POST ['telephone'];
-//                $ouverture = $_POST ['ouverture'];
-//                $commentaire = $_POST ['commentaire'];
-//
-//                $contactManager->updateContact($id, $adresse, $telephone, $ouverture, $commentaire);
-//
-//            }
-//            return $this->twig->render('admin/admin_success.html.twig');
-//        }
-//        return $this->twig->render('admin/admin_contact.html.twig', array(
-//            "coordonnees" => $coordonnees
-//        ));
-//    }
-
+    /**
+     * Render product page with all products
+     */
     public function adminProductAction()
     {
         $productManager = new ProductManager();
@@ -81,37 +48,4 @@ class AdminController extends Controller
             "products" => $products));
     }
 
-    public function adminUpdateProductAction()
-    {
-        $productManager = new ProductManager();
-        $products = $productManager->getAllProducts();
-
-        if ($_SERVER['REQUEST_METHOD'] == "POST") {
-            $errors = [];
-            foreach ($_POST as $key => $value) {
-                if (empty($_POST[$key])) {
-                    $errors[$key] = "Veuillez renseigner le champ " . $key;
-                }
-            }
-
-            if (!empty($errors)) {
-                return $this->twig->render('admin/admin_update_products.html.twig', array(
-                    'errors' => $errors
-                ));
-            } else {
-                $id = $_GET['id'];
-                $nomProduit = $_POST ['nom'];
-                $descriptionProduit = $_POST ['description'];
-                $imageUrl = $_POST ['image'];
-                $catProduit = $_POST ['categorie'];
-
-                $productManager->updateProducts($id, $nomProduit, $descriptionProduit, $imageUrl, $catProduit);
-
-            }
-            return $this->twig->render('admin/admin_success.html.twig');
-        }
-        return $this->twig->render('admin/admin_update_products.html.twig', array(
-            'products' => $products
-        ));
-    }
 }

@@ -27,7 +27,7 @@ if (empty($_GET)){
     echo $defaultController->produitsAction();
 
 } elseif ($_GET['section'] == "contact"){
-    echo $contactController->contactAction();
+    echo $defaultController->contactAction();
 
 } elseif ($_GET['section'] == "mentions"){
     echo $defaultController->mentionsAction();
@@ -47,10 +47,9 @@ if (empty($_GET)){
         echo $adminController->adminProductAction();
 
     } elseif ($_GET['page']== "admin_update_products") {
-        echo $adminController->adminUpdateProductAction();
+        echo $productsController->updateProductAction();
     }
 
 }
 
-//$adminController !!!
-//ProduitManager ContactManager !
+/******* Au dessus manque DeleteProductAction et AddProductAction **************/
