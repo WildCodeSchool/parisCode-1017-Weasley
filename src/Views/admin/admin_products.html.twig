@@ -17,7 +17,8 @@
                     <th>Description produit</th>
                     <th>Image</th>
                     <th>Catégorie</th>
-                    <th>Action</th>
+                    <th>Modifier</th>
+                    <th>Supprimer</th>
 
                 </tr>
             </thead>
@@ -37,8 +38,10 @@
                         {{ product.catProduit }}
                     </td>
                     <td>
-                        <a href="index.php?section=admin&page=admin_update_products&id={{ product.idProduit }}">Modifier</a>
-                        <a href="index.php?section=admin&page=admin_delete_products&id={{ product.idProduit }}">Supprimer</a>
+                        <a href="index.php?section=admin&page=admin_update_products&id={{ product.idProduit }}" class="btn btn-primary">Modifier</a>
+                    </td>
+                    <td>
+                       <a href="index.php?section=admin&page=admin_delete_products&id={{ product.idProduit }}" class="btn btn-danger">Supprimer</a>
                     </td>
                 </tr>
                 {% endfor %}
