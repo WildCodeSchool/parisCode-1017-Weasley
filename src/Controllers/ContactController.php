@@ -15,16 +15,6 @@ class ContactController extends Controller
     /**
      * Render contact
      */
-    public function contactAction()
-    {
-        $contact = new ContactManager();
-        $coordonnees = $contact->getContact();
-
-
-        return $this->twig->render('user/contact.html.twig', array(
-            "coordonnees" => $coordonnees
-        ));
-    }
 
     public function contactUpdateAction()
     {
