@@ -5,26 +5,25 @@
 
 <div class="row">
     <div class="col-md-offset-3 col-md-6 col-xs-12">
+        <fieldset>
         <legend>Modifier vos coordonnées</legend>
-        <form action="index.php?section=admin_contact" method="post">
-            {{ form.input ('adresse','Votre adresse','Adresse', 'text') }}
+        <form action="index.php?section=admin&page=admin_contact&id={{ coordonnees.id }}" method="post">
+            {{ form.update ('adresse','Votre adresse',coordonnees.adresse , 'text') }}
             {% if errors.adresse is defined %}{{ errors.adresse }}{% endif %}
-            {{ form.input ('horaire',"Horaires d'ouverture",'Prénom', 'text') }}
-            {% if errors.horaire is defined %}{{ errors.horaire }}{% endif %}
-            {{ form.input ('numero','Votre numéro','0123456789', 'tel') }}
-            {% if errors.numero is defined %}{{ errors.numero }}{% endif %}
-            {{ form.textarea ('commentaire', 'Un commentaire', 'Votre commentaire...') }}
+            {{ form.update ('telephone','Votre numéro',coordonnees.telephone, 'tel') }}
+            {% if errors.telephone is defined %}{{ errors.telephone }}{% endif %}
+            {{ form.update ('ouverture','Horaires d\'ouverture',coordonnees.ouverture, 'text') }}
+            {% if errors.ouverture is defined %}{{ errors.ouverture }}{% endif %}
+            {{ form.updatearea('commentaire', 'Un commentaire', coordonnees.commentaire) }}
             <div class="form-group">
-                <button type="submit" class="btn btn-primary btn-contact">Envoyer</button>
+                <button type="submit" class="btn btn-primary btn-contact">Enregistrer</button>
+                <a href="index.php?section=admin" class="btn btn-danger ">Annuler</a>
             </div>
 
         </form>
+        </fieldset>
     </div>
 </div>
 
 {% endblock %}
 
-{# Faire les connexions avec db quand elle sera opérationnelle pour un UPDATE table ...
--> modifier adminContactAction dans DefaultController en checkant tous les champs
--> Model>UserManager updateContact #}
-{# ContactController !!!!! #}

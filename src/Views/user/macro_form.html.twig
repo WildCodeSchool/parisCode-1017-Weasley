@@ -11,3 +11,17 @@
     <textarea class="form-control" id="{{ name }}" name="{{ name }}" placeholder="{{ placeholder }}"></textarea>
     </div>
 {% endmacro %}
+
+{% macro update(name, label, value, type) %}
+<div class="form-group">
+    <label for="{{ name }}">{{ label }}</label>
+    <input type="{{ type }}" class="form-control" id="{{ name }}" name="{{ name }}" value="{{ value }}" required>
+</div>
+{% endmacro %}
+
+{% macro updatearea(name, label, value) %}
+    <div class="form-group">
+        <label for="{{ name }}">{{ label }}</label>
+        <textarea class="form-control" id="{{ name }}" name="{{ name }}">{{ value }}</textarea>
+    </div>
+{% endmacro %}

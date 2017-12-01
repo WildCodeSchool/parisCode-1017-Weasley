@@ -2,6 +2,8 @@
 
 {% block css %}
     <link rel="stylesheet" href="assets/css/admin.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.css"/>
+
 {% endblock %}
 
 {% block nav %}
@@ -10,13 +12,19 @@
             <li>
                 <a href="index.php?section=admin">
                     <i class="fa fa-home fa-2x" aria-hidden="true"></i>
-                    <span>Home</span>
+                    <span>Accueil</span>
                 </a>
             </li>
             <li>
-                <a href="index.php?section=admin_contact">
-                    <i class="fa fa-address-card fa-2x" aria-hidden="true"></i>
-                    <span>Contact</span>
+                <a href="index.php?section=admin&page=admin_products">
+                    <i class="fa fa-magic fa-2x" aria-hidden="true"></i>
+                    <span>Produits</span>
+                </a>
+            </li>
+            <li>
+                <a href="index.php?section=admin&page=admin_contact">
+                    <i class="fa fa-map-o fa-2x" aria-hidden="true"></i>
+                    <span>Coordonnées</span>
                 </a>
             </li>
             <li>
@@ -39,8 +47,9 @@
 {% endblock %}
 
 {% block body %}
-    <h1>Administration du site Weasleys' wizard wheezes</h1>
+    <h1 class="text-center">Administration du site Weasleys' wizard wheezes</h1>
     {% block content %}
+
     {% endblock %}
 {% endblock %}
 
@@ -48,4 +57,12 @@
 {% endblock %}
 
 {% block js %}
+
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#produitTables').DataTable();
+        } );
+    </script>
+
 {% endblock %}

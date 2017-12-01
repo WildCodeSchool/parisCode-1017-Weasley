@@ -1,0 +1,53 @@
+{% extends 'admin/layout_admin.html.twig' %}
+
+
+
+{% block content %}
+    <div>
+        <div class="row">
+            <h1 class="col-md-10">Mes produits</h1>
+            <a href="index.php?section=admin&page=admin_new_product" class="btn btn-primary btn-ajouter col-md-2">Ajouter</a>
+        </div>
+
+
+        <table id="produitTables" class="display" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th>Nom produit</th>
+                    <th>Description produit</th>
+                    <th>Image</th>
+                    <th>Catégorie</th>
+                    <th>Modifier</th>
+                    <th>Supprimer</th>
+
+                </tr>
+            </thead>
+            <tbody>
+            {% for product in products %}
+                <tr>
+                    <td>
+                        {{ product.nomProduit }}
+                    </td>
+                    <td>
+                        {{ product.descriptionProduit }}
+                    </td>
+                    <td>
+                        <img src="{{ product.imageUrl }}" alt="{{ product.nomProduit }}" class="thumbnail">
+                    </td>
+                    <td>
+                        {{ product.catProduit }}
+                    </td>
+                    <td>
+                        <a href="index.php?section=admin&page=admin_update_products&id={{ product.idProduit }}" class="btn btn-primary">Modifier</a>
+                    </td>
+                    <td>
+                       <a href="index.php?section=admin&page=admin_delete_products&id={{ product.idProduit }}" class="btn btn-danger">Supprimer</a>
+                    </td>
+                </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}

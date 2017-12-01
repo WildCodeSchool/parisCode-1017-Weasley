@@ -1,25 +1,39 @@
 {% extends 'admin/layout_admin.html.twig' %}
 
 {% block content %}
-<h2>Bienvenue admin!</h2>
+    <h2>Bienvenue admin!</h2>
+
     <div class="row">
-    <div class="col-md-4">
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h3 class="panel-title">Coordonnées</h3>
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Coordonnées</h3>
+                </div>
+                <div class="panel-body">
+                    <p>{{ coordonnees . adresse }}</p>
+                    <p>tel: {{ coordonnees . telephone }}</p>
+                    <p>{{ coordonnees . ouverture }}</p>
+                    <p>{{ coordonnees . commentaire }}</p>
+                    <a href="index.php?section=admin&page=admin_contact" class="btn btn-primary">Modifier</a>
+                </div>
+            </div>
         </div>
-            <div class="panel-body">
-            {# Remplacer par les données de la db quand elle sera opérationnelle #}
-            <p>11 rue de Poissy, 75005 Paris</p>
-            <p>Du lundi au samedi de 9h à 20h</p>
-            <p>Le dimanche nous sommes à l'entraînement de Quidditch</p>
-            <p>tel: 08 36 65 65 65 </p>
-            <a href="index.php?section=admin_contact" class="btn btn-primary">Modifier</a>
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Vos Produits</h3>
+                </div>
+                <div class="panel-body">
+                    <img src="assets/pictures/goldensnitch.jpg" class="thumbnail" style="width: 100%">
+                    <a href="index.php?section=admin&page=admin_products" class="btn btn-primary">Voir les produits</a>
+                </div>
+            </div>
         </div>
     </div>
-    </div>
-    </div>
+
+
+
+
 
 {% endblock %}
 
-{# Voir si on fait les mêmes cards pour les autres sections #}
