@@ -48,6 +48,39 @@ class ProductsController extends Controller
         ));
     }
 
+
+    public function createProductAction()
+    {
+        $productManager = new ProductManager();
+
+        if ($_SERVER['REQUEST_METHOD'] == "POST") {
+            $errors = [];
+            foreach ($_POST as $key => $value) {
+                if (empty($_POST[$key])) {
+                    $errors[$key] = "Veuillez renseigner le champ " . $key;
+                }
+            }
+            if (!empty($errors)) {
+                return $this->twig->render('admin/admin_new_product.html.twig', array(
+                    'errors' => $errors
+                ));
+            } else {
+                // Récupération des infos du formulaire
+
+                $nomProduit = $_POST ['nomProduit'];
+                $descriptionProduit = $_POST ['descriptionProduit'];
+//                $imageUrl = $_POST ['imageUrl'];
+                $catProduit = $_POST ['catProduit'];
+
+                // Requete BDD
+                $productManager->createProduct($nomProduit, $descriptionProduit, $catProduit);
+            }
+            // Redirection vers la page de succès
+            return $this->twig->render('admin/admin_success.html.twig');
+
+        } return $this->twig->render('admin/admin_new_product.html.twig');
+    }
+
     public function deleteProductAction()
     {
         $id= $_GET['id'];

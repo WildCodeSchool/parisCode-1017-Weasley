@@ -54,6 +54,16 @@ class ProductManager extends EntityManager
         ]);
     }
 
+    public function createProduct($nomProduit, $descriptionProduit, $imageUrl, $catProduit){
+        $statement = $this->db->prepare('INSERT INTO produits (nomProduit, descriptionProduit, catProduit) VALUES (:nomProduit, :descriptionProduit, :catProduit)');
+        $statement->execute([
+            ':nomProduit' => $nomProduit,
+            ':descriptionProduit' => $descriptionProduit,
+//            ':imageUrl' => $imageUrl,
+            ':catProduit' => $catProduit
+        ]);
+    }
+
     public function deleteProducts($id) {
         $statement = $this->db->prepare('DELETE FROM produits WHERE idProduit = :id');
         $statement->bindParam(':id', $_GET['id'], PDO ::PARAM_INT );
@@ -61,5 +71,6 @@ class ProductManager extends EntityManager
             ':id' => $id
         ));
     }
+
 }
 

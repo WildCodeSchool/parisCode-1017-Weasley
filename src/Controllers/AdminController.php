@@ -18,6 +18,9 @@ use Weasley\Model\Repository\ProductManager;
 
 class AdminController extends Controller
 
+    // /**********************************************************************************
+    //  ********************Ici on met les simples vues côté admin! *********************/
+
 {
     /**
      * Render login

@@ -31,6 +31,15 @@ li{
     width: 200px;
 }
 
+.btn-ajouter{
+    margin-top: 20px;
+    background-color: green;
+    border: none;
+}
+.btn-ajouter:hover{
+    background-color: limegreen;
+}
+
 /**************** end product page ****************/
 
 /*************** success page *********************/
