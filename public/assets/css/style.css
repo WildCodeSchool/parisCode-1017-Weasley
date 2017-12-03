@@ -153,6 +153,14 @@ form{
     background-color: #b08626;
 }
 
+/*************** success page *********************/
+.gif{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
 /*end contact*/
 
 

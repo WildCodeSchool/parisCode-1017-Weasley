@@ -42,6 +42,15 @@ class ProductManager extends EntityManager
         return $statement->fetchAll(PDO::FETCH_CLASS,Product::class);
     }
 
+    public function getOneProduct($id)
+    {
+        $statement = $this->db->query('SELECT * FROM produits WHERE idProduit= :id');
+        $statement->execute(array(
+            ':id' => $id
+        ));
+        return $statement->fetch();
+    }
+
     public function updateProducts($id, $nomProduit, $descriptionProduit, $imageUrl, $catProduit){
         $statement = $this->db->prepare('UPDATE produits SET nomProduit = :nomProduit, descriptionProduit = :descriptionProduit, imageUrl = :imageUrl, catProduit = :catProduit WHERE id = :id');
         $statement->execute([
@@ -66,7 +75,7 @@ class ProductManager extends EntityManager
 
     public function deleteProducts($id) {
         $statement = $this->db->prepare('DELETE FROM produits WHERE idProduit = :id');
-        $statement->bindParam(':id', $_GET['id'], PDO ::PARAM_INT );
+//        $statement->bindParam(':id', $_GET['id'], PDO ::PARAM_INT );
         $statement->execute(array(
             ':id' => $id
         ));
