@@ -41,7 +41,7 @@ class ProductsController extends Controller
                 $productManager->updateProducts($idProduit, $nomProduit, $descriptionProduit, /*$imageUrl,*/ $catProduit);
 
             }
-            return $this->twig->render('admin/admin_success.html.twig');
+            return $this->twig->render('admin/admin_success_update_product.html.twig');
         }
         return $this->twig->render('admin/admin_update_products.html.twig', array(
             'product' => $product
