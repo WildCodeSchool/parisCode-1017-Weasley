@@ -19,7 +19,6 @@ class ProductsController extends Controller
         $productManager = new ProductManager();
         $product = $productManager->getOneProduct($idProduit);
 
-
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $errors = [];
             foreach ($_POST as $key => $value) {
@@ -45,7 +44,7 @@ class ProductsController extends Controller
             return $this->twig->render('admin/admin_success.html.twig');
         }
         return $this->twig->render('admin/admin_update_products.html.twig', array(
-            'products' => $product
+            'product' => $product
         ));
     }
 

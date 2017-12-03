@@ -44,19 +44,15 @@ class ProductManager extends EntityManager
 
     public function getOneProduct($idProduit)
     {   $idProduit=$_GET['id'];
-        $statement = $this->db->query('SELECT * FROM produits WHERE idProduit= 23');
-        $statement->execute(array(
-            ':idProduit' => $idProduit
-        ));
+        $statement = $this->db->query('SELECT * FROM produits WHERE idProduit= '.$idProduit.'');
         return $statement->fetchObject(Product::class);
-        var_dump($_GET);
 
     }
 
     public function updateProducts($idProduit, $nomProduit, $descriptionProduit, /*$imageUrl,*/ $catProduit){
-        $statement = $this->db->prepare('UPDATE produits SET nomProduit = :nomProduit, descriptionProduit = :descriptionProduit, /*imageUrl = :imageUrl,*/ catProduit = :catProduit WHERE idProduit = 23');
+        $statement = $this->db->prepare('UPDATE produits SET nomProduit = :nomProduit, descriptionProduit = :descriptionProduit, /*imageUrl = :imageUrl,*/ catProduit = :catProduit WHERE idProduit = '.$idProduit.'');
         $statement->execute([
-
+            ':idProduit'=> $idProduit,
             ':nomProduit' => $nomProduit,
             ':descriptionProduit' => $descriptionProduit,
             /*':imageUrl' => $imageUrl,*/
