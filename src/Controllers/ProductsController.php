@@ -10,7 +10,9 @@ namespace Weasley\Controllers;
 use PDO;
 use Weasley\Model\Entity\Product;
 use Weasley\Model\Repository\ProductManager;
-/******************* Ici le add update et delete des products ******************/
+//Définition de la constante DIR_PATH qui renvoie au chemin du dossier des uploads
+define("DIR_PATH", 'public/uploads/');
+
 
 class ProductsController extends Controller
 {
@@ -53,6 +55,7 @@ class ProductsController extends Controller
     {
         $productManager = new ProductManager();
 
+
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $errors = [];
             foreach ($_POST as $key => $value) {
@@ -66,14 +69,62 @@ class ProductsController extends Controller
                 ));
             } else {
                 // Récupération des infos du formulaire
-
+                $catProduit = $_POST ['categorie'];
                 $nomProduit = $_POST ['nomProduit'];
                 $descriptionProduit = $_POST ['descriptionProduit'];
-//                $imageUrl = $_POST ['imageUrl'];
-                $catProduit = $_POST ['catProduit'];
+                $imageUrl = $_POST ['imageUrl'];
+                $catProduit = $_POST ['categorie'];
+
+//                if upload file
+                if (!empty($_FILES['files']['name'][0])) {
+
+                    $files = $_FILES ['files'];
+                    $uploaded = array();
+                    $failed = array();
+
+//                   Tableau des extensions autorisées
+                    $allowed = array('png', 'jpg', 'gif');
+
+                    foreach ($files ['name'] as $position => $file_name) {
+
+                        $file_tmp = $files['tmp_name'] [$position];
+                        $file_size = $files ['size'] [$position];
+                        $file_error = $files ['error'] [$position];
+
+//                      Récupération de l'extension des $file_name
+                        $file_ext = explode('.', $file_name);
+                        $file_ext = strtolower(end($file_ext));
+
+//                      Si l'extension du fichier figure dans le tableau des extensions autorisées
+                        if (in_array($file_ext, $allowed)) {
+                            //Si le fichier ne contient pas d'erreur
+                            if ($file_error === 0) {
+                                //Si le poids du fichier est inférieur à 1 MO
+                                if ($file_size <= 2000000) {
+                                    //On crée un nouveau nom de fichier avec le préfixe image, puis un uniqid, suivi de l'extension de fichier
+                                    $file_name_new = 'weasley' . uniqid('') . '_' . $file_ext;
+                                    $file_destination = DIR_PATH . $file_name_new;
+
+                                    if (move_uploaded_file($file_tmp, $file_destination)) {
+                                        $uploaded[$position] = $file_destination;
+                                    } else {
+                                        $failed [$position] = "[{$file_name}] n'a pas pu être uploadé.\n";
+                                    }
+                                } else {
+                                    $failed [$position] = "[{$file_size}] est trop grand. Le fichier uploadé doit être inférieur à 1 MO.\n";
+                                }
+                            } else {
+                                $failed [$position] = "[{$file_name}] comporte une erreur'{$file_error}'\n";
+                            }
+                        } else {
+                            $failed [$position] = "[{$file_name}] l'extension '{$file_ext}' n'est pas prise en charge\n";
+                        }
+                    }
+                }
+
 
                 // Requete BDD
-                $productManager->createProduct($nomProduit, $descriptionProduit, $catProduit);
+                $productManager->createProduct($nomProduit, $descriptionProduit, $catProduit, $imageUrl);
             }
             // Redirection vers la page de succès
             return $this->twig->render('admin/admin_successAddProduit.html.twig');

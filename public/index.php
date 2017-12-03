@@ -58,5 +58,3 @@ if (empty($_GET)) {
 
     }
 }
-
-/******* Au dessus manque DeleteProductAction et AddProductAction **************/
