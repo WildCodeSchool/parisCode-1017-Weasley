@@ -69,7 +69,7 @@ class ProductsController extends Controller
                 ));
             } else {
                 // Récupération des infos du formulaire
-                $catProduit = $_POST ['categorie'];
+
                 $nomProduit = $_POST ['nomProduit'];
                 $descriptionProduit = $_POST ['descriptionProduit'];
                 $imageUrl = $_POST ['imageUrl'];
