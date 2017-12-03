@@ -1,27 +1,27 @@
 {% macro input(name, label, placeholder, type) %}
-    <div class="form-group">
+    <div class="form-group control-label required">
         <label for="{{ name }}">{{ label }}</label>
-        <input type="{{ type }}" class="form-control" id="{{ name }}" name="{{ name }}" placeholder="{{ placeholder }}">
+        <input type="{{ type }}" class="form-control" id="{{ name }}" name="{{ name }}" placeholder="{{ placeholder }}" required>
     </div>
 {% endmacro %}
 
 {% macro textarea(name, label, placeholder) %}
-    <div class="form-group">
+    <div class="form-group control-label required">
     <label for="{{ name }}">{{ label }}</label>
     <textarea class="form-control" id="{{ name }}" name="{{ name }}" placeholder="{{ placeholder }}"></textarea>
     </div>
 {% endmacro %}
 
 {% macro update(name, label, value, type) %}
-<div class="form-group">
+<div class="form-group control-label required">
     <label for="{{ name }}">{{ label }}</label>
     <input type="{{ type }}" class="form-control" id="{{ name }}" name="{{ name }}" value="{{ value }}" required>
 </div>
 {% endmacro %}
 
 {% macro updatearea(name, label, value) %}
-    <div class="form-group">
+    <div class="form-group control-label required">
         <label for="{{ name }}">{{ label }}</label>
-        <textarea class="form-control" id="{{ name }}" name="{{ name }}">{{ value }}</textarea>
+        <textarea class="form-control" id="{{ name }}" name="{{ name }}" required>{{ value }}</textarea>
     </div>
 {% endmacro %}
