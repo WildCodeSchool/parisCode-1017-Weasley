@@ -52,7 +52,6 @@ class ProductManager extends EntityManager
     public function updateProducts($idProduit, $nomProduit, $descriptionProduit, /*$imageUrl,*/ $catProduit){
         $statement = $this->db->prepare('UPDATE produits SET nomProduit = :nomProduit, descriptionProduit = :descriptionProduit, /*imageUrl = :imageUrl,*/ catProduit = :catProduit WHERE idProduit = '.$idProduit.'');
         $statement->execute([
-            ':idProduit'=> $idProduit,
             ':nomProduit' => $nomProduit,
             ':descriptionProduit' => $descriptionProduit,
             /*':imageUrl' => $imageUrl,*/
