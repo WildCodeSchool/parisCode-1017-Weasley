@@ -17,6 +17,7 @@
             {{ form.input ('prenom','Votre prénom','Prénom', 'text') }}
             {{ form.input ('email','Votre email','Dumbledoore@mail.com', 'email') }}
             {{ form.textarea ('message', 'Votre message', 'Votre message...') }}
+            <div class="g-recaptcha" data-sitekey="your_site_key"></div>
             <div class="form-group">
                 <button type="submit" class="btn btn-primary btn-contact">Envoyer</button>
             </div>
@@ -25,4 +26,8 @@
         </div>
     </div>
 
+{% endblock %}
+
+{% block js %}
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 {% endblock %}

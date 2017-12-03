@@ -137,6 +137,12 @@ form{
     margin-left: -10px;
 }
 
+/******* recaptcha **/
+.g-recaptcha{
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
 /** bouton **********/
 
 .btn.btn-primary.btn-contact{
