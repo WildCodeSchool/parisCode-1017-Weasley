@@ -129,6 +129,14 @@ form{
     padding-bottom: 30px;
 }
 
+/**** red asterisk ****/
+.form-group.required.control-label:before{
+    color: red;
+    content: "*";
+    position: absolute;
+    margin-left: -10px;
+}
+
 /** bouton **********/
 
 .btn.btn-primary.btn-contact{
