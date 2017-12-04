@@ -115,6 +115,9 @@ class DefaultController extends Controller
 
         return $this->twig->render('user/success.html.twig');
     }
-
+    public function errorAction()
+    {
+        return $this->twig->render('user/error.html.twig');
+    }
 
 }
