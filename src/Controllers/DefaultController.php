@@ -86,4 +86,9 @@ class DefaultController extends Controller
         ));
     }
 
+    public function errorAction()
+    {
+        return $this->twig->render('user/error.html.twig');
+    }
+
 }

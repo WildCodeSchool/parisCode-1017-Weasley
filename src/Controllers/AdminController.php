@@ -51,4 +51,9 @@ class AdminController extends Controller
         return $this->twig->render('admin/admin_products.html.twig', array(
             "products" => $products));
     }
+
+    public function adminErrorAction()
+    {
+        return $this->twig->render('admin/admin_error.html.twig');
+    }
 }

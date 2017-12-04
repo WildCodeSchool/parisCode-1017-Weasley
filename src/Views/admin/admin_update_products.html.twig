@@ -14,10 +14,10 @@
                     <div class="form-group">
                     <label for="categorie">Catégorie du produit</label>
                     <select id="categorie" name="categorie" class="form-control">
-                        <option value="friandises">Friandises magiques</option>
-                        <option value="farces" >Farces et artifices</option>
-                        <option value="accessoires">Accessoires</option>
-                        <option value="packs">Packs magiques</option>
+                        <option value="friandises" {% if product.catProduit == "friandises" %}selected{% endif %}>Friandises magiques</option>
+                        <option value="farces" {% if product.catProduit == "farces" %}selected{% endif %}>Farces et artifices</option>
+                        <option value="accessoires" {% if product.catProduit == "accessoires" %}selected{% endif %}>Accessoires</option>
+                        <option value="packs" {% if product.catProduit == "packs" %}selected{% endif %}>Packs magiques</option>
                     </select>
                     </div>
                     {{ form.updatearea('description', 'Description du produit', product.descriptionProduit) }}
