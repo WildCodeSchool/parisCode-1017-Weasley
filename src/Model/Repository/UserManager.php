@@ -36,21 +36,6 @@ class UserManager extends EntityManager
         return $statement->fetch();
     }
 
-//    public function sendMessage(){
-//
-//    // Create the mail transport configuration
-//    $transport = Swift_MailTransport::newInstance();
-//
-//    // Create the message
-//    $message = \Swift_Message::newInstance()
-//        ->setSubject('validation de votre mail')
-//        ->setFrom('$user')
-//        ->setTo('elisaratcha@gmail.com')
-//        ->setCharset('utf-8')
-//        ->setContentType('text/html')
-//        ->setBody($this->renderView('merci pour votre message!'));
-//    $this->get('mailer')->send($message);
-//}
 
 
 
