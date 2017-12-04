@@ -26,7 +26,6 @@ if (empty($_GET)) {
 } elseif ($_GET['section'] == "produits") {
     echo $defaultController->produitsAction();
 
-
 } elseif ($_GET['section'] == "contact"){
     echo $defaultController->contactAction();
 
@@ -56,5 +55,10 @@ if (empty($_GET)) {
     } elseif ($_GET['page'] == "admin_delete_products") {
         echo $productsController->deleteProductAction();
 
+    } elseif (!empty($_GET['page'])) {
+        echo $adminController->adminErrorAction();
     }
+} elseif (!empty($_GET['section'])) {
+    echo $defaultController->errorAction();
 }
+
