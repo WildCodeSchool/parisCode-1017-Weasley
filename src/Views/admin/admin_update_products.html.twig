@@ -1,6 +1,7 @@
 {% extends 'admin/layout_admin.html.twig' %}
 {% import'user/macro_form.html.twig' as form %}
 
+
 {% block content %}
 
     <div class="row">
@@ -12,11 +13,11 @@
                     {% if errors.nom is defined %}{{ errors.nom }}{% endif %}
                     <div class="form-group">
                     <label for="categorie">Catégorie du produit</label>
-                    <select id="categorie" class="form-control">
-                        <option value="farces">Farces et </option>
-                        <option value="valeur2" selected>Valeur 2</option>
-                        <option value="valeur3">Valeur 3</option>
-                        <option value="valeur3">Valeur 3</option>
+                    <select id="categorie" name="categorie" class="form-control">
+                        <option value="friandises" {% if product.catProduit == "friandises" %}selected{% endif %}>Friandises magiques</option>
+                        <option value="farces" {% if product.catProduit == "farces" %}selected{% endif %}>Farces et artifices</option>
+                        <option value="accessoires" {% if product.catProduit == "accessoires" %}selected{% endif %}>Accessoires</option>
+                        <option value="packs" {% if product.catProduit == "packs" %}selected{% endif %}>Packs magiques</option>
                     </select>
                     </div>
                     {{ form.updatearea('description', 'Description du produit', product.descriptionProduit) }}
@@ -35,4 +36,5 @@
             </fieldset>
         </div>
     </div>
+
 {% endblock %}
