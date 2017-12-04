@@ -115,9 +115,6 @@ class ProductsController extends Controller
         }
     }
 
-
-
-
     public function deleteProductAction()
     {
         $id= $_GET['id'];
