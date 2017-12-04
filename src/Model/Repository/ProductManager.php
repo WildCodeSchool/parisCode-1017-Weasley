@@ -70,6 +70,19 @@ class ProductManager extends EntityManager
         ]);
     }
 
+    /**
+     * Add image in bdd
+     * @param $url
+     */
+    public function addImage($imageUrl){
+        // Préparer la requete
+        $req = $this->db->prepare("INSERT INTO produits (imageUrl) VALUES (:imageUrl)");
+        // Executer la requete
+        $req->execute(array(
+            ':imageUrl' => $imageUrl
+        ));
+    }
+
     public function deleteProducts($id) {
         $statement = $this->db->prepare('DELETE FROM produits WHERE idProduit = :id');
 //        $statement->bindParam(':id', $_GET['id'], PDO ::PARAM_INT );
