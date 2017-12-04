@@ -58,7 +58,12 @@ if (empty($_GET)) {
     } elseif ($_GET['page'] == "admin_delete_products") {
         echo $productsController->deleteProductAction();
 
+    } elseif (!empty($_GET['page'])) {
+        echo $adminController->adminErrorAction();
     }
+} elseif (!empty($_GET['section'])) {
+    echo $defaultController->errorAction();
 }
+
 
 /******* Au dessus manque DeleteProductAction et AddProductAction **************/

@@ -15,9 +15,9 @@ use Weasley\Model\Repository\ProductManager;
 class ProductsController extends Controller
 {
     public function updateProductAction()
-    {
+    {   $idProduit= $_GET['id'];
         $productManager = new ProductManager();
-        $products = $productManager->getAllProducts();
+        $product = $productManager->getOneProduct($idProduit);
 
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $errors = [];
@@ -32,19 +32,19 @@ class ProductsController extends Controller
                     'errors' => $errors
                 ));
             } else {
-                $id = $_GET['id'];
+                $idProduit = $_GET['id'];
                 $nomProduit = $_POST ['nom'];
                 $descriptionProduit = $_POST ['description'];
-                $imageUrl = $_POST ['image'];
+                /*$imageUrl = $_POST ['image'];*/
                 $catProduit = $_POST ['categorie'];
 
-                $productManager->updateProducts($id, $nomProduit, $descriptionProduit, $imageUrl, $catProduit);
+                $productManager->updateProducts($idProduit, $nomProduit, $descriptionProduit, /*$imageUrl,*/ $catProduit);
 
             }
-            return $this->twig->render('admin/admin_success.html.twig');
+            return $this->twig->render('admin/admin_success_update_product.html.twig');
         }
         return $this->twig->render('admin/admin_update_products.html.twig', array(
-            'products' => $products
+            'product' => $product
         ));
     }
 
@@ -76,7 +76,7 @@ class ProductsController extends Controller
                 $productManager->createProduct($nomProduit, $descriptionProduit, $catProduit);
             }
             // Redirection vers la page de succès
-            return $this->twig->render('admin/admin_success.html.twig');
+            return $this->twig->render('admin/admin_successAddProduit.html.twig');
 
         } return $this->twig->render('admin/admin_new_product.html.twig');
     }

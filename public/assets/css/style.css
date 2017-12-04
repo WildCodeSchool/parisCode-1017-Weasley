@@ -44,14 +44,11 @@ h2{
 
 /******************navbar*********************/
 
-#logo{
-    font-family: 'Berkshire Swash', cursive;
+#logobrand{
+    position: relative;
+    bottom: 15px;
+    left: -15px;
 }
-
-#logo:hover{
-    color: #FFF;
-}
-
 /** burger **/
 .navbar-inverse .navbar-toggle .icon-bar{
     background-color: #C69627;
@@ -113,7 +110,19 @@ div.topBotomBordersOut a:hover:before, div.topBotomBordersOut a:hover:after
     border-radius: 0px;
 }
 
-@media (min-width: 760px){
+@media (min-width: 768px) {
+    .navbar-nav {
+        display: table;
+        width: 100%;
+        margin: 0;
+    }
+
+    .navbar-nav > li {
+        float: none;
+        display: table-cell;
+        text-align: center;
+    }
+
     #logobrand{
         display: none;
 
@@ -129,6 +138,20 @@ form{
     padding-bottom: 30px;
 }
 
+/**** red asterisk ****/
+.form-group.required.control-label:before{
+    color: red;
+    content: "*";
+    position: absolute;
+    margin-left: -10px;
+}
+
+/******* recaptcha **/
+.g-recaptcha{
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
 /** bouton **********/
 
 .btn.btn-primary.btn-contact{
@@ -139,6 +162,14 @@ form{
     background-color: #b08626;
 }
 
+/*************** success page *********************/
+.gif{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
 /*end contact*/
 
 

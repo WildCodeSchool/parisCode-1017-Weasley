@@ -2,7 +2,6 @@
 
 namespace Weasley\Controllers;
 
-use Weasley\Model\Repository\UserManager;
 use Weasley\Model\Repository\ProductManager;
 use Weasley\Model\Repository\ContactManager;
 
@@ -21,7 +20,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * Render concept
+     * Render concept page
      */
     public function conceptAction()
     {
@@ -29,7 +28,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * Render concept
+     * Render legal mentions page
      */
     public function mentionsAction()
     {
@@ -37,44 +36,41 @@ class DefaultController extends Controller
     }
 
     /**
-     * Render contact
+     * Render contact page and form check errors
      */
     public function contactAction()
     {
         $contact = new ContactManager();
         $coordonnees = $contact->getContact();
 
+        if ($_SERVER['REQUEST_METHOD'] == "POST") {
+            $errors = [];
+            foreach ($_POST as $key => $value) {
+                if (empty($_POST[$key])) {
+                    $errors[$key] = "Veuillez renseigner le champ " . $key;
+                }
+            }
 
-        return $this->twig->render('user/contact.html.twig', array(
-            "coordonnees" => $coordonnees
-        ));
+            if (!empty($errors)) {
+                return $this->twig->render('user/contact.html.twig', array(
+                    'errors' => $errors
+                ));
+            } else {
+                $nom= $_POST ['nom'];
+                $prenom = $_POST ['prenom'];
+                $email = $_POST ['email'];
+                $message = $_POST ['message'];
+
+                $this->sendEmail($nom, $prenom,$email,$message);
+            }   return $this->twig->render('user/success.html.twig');
+        }  return $this->twig->render('user/contact.html.twig', array(
+        "coordonnees" => $coordonnees
+    ));
     }
 
-    /*    public function formAction()
-        {
-            if ($_SERVER['REQUEST_METHOD'] == "POST") {
-                $errors = [];
-                foreach ($_POST as $key => $value) {
-                    if (empty($_POST[$key])) {
-                        $errors[$key] = "Veuillez renseigner le champ " . $key;
-                    }
-                }
-
-                if (!empty($errors)) {
-                    return $this->twig->render('user/contact.html.twig', array(
-                        'errors' => $errors
-                    ));
-                } else {
-                    //faire le lien mail reception et envoi
-                }
-                return $this->twig->render('user/success.html.twig');
-            }
-            return $this->twig->render('user/contact.html.twig', array(
-                'products' => $products
-            ));
-        }*/
-
-
+    /**
+     * Render products page
+     */
     public function produitsAction()
     {
         $productManager = new ProductManager();
@@ -90,7 +86,8 @@ class DefaultController extends Controller
         ));
     }
 
-    public function sendEmail($infoForm) {
+
+    private function sendEmail($nom,$prenom,$email,$message) {
         // Create the Transport
         $transport = (new \Swift_SmtpTransport('smtp.gmail.com', 465, 'ssl'))
             ->setUsername('weasleysfredetgeorges@gmail.com')
@@ -101,47 +98,23 @@ class DefaultController extends Controller
 
         // Create a message
         $message = (new \Swift_Message('Voici le message de votre client'))
-            ->setFrom([$infoForm['email'] => $infoForm['fn']])
+            ->setFrom(['weasleysfredetgeorges@gmail.com'=> 'weasley'])
             ->setTo(['weasleysfredetgeorges@gmail.com' => 'Fred et Georges Weasley'])
-            ->setBody($infoForm['message']." ".$infoForm['email']);
+            ->setBody(
+                $this->twig->render('admin/mail_template.html.twig', array(
+                    'message' => $message,
+                    'nom' => $nom,
+                    'prenom' => $prenom,
+                    'email' => $email
+                )), 'text/html'
+            );
 
         // Send the message
 
-//        $mailer->send($message);
+        $mailer->send($message);
 
         return $this->twig->render('user/success.html.twig');
     }
 
-    public function contactUsAction(){
-        if ($_POST) {
-            // errors array
-            $errors = array();
-            //start validation
-            if (empty($_POST[''])) {
-                $errors['fn']="Merci de bien vouloir saisir votre nom";
-            }
-            if (empty($_POST['ln'])) {
-                $errors['ln']="Merci de bien vouloir saisir votre prénom";
-            }
-            if (empty($_POST['phone'])) {
-                $errors['phone']="Merci de bien vouloir saisir votre numéro de téléphone";
-            }
-            if (empty($_POST['email'])) {
-                $errors['email']="Merci de bien vouloir saisir votre adresse email";
-            }
-            if (empty($_POST['message'])) {
-                $errors['message']="Merci de bien vouloir saisir votre message";
-            }
-            if (count($errors) > 0){
-                return $this->twig->render('user/contact.html.twig', array(
-                    'errors' => $errors,
-                    'post' => $_POST
-                ));
-            }
-            else {
-                return $this->sendEmail($_POST);
-            }
-        }
-        return $this->twig->render('user/contact.html.twig');
-    }
+
 }
