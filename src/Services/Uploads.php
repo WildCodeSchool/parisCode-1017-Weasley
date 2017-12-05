@@ -27,11 +27,11 @@ class Uploads
         $errors = [];
         $allowed = array ('jpg', 'png', 'gif');
 
-        if ($file->getSize() > 1047829){
-            return $errors = 'Trop lourd';
+        if ($file->getSize() > 2000000){
+            return $errors = 'Votre fichier est trop lourd';
         }
         elseif (!in_array($file->getExt(), $allowed)){
-            return $errors = 'Bad extension';
+            return $errors = "L'extension de votre fichier n'est pas prise en compte";
         }
         else{
             return $errors = null;
@@ -49,7 +49,7 @@ class Uploads
         $error = $this->checkError($file);
 
         if ($error == null){
-            $result = move_uploaded_file($file->getTmpName(), self::DIR_PATH . $file->getFileName());
+           move_uploaded_file($file->getTmpName(), self::DIR_PATH . $file->getFileName());
         }
         return $error;
     }

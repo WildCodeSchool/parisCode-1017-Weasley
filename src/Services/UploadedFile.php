@@ -116,7 +116,7 @@ class UploadedFile
 	public function setExt($name)
 	{
 		// Récupérer l'extension du fichier (pathinfo)
-		$this->ext=pathinfo($name, PATHINFO_EXTENSION);
+		$this->ext=strtolower(pathinfo($name, PATHINFO_EXTENSION));
 	}
 
 	/**
