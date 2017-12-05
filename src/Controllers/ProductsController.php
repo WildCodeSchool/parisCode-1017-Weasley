@@ -69,11 +69,11 @@ class ProductsController extends Controller
 
                 $nomProduit = $_POST ['nomProduit'];
                 $descriptionProduit = $_POST ['descriptionProduit'];
-//                $imageUrl = $_POST ['imageUrl'];
-                $catProduit = $_POST ['catProduit'];
+                $imageUrl = $_POST ['imageUrl'];
+                $catProduit = $_POST ['categorie'];
 
                 // Requete BDD
-                $productManager->createProduct($nomProduit, $descriptionProduit, $catProduit);
+                $productManager->createProduct($nomProduit, $descriptionProduit, $imageUrl, $catProduit);
             }
             // Redirection vers la page de succès
             return $this->twig->render('admin/admin_successAddProduit.html.twig');

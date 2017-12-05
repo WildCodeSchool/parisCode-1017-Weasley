@@ -56,7 +56,6 @@ class ProductManager extends EntityManager
             ':descriptionProduit' => $descriptionProduit,
             /*':imageUrl' => $imageUrl,*/
             ':catProduit' => $catProduit
-
         ]);
     }
 
