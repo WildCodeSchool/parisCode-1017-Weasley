@@ -10,7 +10,9 @@ namespace Weasley\Controllers;
 use PDO;
 use Weasley\Model\Entity\Product;
 use Weasley\Model\Repository\ProductManager;
-/******************* Ici le add update et delete des products ******************/
+use Weasley\Services\Uploads;
+use Weasley\Services\UploadedFile;
+
 
 class ProductsController extends Controller
 {
@@ -48,11 +50,9 @@ class ProductsController extends Controller
         ));
     }
 
-
     public function createProductAction()
     {
         $productManager = new ProductManager();
-
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $errors = [];
             foreach ($_POST as $key => $value) {
@@ -66,7 +66,6 @@ class ProductsController extends Controller
                 ));
             } else {
                 // Récupération des infos du formulaire
-
                 $nomProduit = $_POST ['nomProduit'];
                 $descriptionProduit = $_POST ['descriptionProduit'];
                 $imageUrl = $_POST ['imageUrl'];
@@ -77,9 +76,121 @@ class ProductsController extends Controller
             }
             // Redirection vers la page de succès
             return $this->twig->render('admin/admin_successAddProduit.html.twig');
-
         } return $this->twig->render('admin/admin_new_product.html.twig');
     }
+
+  /*  *
+     * @return string
+     */
+    public function newAction(){
+        if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+
+            // Récupérer du tableau d'image envoyé par le formulaire
+            $files = $_FILES['images'];
+
+            $upload = new Uploads();
+            $cardManager = new CardManager();
+
+            // Parcourir le tableau d'image
+            foreach ($files['name'] as $position => $file_name) {
+
+                // Pour chaque image, vérifier s'il n'y a pas d'erreur lié à php ($_FILES['files']['error']
+                $error = $files['error'][$position];
+                if ($error != 0) {
+                    // S'il il y a une erreur php, stocker le message d'erreur dans une variable
+                    $error[$file_name] = "erreur PHP";
+
+                    // Sinon on upload
+                } else {
+
+                    // Récupération et stockage du name, tmp_name, size du fichier
+                    $size = $files['size'][$position];
+                    $tmp_name = $files['tmp_name'][$position];
+
+                    // Instanciation d'une objet UploadedFile
+                    $uploadedFile = new UploadedFile($file_name, $tmp_name, $size);
+
+                    // Upload du fichier via la méthode défini dans le service
+                    $result = $upload->upload($uploadedFile);
+
+                    // Traitement du resultat, si pas d'erreur, on enregitre en BDD, sinon, on ajout un message en session
+                    if ($result == null){
+                        $cardManager->addImage($uploadedFile->getFileName());
+                    }
+                }
+            }
+
+            // On redirige vers la page d'acceuil
+            header("Location: index.php");
+        }
+        else{
+            return $this->twig->render('card/new.html.twig');
+        }
+    }
+
+//    /**
+//     * @return string
+//     */
+//    public function createProductAction()
+//    {
+//        $productManager = new ProductManager();
+//
+//
+//        if ($_SERVER['REQUEST_METHOD'] == "POST") {
+//            $errors = [];
+//            foreach ($_POST as $key => $value) {
+//                if (empty($_POST[$key])) {
+//                    $errors[$key] = "Veuillez renseigner le champ " . $key;
+//                }
+//            }
+//            if (!empty($errors)) {
+//                return $this->twig->render('admin/admin_new_product.html.twig', array(
+//                    'errors' => $errors
+//                ));
+//            }
+//            // Récupérer le tableau d'image envoyé par le formulaire
+//                $files = $_FILES['image'];
+//                $upload = new Uploads();
+//            // Parcourir le tableau d'image
+//            foreach ($files['name'] as $position => $file_name) {
+//
+//                // Pour chaque image, vérifier s'il n'y a pas d'erreur lié à php ($_FILES['files']['error']
+//                $error = $files['error'][$position];
+//                if ($error != 0) {
+//                    // S'il il y a une erreur php, stocker le message d'erreur dans une variable
+//                    $error[$file_name] = "erreur PHP";
+//
+//                    // Sinon on upload
+//                } else {
+//
+//                    // Récupération et stockage du name, tmp_name, size du fichier
+//                    $size = $files['size'][$position];
+//                    $tmp_name = $files['tmp_name'][$position];
+//
+//                    // Instanciation d'un objet UploadedFile
+//                    $uploadedFile = new UploadedFile($file_name, $tmp_name, $size);
+//
+//                    // Upload du fichier via la méthode définie dans le service
+//                    $result = $upload->upload($uploadedFile);
+//
+//                    // Récupération des infos du formulaire
+//
+//                    $nomProduit = $_POST ['nomProduit'];
+//                    $descriptionProduit = $_POST ['descriptionProduit'];
+//                    $imageUrl = $_POST ['imageUrl'];
+//                    $catProduit = $_POST ['categorie'];
+//
+//                    // Requete BDD
+//                    $productManager->createProduct($nomProduit, $descriptionProduit, $catProduit, $imageUrl);
+//                    // Traitement du resultat, si pas d'erreur, on enregitre en BDD, sinon, on ajoute un message en session
+//                    if ($result == null){
+//                        $productManager->addImage($uploadedFile->getFileName());
+//                    }
+//                }// Redirection vers la page de succès
+//                return $this->twig->render('admin/admin_successAddProduit.html.twig');
+//            }return $this->twig->render('admin/admin_new_product.html.twig');
+//        }
+//    }
 
     public function deleteProductAction()
     {

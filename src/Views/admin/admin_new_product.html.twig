@@ -9,9 +9,11 @@
                 <legend>Ajouter un produit</legend>
                 <form action="index.php?section=admin&page=admin_new_product" method="post" enctype="multipart/form-data">
                     {{ form.update ('nomProduit','Nom du produit',product.nomProduit , 'text') }}
-                    {% if errors.nomProduit is defined %}{{ errors.nomProduit }}{% endif %}
+                    {% if errors.nomProduit is defined %}{{ errors.nomProduit }}
+                    {% endif %}
                     <div class="form-group">
                     <label for="categorie">Catégorie du produit</label>
+
                         <select id="categorie" name="categorie" class="form-control">
                             <option value="friandises" {% if product.catProduit == "friandises" %}selected{% endif %}>Friandises magiques</option>
                             <option value="farces" {% if product.catProduit == "farces" %}selected{% endif %}>Farces et artifices</option>
@@ -31,7 +33,6 @@
                         <button type="submit" class="btn btn-primary btn-contact">Enregistrer</button>
                         <a href="index.php?section=admin&page=admin_products" class="btn btn-danger ">Annuler</a>
                     </div>
-
                 </form>
             </fieldset>
         </div>

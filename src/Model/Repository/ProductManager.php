@@ -60,13 +60,26 @@ class ProductManager extends EntityManager
     }
 
     public function createProduct($nomProduit, $descriptionProduit, $imageUrl, $catProduit){
-        $statement = $this->db->prepare('INSERT INTO produits (nomProduit, descriptionProduit, catProduit) VALUES (:nomProduit, :descriptionProduit, :catProduit)');
+        $statement = $this->db->prepare('INSERT INTO produits (nomProduit, descriptionProduit, catProduit, imageUrl) VALUES (:nomProduit, :descriptionProduit, :catProduit, :imageUrl)');
         $statement->execute([
             ':nomProduit' => $nomProduit,
             ':descriptionProduit' => $descriptionProduit,
-//            ':imageUrl' => $imageUrl,
+            ':imageUrl' => $imageUrl,
             ':catProduit' => $catProduit
         ]);
+    }
+
+    /**
+     * Add image in bdd
+     * @param $url
+     */
+    public function addImage($imageUrl){
+        // Préparer la requete
+        $req = $this->db->prepare("INSERT INTO produits (imageUrl) VALUES (:imageUrl)");
+        // Executer la requete
+        $req->execute(array(
+            ':imageUrl' => $imageUrl
+        ));
     }
 
     public function deleteProducts($id) {
