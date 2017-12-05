@@ -29,6 +29,9 @@ if (empty($_GET)) {
 } elseif ($_GET['section'] == "contact"){
     echo $defaultController->contactAction();
 
+} elseif ($_GET['section'] == "contact"){
+    echo $defaultController->contacUstAction();
+
 } elseif ($_GET['section'] == "mentions") {
     echo $defaultController->mentionsAction();
 

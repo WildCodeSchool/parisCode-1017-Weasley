@@ -61,7 +61,7 @@ class DefaultController extends Controller
                 $email = $_POST ['email'];
                 $message = $_POST ['message'];
 
-                // insert swiftmailer things
+                $this->sendEmail($nom, $prenom,$email,$message);
             }   return $this->twig->render('user/success.html.twig');
         }  return $this->twig->render('user/contact.html.twig', array(
         "coordonnees" => $coordonnees
@@ -86,6 +86,35 @@ class DefaultController extends Controller
         ));
     }
 
+
+    private function sendEmail($nom,$prenom,$email,$message) {
+        // Create the Transport
+        $transport = (new \Swift_SmtpTransport('smtp.gmail.com', 465, 'ssl'))
+            ->setUsername('weasleysfredetgeorges@gmail.com')
+            ->setPassword('carovaleli');
+
+        // Create the Mailer using your created Transport
+        $mailer = new \Swift_Mailer($transport);
+
+        // Create a message
+        $message = (new \Swift_Message('Voici le message de votre client'))
+            ->setFrom(['weasleysfredetgeorges@gmail.com'=> 'weasley'])
+            ->setTo(['weasleysfredetgeorges@gmail.com' => 'Fred et Georges Weasley'])
+            ->setBody(
+                $this->twig->render('admin/mail_template.html.twig', array(
+                    'message' => $message,
+                    'nom' => $nom,
+                    'prenom' => $prenom,
+                    'email' => $email
+                )), 'text/html'
+            );
+
+        // Send the message
+
+        $mailer->send($message);
+
+        return $this->twig->render('user/success.html.twig');
+    }
     public function errorAction()
     {
         return $this->twig->render('user/error.html.twig');
