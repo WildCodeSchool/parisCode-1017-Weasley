@@ -4,6 +4,7 @@ namespace Weasley\Model\Repository;
 
 use PDO;
 use Weasley\Model\Entity\User;
+require_once 'lib/swift_required.php';
 
 /**
  * Class UserManager
@@ -34,5 +35,8 @@ class UserManager extends EntityManager
         ]);
         return $statement->fetch();
     }
+
+
+
 
 }
