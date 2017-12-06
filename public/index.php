@@ -18,9 +18,10 @@ $productsController = new ProductsController();
 
 session_start();
 
+
+
 if (empty($_GET)) {
     echo $defaultController->indexAction();
-
 } elseif ($_GET['section'] == "concept") {
     echo $defaultController->conceptAction();
 
@@ -41,31 +42,35 @@ if (empty($_GET)) {
 
 } elseif ($_GET['section'] == "logout") {
     echo $adminController->logoutAction();
+}
 
-} elseif ($_GET['section'] == "admin") {
-    if (!isset ($_GET['page'])) {
+elseif ($_GET['section'] == "admin") {
+    if (isset($_SESSION['login'])){
+        if (!isset ($_GET['page'])) {
+            echo $adminController->adminAction();
+        } elseif ($_GET['page'] == "admin_contact") {
+            echo $contactController->contactUpdateAction();
 
-        echo $adminController->adminAction();
+        } elseif ($_GET['page'] == "admin_products") {
+            echo $adminController->adminProductAction();
 
-    } elseif ($_GET['page'] == "admin_contact") {
-        echo $contactController->contactUpdateAction();
+        } elseif ($_GET['page'] == "admin_update_products") {
+            echo $productsController->updateProductAction();
 
-    } elseif ($_GET['page'] == "admin_products") {
-        echo $adminController->adminProductAction();
+        } elseif ($_GET['page']== "admin_new_product") {
+            echo $productsController->createProductAction();
 
-    } elseif ($_GET['page'] == "admin_update_products") {
-        echo $productsController->updateProductAction();
+        } elseif ($_GET['page'] == "admin_delete_products") {
+            echo $productsController->deleteProductAction();
 
-    } elseif ($_GET['page']== "admin_new_product") {
-        echo $productsController->createProductAction();
-      
-    } elseif ($_GET['page'] == "admin_delete_products") {
-        echo $productsController->deleteProductAction();
-
-    } elseif (!empty($_GET['page'])) {
-        echo $adminController->adminErrorAction();
+        } else {
+            echo $adminController->adminErrorAction();
+        }
+    } else {
+        echo $adminController->loginAction();
     }
-} elseif (!empty($_GET['section'])) {
+}
+else {
     echo $defaultController->errorAction();
 }
 
