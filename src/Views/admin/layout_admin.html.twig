@@ -1,3 +1,13 @@
+
+{#On démarre la session AVANT d'écrire du code HTML#}{#
+
+
+{% for use in user %}
+    $_SESSION['login'] = {{ use.login }};
+    $_SESSION['password'] = {{ use.login }};
+
+{% endfor %}#}
+
 {% extends 'base.html.twig' %}
 
 {% block css %}
@@ -34,8 +44,8 @@
                 </a>
             </li>
             <li>
-                <a href="index.php?section=login">
-                    <<i class="fa fa-sign-out fa-2x" aria-hidden="true"></i>
+                <a href="index.php?section=logout">
+                    <i class="fa fa-sign-out fa-2x" aria-hidden="true"></i>
                     <span>Déconnexion</span>
                 </a>
             </li>
@@ -47,7 +57,7 @@
 {% endblock %}
 
 {% block body %}
-    <h1 class="text-center">Administration du site Weasleys' wizard wheezes</h1>
+    <h1 class="text-center">Administration du site Weasleys' Wizard Wheezes</h1>
     {% block content %}
 
     {% endblock %}

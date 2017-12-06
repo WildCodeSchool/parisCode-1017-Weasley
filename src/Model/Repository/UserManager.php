@@ -4,7 +4,7 @@ namespace Weasley\Model\Repository;
 
 use PDO;
 use Weasley\Model\Entity\User;
-require_once 'lib/swift_required.php';
+/*require_once 'lib/swift_required.php';*/
 
 /**
  * Class UserManager
@@ -36,7 +36,31 @@ class UserManager extends EntityManager
         return $statement->fetch();
     }
 
+    /**
+     * @param $login
+     * @return mixed
+     */
+    public function getPassword($login)
+    {
+        $statement = $this->db->prepare('SELECT * FROM user WHERE login = :login');
+        $statement->execute([
+            ':login' => $login
+        ]);
+        return $statement->fetchObject(User::class);
+    }
 
+    /**
+     * @param $password
+     * @return mixed
+     */
+    public function getLogin($password) /*$password correspond à ce qu'on a dans le formulaire*/
+    {
+        $statement = $this->db->prepare('SELECT * FROM user WHERE password = :password');
+        $statement->execute([
+            ':password' => $password
+        ]);
+        return $statement->fetchObject(User::class);
+    }
 
 
 }

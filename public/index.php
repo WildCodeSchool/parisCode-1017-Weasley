@@ -16,6 +16,7 @@ $adminController = new AdminController();
 $contactController = new ContactController();
 $productsController = new ProductsController();
 
+session_start();
 
 if (empty($_GET)) {
     echo $defaultController->indexAction();
@@ -37,6 +38,9 @@ if (empty($_GET)) {
 
 } elseif ($_GET['section'] == "login") {
     echo $adminController->loginAction();
+
+} elseif ($_GET['section'] == "logout") {
+    echo $adminController->logoutAction();
 
 } elseif ($_GET['section'] == "admin") {
     if (!isset ($_GET['page'])) {
