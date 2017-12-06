@@ -88,13 +88,9 @@ class ProductsController extends Controller
                 return $this->twig->render('admin/admin_update_products.html.twig', array(
                     'errors' => $errors
                 ));
-            } else {
-                $idProduit = $_GET['id'];
-                $nomProduit = $_POST ['nom'];
-                $descriptionProduit = $_POST ['description'];
-                $catProduit = $_POST ['categorie'];
+            } // on modifie l'image aussi
+            if (!empty($_FILES['imgUpload']['name'])) {
                 $image = $_FILES['imgUpload'];
-
                 $uploadedFile = new UploadedFile($image['name'], $image['tmp_name'], $image['size']);
 
                 // Upload du fichier via la méthode définie dans le service
@@ -108,11 +104,19 @@ class ProductsController extends Controller
                     ));
                 } else {
 
-                    $productManager->updateProducts($idProduit, $nomProduit, $descriptionProduit, $uploadedFile->getFileName(), $catProduit);
+                    $productManager->updateImgProducts($idProduit, $uploadedFile->getFileName());
+                }
+            } else {
+                $idProduit = $_GET['id'];
+                $nomProduit = $_POST ['nom'];
+                $descriptionProduit = $_POST ['description'];
+                $catProduit = $_POST ['categorie'];
+
+                $productManager->updateProducts($idProduit, $nomProduit, $descriptionProduit, $catProduit);
                 }
                 return $this->twig->render('admin/admin_success_update_product.html.twig');
             }
-        } else {
+        else {
             return $this->twig->render('admin/admin_update_products.html.twig', array(
                 'product' => $product
             ));

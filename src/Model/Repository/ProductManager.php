@@ -49,16 +49,20 @@ class ProductManager extends EntityManager
 
     }
 
-    public function updateProducts($idProduit, $nomProduit, $descriptionProduit, $imageUrl, $catProduit){
-        $statement = $this->db->prepare('UPDATE produits SET nomProduit = :nomProduit, descriptionProduit = :descriptionProduit, imageUrl = :imageUrl, catProduit = :catProduit WHERE idProduit = '.$idProduit.'');
+    public function updateProducts($idProduit, $nomProduit, $descriptionProduit, $catProduit){
+        $statement = $this->db->prepare('UPDATE produits SET nomProduit = :nomProduit, descriptionProduit = :descriptionProduit, catProduit = :catProduit WHERE idProduit = '.$idProduit.'');
         $statement->execute([
             ':nomProduit' => $nomProduit,
             ':descriptionProduit' => $descriptionProduit,
-            ':imageUrl' => $imageUrl,
             ':catProduit' => $catProduit
         ]);
     }
-
+    public function updateImgProducts($idProduit,$imageUrl){
+        $statement = $this->db->prepare('UPDATE produits SET imageUrl = :imageUrl WHERE idProduit = '.$idProduit.'');
+        $statement->execute([
+            ':imageUrl' => $imageUrl,
+        ]);
+    }
     public function createProduct($nomProduit, $descriptionProduit, $imageUrl, $catProduit){
         $statement = $this->db->prepare('INSERT INTO produits (nomProduit, descriptionProduit, catProduit, imageUrl) VALUES (:nomProduit, :descriptionProduit, :catProduit, :imageUrl)');
         $statement->execute([
