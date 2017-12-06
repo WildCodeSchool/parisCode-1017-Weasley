@@ -8,7 +8,7 @@
         <div class="col-md-offset-2 col-md-8 col-xs-12">
             <fieldset>
                 <legend>Modifier le produit</legend>
-                <form action="index.php?section=admin&page=admin_update_products&id={{ product.idProduit }}" method="post">
+                <form action="index.php?section=admin&page=admin_update_products&id={{ product.idProduit }}" method="post" enctype="multipart/form-data">
                     {{ form.update ('nom','Nom du produit',product.nomProduit , 'text') }}
                     {% if errors.nom is defined %}{{ errors.nom }}{% endif %}
                     <div class="form-group">
@@ -22,7 +22,7 @@
                     </div>
                     {{ form.updatearea('description', 'Description du produit', product.descriptionProduit) }}
                     {% if errors.description is defined %}{{ errors.description }}{% endif %}
-                    <div class="form-group">
+                    <div class="form-group control-label required">
                         <label for="imgUpload">Sélectionnez votre image</label>
                         <input name="imgUpload" type="file" id="imgUpload">
                         <p class="help-block">Formats acceptés : jpg, png, gif</p>

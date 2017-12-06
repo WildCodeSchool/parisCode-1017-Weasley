@@ -71,7 +71,8 @@ class ProductsController extends Controller
     }
 
     public function updateProductAction()
-    {   $idProduit= $_GET['id'];
+    {
+        $idProduit = $_GET['id'];
         $productManager = new ProductManager();
         $product = $productManager->getOneProduct($idProduit);
 
@@ -82,6 +83,7 @@ class ProductsController extends Controller
                     $errors[$key] = "Veuillez renseigner le champ " . $key;
                 }
             }
+
             if (!empty($errors)) {
                 return $this->twig->render('admin/admin_update_products.html.twig', array(
                     'errors' => $errors
@@ -90,15 +92,31 @@ class ProductsController extends Controller
                 $idProduit = $_GET['id'];
                 $nomProduit = $_POST ['nom'];
                 $descriptionProduit = $_POST ['description'];
-                /*$imageUrl = $_POST ['image'];*/
                 $catProduit = $_POST ['categorie'];
-                $productManager->updateProducts($idProduit, $nomProduit, $descriptionProduit, /*$imageUrl,*/ $catProduit);
+                $image = $_FILES['imgUpload'];
+
+                $uploadedFile = new UploadedFile($image['name'], $image['tmp_name'], $image['size']);
+
+                // Upload du fichier via la méthode définie dans le service
+                $upload = new Uploads();
+
+                $result = $upload->upload($uploadedFile);
+                if (!empty($result)) {
+
+                    return $this->twig->render('admin/admin_update_products.html.twig', array(
+                        'erreur_image' => $result
+                    ));
+                } else {
+
+                    $productManager->updateProducts($idProduit, $nomProduit, $descriptionProduit, $uploadedFile->getFileName(), $catProduit);
+                }
+                return $this->twig->render('admin/admin_success_update_product.html.twig');
             }
-            return $this->twig->render('admin/admin_success_update_product.html.twig');
+        } else {
+            return $this->twig->render('admin/admin_update_products.html.twig', array(
+                'product' => $product
+            ));
         }
-        return $this->twig->render('admin/admin_update_products.html.twig', array(
-            'product' => $product
-        ));
     }
 
     public function deleteProductAction()
