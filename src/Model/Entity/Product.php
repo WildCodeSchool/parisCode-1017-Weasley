@@ -23,7 +23,7 @@ class Product
     private $catProduit;
 
 
-    /**
+     /**
      * @return string
      */
     public function getIdProduit(): string

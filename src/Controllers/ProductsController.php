@@ -74,7 +74,7 @@ class ProductsController extends Controller
     {
         $idProduit = $_GET['id'];
         $productManager = new ProductManager();
-        $product = $productManager->getOneProduct($idProduit);
+        $product = $productManager->getOneProduct();
 
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $errors = [];
@@ -93,7 +93,6 @@ class ProductsController extends Controller
                 $image = $_FILES['imgUpload'];
                 $uploadedFile = new UploadedFile($image['name'], $image['tmp_name'], $image['size']);
 
-                // Upload du fichier via la méthode définie dans le service
                 $upload = new Uploads();
 
                 $result = $upload->upload($uploadedFile);
@@ -103,7 +102,10 @@ class ProductsController extends Controller
                         'erreur_image' => $result
                     ));
                 } else {
-
+                    // effacer l'image du dossier uploads
+                    $paf = $productManager->getOneProduct($idProduit);
+                    $url = 'uploads/' . $paf['imageUrl'];
+                    unlink($url);
                     $productManager->updateImgProducts($idProduit, $uploadedFile->getFileName());
                 }
             } else {
@@ -113,10 +115,9 @@ class ProductsController extends Controller
                 $catProduit = $_POST ['categorie'];
 
                 $productManager->updateProducts($idProduit, $nomProduit, $descriptionProduit, $catProduit);
-                }
-                return $this->twig->render('admin/admin_success_update_product.html.twig');
             }
-        else {
+            return $this->twig->render('admin/admin_success_update_product.html.twig');
+        } else {
             return $this->twig->render('admin/admin_update_products.html.twig', array(
                 'product' => $product
             ));
@@ -127,6 +128,13 @@ class ProductsController extends Controller
     {
         $id = $_GET['id'];
         $productManager = new ProductManager();
+        $paf = $productManager->getOneProduct($id);
+
+
+        $url = 'uploads/' . $paf['imageUrl'];
+
+        unlink($url);
+
         $productManager->deleteProducts($id);
         $products = $productManager->getAllProducts();
         return $this->twig->render('admin/admin_products.html.twig', array(
