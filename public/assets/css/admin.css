@@ -63,3 +63,8 @@ li{
 
 
 /**************** end success page ****************/
+
+/******* errors ********/
+.error{
+    color: red;
+}

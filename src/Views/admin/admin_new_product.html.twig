@@ -9,9 +9,12 @@
                 <legend>Ajouter un produit</legend>
                 <form action="index.php?section=admin&page=admin_new_product" method="post" enctype="multipart/form-data">
                     {{ form.update ('nomProduit','Nom du produit',product.nomProduit , 'text') }}
-                    {% if errors.nomProduit is defined %}{{ errors.nomProduit }}
-                    {% endif %}
-                    <div class="form-group">
+                    <div class="error">
+                        {% if errors.nomProduit is defined %}
+                            {{ errors.nomProduit }}
+                        {% endif %}
+                    </div>
+                    <div class="form-group control-label required">
                     <label for="categorie">Catégorie du produit</label>
 
                         <select id="categorie" name="categorie" class="form-control">
@@ -22,13 +25,27 @@
                         </select>
                     </div>
                     {{ form.updatearea('descriptionProduit', 'Description du produit', product.descriptionProduit) }}
-                    {% if errors.descriptionProduit is defined %}{{ errors.descriptionProduit }}{% endif %}
-                    <div class="form-group">
+                    <div class="error">
+                        {% if errors.descriptionProduit is defined %}
+                            {{ errors.descriptionProduit }}
+                        {% endif %}
+                    </div>
+                    <div class="form-group control-label required">
                         <label for="imgUpload">Sélectionnez votre image</label>
                         <input name="imgUpload" type="file" id="imgUpload">
                         <p class="help-block">Formats acceptés : jpg, png, gif</p>
                         <p class="help-block">Votre fichier doit être inférieur à 2 MO.</p>
+                        <div class="error">
+                            {% if errors.image is defined %}
+                                {{ errors.image }}
+                            {% endif %}
+                            {% if erreur_image is defined %}
+                                {{ erreur_image }}
+                            {% endif %}
+                        </div>
                     </div>
+
+                    {% if errors.imageUpload is defined %}{{ errors.imageUpload }}{% endif %}
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary btn-contact">Enregistrer</button>
                         <a href="index.php?section=admin&page=admin_products" class="btn btn-danger ">Annuler</a>

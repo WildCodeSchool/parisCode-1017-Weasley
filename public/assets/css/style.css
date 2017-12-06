@@ -162,6 +162,11 @@ form{
     background-color: #b08626;
 }
 
+/*** errors **/
+.error{
+    color: red;
+}
+
 /*************** success page *********************/
 .gif{
     display: block;

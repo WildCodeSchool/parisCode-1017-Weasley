@@ -23,9 +23,15 @@
                     {{ form.updatearea('description', 'Description du produit', product.descriptionProduit) }}
                     {% if errors.description is defined %}{{ errors.description }}{% endif %}
                     <div class="form-group">
-                        <label for="imgUpload">Envoyez votre image</label>
-                        <input type="file" id="imgUpload">
-                        <p class="help-block">Formats acceptés: jpg, png, gif</p>
+                        <label for="imgUpload">Sélectionnez votre image</label>
+                        <input name="imgUpload" type="file" id="imgUpload">
+                        <p class="help-block">Formats acceptés : jpg, png, gif</p>
+                        <p class="help-block">Votre fichier doit être inférieur à 2 MO.</p>
+                    </div>
+                    <div class="error">
+                        {% if erreur_image is defined %}
+                            {{ erreur_image }}
+                        {% endif %}
                     </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary btn-contact">Enregistrer</button>

@@ -63,5 +63,7 @@ if (empty($_GET)) {
     }
 } elseif (!empty($_GET['section'])) {
     echo $defaultController->errorAction();
+} elseif (!empty($_GET)) {
+    echo $defaultController->errorAction();
 }
 
