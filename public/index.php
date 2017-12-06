@@ -65,5 +65,3 @@ if (empty($_GET)) {
     echo $defaultController->errorAction();
 }
 
-
-/******* Au dessus manque DeleteProductAction et AddProductAction **************/

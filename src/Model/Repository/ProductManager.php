@@ -56,16 +56,15 @@ class ProductManager extends EntityManager
             ':descriptionProduit' => $descriptionProduit,
             /*':imageUrl' => $imageUrl,*/
             ':catProduit' => $catProduit
-
         ]);
     }
 
     public function createProduct($nomProduit, $descriptionProduit, $imageUrl, $catProduit){
-        $statement = $this->db->prepare('INSERT INTO produits (nomProduit, descriptionProduit, catProduit) VALUES (:nomProduit, :descriptionProduit, :catProduit)');
+        $statement = $this->db->prepare('INSERT INTO produits (nomProduit, descriptionProduit, catProduit, imageUrl) VALUES (:nomProduit, :descriptionProduit, :catProduit, :imageUrl)');
         $statement->execute([
             ':nomProduit' => $nomProduit,
             ':descriptionProduit' => $descriptionProduit,
-//            ':imageUrl' => $imageUrl,
+            ':imageUrl' => $imageUrl,
             ':catProduit' => $catProduit
         ]);
     }
