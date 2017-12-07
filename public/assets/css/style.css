@@ -277,14 +277,14 @@ div .retrouvez h2 {
     padding-bottom: 5px;
 }
 
-.row {
+.row-produits {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
     display:         flex;
     flex-wrap: wrap;
 }
-.row > [class*='col-'] {
+.row-produits > [class*='col-'] {
     display: flex;
     flex-direction: column;
 }
