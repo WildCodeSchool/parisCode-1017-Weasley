@@ -276,6 +276,19 @@ div .retrouvez h2 {
     padding-top: 5px;
     padding-bottom: 5px;
 }
+
+.row {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display:         flex;
+    flex-wrap: wrap;
+}
+.row > [class*='col-'] {
+    display: flex;
+    flex-direction: column;
+}
+
 .description{
     text-align: right;
 }
