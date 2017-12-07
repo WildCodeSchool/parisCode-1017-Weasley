@@ -8,6 +8,12 @@ namespace Weasley\Model\Entity;
  */
 class User
 {
+
+    /**
+     * @var
+     */
+    private $id_user;
+
     /**
      * @var string
      */
@@ -42,5 +48,11 @@ class User
     {
         $this->password = $password;
     }
-
+    /**
+     * @return mixed
+     */
+    public function getIdUser()
+    {
+        return $this->id_user;
+    }
 }
