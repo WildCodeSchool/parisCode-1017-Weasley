@@ -10,14 +10,13 @@
 </head>
 <body>
     <h1>Bonjour admin! Vous avez reçu le mail suivant:</h1>
-    <h2 style="font-weight: bold;">nom:</h2>
-    <p style="font-size: 16px">{{ nom }}</p>
-    <h2 style="font-weight: bold;">prenom:</h2>
-    <p style="font-size: 16px">{{ prenom }}</p>
-    <h2 style="font-weight: bold;">email de l'expéditeur:</h2>
-    <p style="font-size: 16px">{{ email }}</p>
-    <h2 style="font-weight: bold;">message:</h2>
+    <p style="font-size: 16px"><span style="font-weight: bold">nom: </span>{{ nom }}</p>
+    <p style="font-size: 16px"><span style="font-weight: bold">prenom: </span>{{ prenom }}</p>
+    <p style="font-size: 16px"><span style="font-weight: bold">email de l'expéditeur: </span>{{ email }}</p>
+
+    <p style="font-weight: bold; font-size: 16px">message: </p>
     <p style="font-size: 16px">{{ message }}</p>
+
 
 </body>
 </html>
