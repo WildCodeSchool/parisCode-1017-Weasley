@@ -17,37 +17,6 @@ use Weasley\Services\UploadedFile;
 
 class ProductsController extends Controller
 {
-    public function updateProductAction()
-    {   $idProduit= $_GET['id'];
-        $productManager = new ProductManager();
-        $product = $productManager->getOneProduct($idProduit);
-
-        if ($_SERVER['REQUEST_METHOD'] == "POST") {
-            $errors = [];
-            foreach ($_POST as $key => $value) {
-                if (empty($_POST[$key])) {
-                    $errors[$key] = "Veuillez renseigner le champ " . $key;
-                }
-            }
-            if (!empty($errors)) {
-                return $this->twig->render('admin/admin_update_products.html.twig', array(
-                    'errors' => $errors
-                ));
-            } else {
-                $idProduit = $_GET['id'];
-                $nomProduit = $_POST ['nom'];
-                $descriptionProduit = $_POST ['description'];
-                /*$imageUrl = $_POST ['image'];*/
-                $catProduit = $_POST ['categorie'];
-                $productManager->updateProducts($idProduit, $nomProduit, $descriptionProduit, /*$imageUrl,*/ $catProduit);
-            }
-            return $this->twig->render('admin/admin_success_update_product.html.twig');
-        }
-        return $this->twig->render('admin/admin_update_products.html.twig', array(
-            'product' => $product
-        ));
-    }
-
     public function createProductAction()
     {
         $productManager = new ProductManager();
@@ -59,7 +28,7 @@ class ProductsController extends Controller
                     $errors[$key] = "Veuillez renseigner le champ " . $key;
                 }
             }
-            if(empty ($_FILES['imgUpload']['name'])) {
+            if (empty ($_FILES['imgUpload']['name'])) {
                 $errors['image'] = "Veuillez ajouter une image";
 
             }
@@ -81,9 +50,9 @@ class ProductsController extends Controller
                 $upload = new Uploads();
 
                 $result = $upload->upload($uploadedFile);
-                if(!empty($result)) {
+                if (!empty($result)) {
 
-                    return $this->twig->render('admin/admin_new_product.html.twig', array (
+                    return $this->twig->render('admin/admin_new_product.html.twig', array(
                         'erreur_image' => $result
                     ));
                 } else {
@@ -101,124 +70,75 @@ class ProductsController extends Controller
 
     }
 
-  /*  *
-     * @return string
-     */
-   /* public function newAction(){
-        if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+    public function updateProductAction()
+    {
+        $idProduit = $_GET['id'];
+        $productManager = new ProductManager();
+        $product = $productManager->getOneProduct();
 
-            // Récupérer du tableau d'image envoyé par le formulaire
-            $files = $_FILES;
-
-            $upload = new Uploads();
-            $ProductManager = new ProductManager();
-
-                // Pour chaque image, vérifier s'il n'y a pas d'erreur lié à php ($_FILES['files']['error']
-                $error = $files['error'];
-                if ($error != 0) {
-                    // S'il il y a une erreur php, stocker le message d'erreur dans une variable
-                    $error[$files['name'] = "erreur PHP";
-
-                    // Sinon on upload
-                } else {
-
-                    // Récupération et stockage du name, tmp_name, size du fichier
-                    $size = $files['size'];
-                    $tmp_name = $files['tmp_name'];
-
-                    // Instanciation d'une objet UploadedFile
-                    $uploadedFile = new UploadedFile($file_name, $tmp_name, $size);
-
-                    // Upload du fichier via la méthode défini dans le service
-                    $result = $upload->upload($uploadedFile);
-
-                    // Traitement du resultat, si pas d'erreur, on enregitre en BDD, sinon, on ajout un message en session
-                    if ($result == null){
-                        $ProductManager->addImage($uploadedFile->getFileName());
-                    }
+        if ($_SERVER['REQUEST_METHOD'] == "POST") {
+            $errors = [];
+            foreach ($_POST as $key => $value) {
+                if (empty($_POST[$key])) {
+                    $errors[$key] = "Veuillez renseigner le champ " . $key;
                 }
             }
 
-            Redirection vers la page de succès
-            return $this->twig->render('admin/admin_successAddProduit.html.twig');
-        }
-        else{
-            return $this->twig->render('card/new.html.twig');
-        }
-    }*/
+            if (!empty($errors)) {
+                return $this->twig->render('admin/admin_update_products.html.twig', array(
+                    'errors' => $errors
+                ));
+            } // on modifie l'image aussi
+            if (!empty($_FILES['imgUpload']['name'])) {
+                $image = $_FILES['imgUpload'];
+                $uploadedFile = new UploadedFile($image['name'], $image['tmp_name'], $image['size']);
 
-//    /**
-//     * @return string
-//     */
-//    public function createProductAction()
-//    {
-//        $productManager = new ProductManager();
-//
-//
-//        if ($_SERVER['REQUEST_METHOD'] == "POST") {
-//            $errors = [];
-//            foreach ($_POST as $key => $value) {
-//                if (empty($_POST[$key])) {
-//                    $errors[$key] = "Veuillez renseigner le champ " . $key;
-//                }
-//            }
-//            if (!empty($errors)) {
-//                return $this->twig->render('admin/admin_new_product.html.twig', array(
-//                    'errors' => $errors
-//                ));
-//            }
-//            // Récupérer le tableau d'image envoyé par le formulaire
-//                $files = $_FILES['image'];
-//                $upload = new Uploads();
-//            // Parcourir le tableau d'image
-//            foreach ($files['name'] as $position => $file_name) {
-//
-//                // Pour chaque image, vérifier s'il n'y a pas d'erreur lié à php ($_FILES['files']['error']
-//                $error = $files['error'][$position];
-//                if ($error != 0) {
-//                    // S'il il y a une erreur php, stocker le message d'erreur dans une variable
-//                    $error[$file_name] = "erreur PHP";
-//
-//                    // Sinon on upload
-//                } else {
-//
-//                    // Récupération et stockage du name, tmp_name, size du fichier
-//                    $size = $files['size'][$position];
-//                    $tmp_name = $files['tmp_name'][$position];
-//
-//                    // Instanciation d'un objet UploadedFile
-//                    $uploadedFile = new UploadedFile($file_name, $tmp_name, $size);
-//
-//                    // Upload du fichier via la méthode définie dans le service
-//                    $result = $upload->upload($uploadedFile);
-//
-//                    // Récupération des infos du formulaire
-//
-//                    $nomProduit = $_POST ['nomProduit'];
-//                    $descriptionProduit = $_POST ['descriptionProduit'];
-//                    $imageUrl = $_POST ['imageUrl'];
-//                    $catProduit = $_POST ['categorie'];
-//
-//                    // Requete BDD
-//                    $productManager->createProduct($nomProduit, $descriptionProduit, $catProduit, $imageUrl);
-//                    // Traitement du resultat, si pas d'erreur, on enregitre en BDD, sinon, on ajoute un message en session
-//                    if ($result == null){
-//                        $productManager->addImage($uploadedFile->getFileName());
-//                    }
-//                }// Redirection vers la page de succès
-//                return $this->twig->render('admin/admin_successAddProduit.html.twig');
-//            }return $this->twig->render('admin/admin_new_product.html.twig');
-//        }
-//    }
+                $upload = new Uploads();
+
+                $result = $upload->upload($uploadedFile);
+                if (!empty($result)) {
+
+                    return $this->twig->render('admin/admin_update_products.html.twig', array(
+                        'erreur_image' => $result
+                    ));
+                } else {
+                    // effacer l'image du dossier uploads
+                    $paf = $productManager->getOneProduct($idProduit);
+                    $url = 'uploads/' . $paf['imageUrl'];
+                    unlink($url);
+                    $productManager->updateImgProducts($idProduit, $uploadedFile->getFileName());
+                }
+            } else {
+                $idProduit = $_GET['id'];
+                $nomProduit = $_POST ['nom'];
+                $descriptionProduit = $_POST ['description'];
+                $catProduit = $_POST ['categorie'];
+
+                $productManager->updateProducts($idProduit, $nomProduit, $descriptionProduit, $catProduit);
+            }
+            return $this->twig->render('admin/admin_success_update_product.html.twig');
+        } else {
+            return $this->twig->render('admin/admin_update_products.html.twig', array(
+                'product' => $product
+            ));
+        }
+    }
 
     public function deleteProductAction()
     {
-        $id= $_GET['id'];
+        $id = $_GET['id'];
         $productManager = new ProductManager();
+        $paf = $productManager->getOneProduct($id);
+
+
+        $url = 'uploads/' . $paf['imageUrl'];
+
+        unlink($url);
+
         $productManager->deleteProducts($id);
         $products = $productManager->getAllProducts();
         return $this->twig->render('admin/admin_products.html.twig', array(
-        'products' => $products
+            'products' => $products
         ));
     }
 

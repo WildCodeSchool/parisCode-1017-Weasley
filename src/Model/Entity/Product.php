@@ -20,10 +20,10 @@ class Product
 
     private $imageUrl;
 
-    private $catProduits;
+    private $catProduit;
 
 
-    /**
+     /**
      * @return string
      */
     public function getIdProduit(): string
@@ -83,9 +83,9 @@ class Product
     /**
      * @return mixed
      */
-    public function getCatProduits()
+    public function getCatProduit()
     {
-        return $this->catProduits;
+        return $this->catProduit;
     }
 
 

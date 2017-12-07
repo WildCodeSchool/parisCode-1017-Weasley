@@ -72,5 +72,7 @@ elseif ($_GET['section'] == "admin") {
 }
 else {
     echo $defaultController->errorAction();
+} elseif (!empty($_GET)) {
+    echo $defaultController->errorAction();
 }
 

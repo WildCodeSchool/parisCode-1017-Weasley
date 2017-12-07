@@ -42,23 +42,26 @@ class ProductManager extends EntityManager
         return $statement->fetchAll(PDO::FETCH_CLASS,Product::class);
     }
 
-    public function getOneProduct($idProduit)
-    {   $idProduit=$_GET['id'];
+    public function getOneProduct()
+    {   $idProduit = $_GET['id'];
         $statement = $this->db->query('SELECT * FROM produits WHERE idProduit= '.$idProduit.'');
-        return $statement->fetchObject(Product::class);
-
+        return $statement->fetch();
     }
 
-    public function updateProducts($idProduit, $nomProduit, $descriptionProduit, /*$imageUrl,*/ $catProduit){
-        $statement = $this->db->prepare('UPDATE produits SET nomProduit = :nomProduit, descriptionProduit = :descriptionProduit, /*imageUrl = :imageUrl,*/ catProduit = :catProduit WHERE idProduit = '.$idProduit.'');
+    public function updateProducts($idProduit, $nomProduit, $descriptionProduit, $catProduit){
+        $statement = $this->db->prepare('UPDATE produits SET nomProduit = :nomProduit, descriptionProduit = :descriptionProduit, catProduit = :catProduit WHERE idProduit = '.$idProduit.'');
         $statement->execute([
             ':nomProduit' => $nomProduit,
             ':descriptionProduit' => $descriptionProduit,
-            /*':imageUrl' => $imageUrl,*/
             ':catProduit' => $catProduit
         ]);
     }
-
+    public function updateImgProducts($idProduit,$imageUrl){
+        $statement = $this->db->prepare('UPDATE produits SET imageUrl = :imageUrl WHERE idProduit = '.$idProduit.'');
+        $statement->execute([
+            ':imageUrl' => $imageUrl,
+        ]);
+    }
     public function createProduct($nomProduit, $descriptionProduit, $imageUrl, $catProduit){
         $statement = $this->db->prepare('INSERT INTO produits (nomProduit, descriptionProduit, catProduit, imageUrl) VALUES (:nomProduit, :descriptionProduit, :catProduit, :imageUrl)');
         $statement->execute([
@@ -71,7 +74,6 @@ class ProductManager extends EntityManager
 
     public function deleteProducts($id) {
         $statement = $this->db->prepare('DELETE FROM produits WHERE idProduit = :id');
-//        $statement->bindParam(':id', $_GET['id'], PDO ::PARAM_INT );
         $statement->execute(array(
             ':id' => $id
         ));
