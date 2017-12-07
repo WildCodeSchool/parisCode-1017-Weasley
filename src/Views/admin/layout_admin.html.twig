@@ -1,13 +1,3 @@
-
-{#On démarre la session AVANT d'écrire du code HTML#}{#
-
-
-{% for use in user %}
-    $_SESSION['login'] = {{ use.login }};
-    $_SESSION['password'] = {{ use.login }};
-
-{% endfor %}#}
-
 {% extends 'base.html.twig' %}
 
 {% block css %}
