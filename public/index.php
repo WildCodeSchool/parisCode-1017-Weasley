@@ -18,10 +18,13 @@ $productsController = new ProductsController();
 
 session_start();
 
-
+$getKey = array_keys($_GET);
 
 if (empty($_GET)) {
     echo $defaultController->indexAction();
+    /*Code sale - à ne pas refaire*/
+} else if ($getKey[0] != 'section'){
+    echo $defaultController->errorAction();
 } elseif ($_GET['section'] == "concept") {
     echo $defaultController->conceptAction();
 
@@ -48,6 +51,9 @@ elseif ($_GET['section'] == "admin") {
     if (isset($_SESSION['login'])){
         if (!isset ($_GET['page'])) {
             echo $adminController->adminAction();
+            /*Code sale - à ne pas refaire*/
+        } else if ($getKey[1] != 'page'){
+            echo $adminController->adminErrorAction();
         } elseif ($_GET['page'] == "admin_contact") {
             echo $contactController->contactUpdateAction();
 
