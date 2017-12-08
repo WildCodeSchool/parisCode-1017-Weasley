@@ -195,7 +195,9 @@ form{
     margin-top: -37px;
 }
 
-
+#fred{
+    font-size: 1.2em;
+}
 /*Carte Pre au lard*/
 .caption_map{
     width: 100%;
@@ -293,6 +295,7 @@ div .retrouvez h2 {
 .row-titre-cat{
     margin-bottom: 35px;
     margin-left: 0;
+    margin-right: 0;
 }
 
 /*Nom categorie*/
@@ -321,9 +324,8 @@ hr {
 /**PAGE CONCEPT**/
 .revelio{
     font-family: 'Berkshire Swash', cursive;
-    padding: 7px;
-    width: 300px;
     text-align: center;
+    padding: 0;
 }
 
 .padding-bro{
@@ -377,6 +379,7 @@ footer div {
 }
 footer a {
     color: #c69627;
+    font-size: 1.2em;
 }
 
 footer a:hover {
