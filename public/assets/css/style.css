@@ -387,4 +387,13 @@ footer a:hover {
     color: white;
 }
 
+.love{
+    color: #c69627;
+}
+
+.fa.fa-heart{
+    color: red;
+    padding-right: 2px;
+    padding-left: 2px;
+}
 /*END FOOTER*/
