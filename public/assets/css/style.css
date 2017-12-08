@@ -15,12 +15,15 @@ body {
 .thunder{
     color: #C69627;
     float: right;
+    margin-top: 11px;
+    margin-left: 5px;
 }
 
 /***** Fonts *****/
 h2{
     font-family: 'Berkshire Swash', cursive;
     color: #C69627;
+
 }
 
 /*image du header Weasley's Wizard Wheezes*/
@@ -44,14 +47,11 @@ h2{
 
 /******************navbar*********************/
 
-#logo{
-    font-family: 'Berkshire Swash', cursive;
+#logobrand{
+    position: relative;
+    bottom: 15px;
+    left: -15px;
 }
-
-#logo:hover{
-    color: #FFF;
-}
-
 /** burger **/
 .navbar-inverse .navbar-toggle .icon-bar{
     background-color: #C69627;
@@ -113,7 +113,19 @@ div.topBotomBordersOut a:hover:before, div.topBotomBordersOut a:hover:after
     border-radius: 0px;
 }
 
-@media (min-width: 760px){
+@media (min-width: 768px) {
+    .navbar-nav {
+        display: table;
+        width: 100%;
+        margin: 0;
+    }
+
+    .navbar-nav > li {
+        float: none;
+        display: table-cell;
+        text-align: center;
+    }
+
     #logobrand{
         display: none;
 
@@ -129,6 +141,20 @@ form{
     padding-bottom: 30px;
 }
 
+/**** red asterisk ****/
+.form-group.required.control-label:before{
+    color: red;
+    content: "*";
+    position: absolute;
+    margin-left: -10px;
+}
+
+/******* recaptcha **/
+.g-recaptcha{
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
 /** bouton **********/
 
 .btn.btn-primary.btn-contact{
@@ -139,6 +165,19 @@ form{
     background-color: #b08626;
 }
 
+/*** errors **/
+.error{
+    color: red;
+}
+
+/*************** success page *********************/
+.gif{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
 /*end contact*/
 
 
@@ -156,13 +195,9 @@ form{
     margin-top: -37px;
 }
 
-.un{
-    text-align: center;
-    color: black;
-    font-family: 'Poppins', cursive;
-    padding-top: 30px;
+#fred{
+    font-size: 1.2em;
 }
-
 /*Carte Pre au lard*/
 .caption_map{
     width: 100%;
@@ -171,17 +206,16 @@ form{
 /*Section Home "retrouver nos produits"*/
 div .retrouvez h2 {
     text-align: center;
-    color: black;
     padding-bottom: 20px;
     padding-top: 20px;
 
 }
 /*Cartouche des claims des catégories*/
 .claim {
-    color: #F5F5DC;
+    color: black;
     text-align: center;
     font-family: 'Berkshire Swash', cursive;
-    background-color: black;
+    background-image:url(../../assets/pictures/textures/parchemin.jpg);
     float: left;
     display:inline;
     padding: 5px;
@@ -238,11 +272,21 @@ div .retrouvez h2 {
     padding-top: 5px;
     padding-bottom: 5px;
 }
+
+.row-produits {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display:         flex;
+    flex-wrap: wrap;
+}
+.row-produits > [class*='col-'] {
+    display: flex;
+    flex-direction: column;
+}
+
 .description{
-    text-overflow: ellipsis;
-    height: 40px;
     text-align: right;
-    overflow: hidden;
 }
 .row-produits p{
     margin-top: 27px;
@@ -251,6 +295,7 @@ div .retrouvez h2 {
 .row-titre-cat{
     margin-bottom: 35px;
     margin-left: 0;
+    margin-right: 0;
 }
 
 /*Nom categorie*/
@@ -279,9 +324,8 @@ hr {
 /**PAGE CONCEPT**/
 .revelio{
     font-family: 'Berkshire Swash', cursive;
-    padding: 7px;
-    width: 300px;
     text-align: center;
+    padding: 0;
 }
 
 .padding-bro{
@@ -335,6 +379,7 @@ footer div {
 }
 footer a {
     color: #c69627;
+    font-size: 1.2em;
 }
 
 footer a:hover {
@@ -342,4 +387,13 @@ footer a:hover {
     color: white;
 }
 
+.love{
+    color: #c69627;
+}
+
+.fa.fa-heart{
+    color: red;
+    padding-right: 2px;
+    padding-left: 2px;
+}
 /*END FOOTER*/

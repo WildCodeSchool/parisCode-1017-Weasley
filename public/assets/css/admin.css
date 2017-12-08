@@ -20,11 +20,21 @@ ul{
     list-style: none;
     display: flex;
 }
+
 li{
     padding: 20px;
 }
 /**************** end navbar **************/
 
+/********* form required field **********/
+/**** red asterisk ****/
+.form-group.required.control-label:before{
+    color: red;
+    content: "*";
+    position: absolute;
+    margin-left: -10px;
+}
+/********** end form ***************/
 
 /**************** product page **************/
 .thumbnail {
@@ -53,3 +63,8 @@ li{
 
 
 /**************** end success page ****************/
+
+/******* errors ********/
+.error{
+    color: red;
+}

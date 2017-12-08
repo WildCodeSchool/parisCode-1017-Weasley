@@ -1,30 +1,45 @@
 {% extends 'admin/layout_admin.html.twig' %}
 {% import'user/macro_form.html.twig' as form %}
 
+
 {% block content %}
 
     <div class="row">
         <div class="col-md-offset-2 col-md-8 col-xs-12">
             <fieldset>
                 <legend>Modifier le produit</legend>
-                <form action="index.php?section=admin&page=admin_update_products&id={{ product.idProduit }}" method="post">
+                <form action="index.php?section=admin&page=admin_update_products&id={{ product.idProduit }}" method="post" enctype="multipart/form-data">
                     {{ form.update ('nom','Nom du produit',product.nomProduit , 'text') }}
-                    {% if errors.nom is defined %}{{ errors.nom }}{% endif %}
+                    <div class="error">
+                        {% if errors.nom is defined %}
+                            {{ errors.nom }}
+                        {% endif %}
+                    </div>
                     <div class="form-group">
                     <label for="categorie">Catégorie du produit</label>
-                    <select id="categorie" class="form-control">
-                        <option value="farces">Farces et </option>
-                        <option value="valeur2" selected>Valeur 2</option>
-                        <option value="valeur3">Valeur 3</option>
-                        <option value="valeur3">Valeur 3</option>
+                    <select id="categorie" name="categorie" class="form-control">
+                        <option value="friandises" {% if product.catProduit == "friandises" %}selected{% endif %}>Friandises magiques</option>
+                        <option value="farces" {% if product.catProduit == "farces" %}selected{% endif %}>Farces et artifices</option>
+                        <option value="accessoires" {% if product.catProduit == "accessoires" %}selected{% endif %}>Accessoires</option>
+                        <option value="packs" {% if product.catProduit == "packs" %}selected{% endif %}>Packs magiques</option>
                     </select>
                     </div>
                     {{ form.updatearea('description', 'Description du produit', product.descriptionProduit) }}
-                    {% if errors.description is defined %}{{ errors.description }}{% endif %}
-                    <div class="form-group">
-                        <label for="imgUpload">Envoyez votre image</label>
-                        <input type="file" id="imgUpload">
-                        <p class="help-block">Formats acceptés: jpg, png, gif</p>
+                    <div class="error">
+                        {% if errors.description is defined %}
+                            {{ errors.description }}
+                        {% endif %}
+                    </div>
+                    <div class="form-group control-label required">
+                        <label for="imgUpload">Sélectionnez votre image</label>
+                        <input name="imgUpload" type="file" id="imgUpload">
+                        <p class="help-block">Formats acceptés : jpg, png, gif</p>
+                        <p class="help-block">Votre fichier doit être inférieur à 2 MO.</p>
+                    </div>
+                    <div class="error">
+                        {% if erreur_image is defined %}
+                            {{ erreur_image }}
+                        {% endif %}
                     </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary btn-contact">Enregistrer</button>
@@ -35,4 +50,5 @@
             </fieldset>
         </div>
     </div>
+
 {% endblock %}

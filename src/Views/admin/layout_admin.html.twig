@@ -16,15 +16,15 @@
                 </a>
             </li>
             <li>
-                <a href="index.php?section=admin&page=admin_products">
-                    <i class="fa fa-magic fa-2x" aria-hidden="true"></i>
-                    <span>Produits</span>
-                </a>
-            </li>
-            <li>
                 <a href="index.php?section=admin&page=admin_contact">
                     <i class="fa fa-map-o fa-2x" aria-hidden="true"></i>
                     <span>Coordonnées</span>
+                </a>
+            </li>
+            <li>
+                <a href="index.php?section=admin&page=admin_products">
+                    <i class="fa fa-magic fa-2x" aria-hidden="true"></i>
+                    <span>Produits</span>
                 </a>
             </li>
             <li>
@@ -34,8 +34,8 @@
                 </a>
             </li>
             <li>
-                <a href="index.php?section=login">
-                    <<i class="fa fa-sign-out fa-2x" aria-hidden="true"></i>
+                <a href="index.php?section=logout">
+                    <i class="fa fa-sign-out fa-2x" aria-hidden="true"></i>
                     <span>Déconnexion</span>
                 </a>
             </li>
@@ -47,7 +47,7 @@
 {% endblock %}
 
 {% block body %}
-    <h1 class="text-center">Administration du site Weasleys' wizard wheezes</h1>
+    <h1 class="text-center">Administration du site Weasleys' Wizard Wheezes</h1>
     {% block content %}
 
     {% endblock %}
@@ -61,8 +61,12 @@
     <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.js"></script>
     <script>
         $(document).ready(function() {
-            $('#produitTables').DataTable();
+            $('#produitTables').DataTable( {
+                "iDisplayLength": 25
+            });
+
         } );
+
     </script>
 
 {% endblock %}

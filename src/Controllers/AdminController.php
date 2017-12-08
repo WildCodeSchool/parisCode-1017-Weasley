@@ -13,9 +13,9 @@ use Weasley\Model\Repository\UserManager;
 use Weasley\Model\Repository\ContactManager;
 use Weasley\Model\Repository\ProductManager;
 
+
 /**********************************************************************************
  ********************Ici on met les simples vues côté admin! *********************/
-
 class AdminController extends Controller
 
     // /**********************************************************************************
@@ -27,8 +27,53 @@ class AdminController extends Controller
      */
     public function loginAction()
     {
-        return $this->twig->render('admin/login.html.twig');
+        $userManager = new UserManager();
+
+        if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST)) {
+            $errors = [];
+            foreach ($_POST as $key => $value) {
+                if (empty($_POST[$key])) {
+                    $errors[$key] = "Veuillez remplir le champ " . $key;
+                }
+            }
+
+            if (!empty($errors)) {
+                return $this->twig->render('admin/login.html.twig', array(
+                    'errors' => $errors
+                ));
+
+            } else {
+                $login = $_POST['login'];
+                $password = $_POST['password'];
+                $user = $userManager->getPassword($login);
+
+                if ($user == false) {
+                    $errors['login'] = "Votre login est erroné";
+                    return $this->twig->render('admin/login.html.twig', array(
+                        'errors' => $errors
+                    ));
+
+                } else if (password_verify($password, $user->getPassword())) {
+                    $_SESSION['login'] = $user->getLogin();
+                    header('Location: index.php?section=admin');
+                } else {
+                    $errors['password'] = "Votre mot de passe est erroné";
+                    return $this->twig->render('admin/login.html.twig', array(
+                        'errors' => $errors
+                    ));
+                }
+            }
+        } else {
+            return $this->twig->render('admin/login.html.twig');
+        }
     }
+
+    public function logoutAction()
+    {
+        session_destroy();
+        return $this->twig->render('admin/admin_success_logout.html.twig');
+    }
+
 
     /**
      * Render admin page with contact datas from database
@@ -50,5 +95,10 @@ class AdminController extends Controller
         $products = $productManager->getAllProducts();
         return $this->twig->render('admin/admin_products.html.twig', array(
             "products" => $products));
+    }
+
+    public function adminErrorAction()
+    {
+        return $this->twig->render('admin/admin_error.html.twig');
     }
 }

@@ -4,19 +4,6 @@
 
 
     {#Catégorie Friandises magiques    #}
-    {#<div class="row">#}
-    {#<hr class="col-md-6 ornament ornament--full-spacing">#}
-        {#<svg class="icon icon-quotes-left">#}
-            {#<use xlink:href="#icon-quotes-left">#}
-            {#</use>#}
-        {#</svg>#}
-
-        {#<svg class="icon icon-infinite">#}
-            {#<use xlink:href="#icon-infinite">#}
-            {#</use>#}
-        {#</svg>#}
-    {#</div>#}
-
 
     <div id="Friandises" class="row row-titre-cat">
         <hr class="col-md-4">
@@ -27,7 +14,7 @@
     <div class="row row-produits">
         {% for friandise in friandises %}
         <div class="col-md-3 col-sm-6 col-xs-12 text-center espace">
-            <img src="{{friandise.imageUrl }}" alt="{{ friandise.nomProduit }}" class="vignette_produit" >
+            <img src="uploads/{{friandise.imageUrl }}" alt="{{ friandise.nomProduit }}" class="vignette_produit" >
             <h3 class="produit">{{ friandise.nomProduit }}</h3>
             <p class="description">{{ friandise.descriptionProduit }} </p>
         </div>
@@ -46,7 +33,7 @@
     <div class="row row-produits">
         {% for farce in farces %}
             <div class="col-md-3 col-sm-6 col-xs-12 text-center espace">
-                <img src="{{farce.imageUrl }}" alt="{{ farce.nomProduit }}" class="vignette_produit" >
+                <img src="uploads/{{farce.imageUrl }}" alt="{{ farce.nomProduit }}" class="vignette_produit" >
                 <h3 class="produit">{{ farce.nomProduit }}</h3>
                 <p class="description">{{ farce.descriptionProduit }} </p>
             </div>
@@ -63,7 +50,7 @@
     <div class="row row-produits">
         {% for accessoire in accessoires %}
             <div class="col-md-3 col-sm-6 col-xs-12 text-center espace">
-                <img src="{{accessoire.imageUrl }}" alt="{{ accessoire.nomProduit }}" class="vignette_produit" >
+                <img src="uploads/{{accessoire.imageUrl }}" alt="{{ accessoire.nomProduit }}" class="vignette_produit" >
                 <h3 class="produit">{{ accessoire.nomProduit }}</h3>
                 <p class="description">{{ accessoire.descriptionProduit }} </p>
             </div>
@@ -80,14 +67,15 @@
     <div class="row row-produits">
         {% for pack in packs %}
             <div class="col-md-6 col-sm-6 col-xs-12 text-center espace">
-                <img src="{{pack.imageUrl }}" alt="{{ pack.nomProduit }}" class="vignette_produit" >
+                <img src="uploads/{{pack.imageUrl }}" alt="{{ pack.nomProduit }}" class="vignette_produit" >
                 <h3 class="produit">{{ pack.nomProduit }}</h3>
                 <p> {{ pack.descriptionProduit }} </p>
             </div>
         {% endfor %}
     </div>
     <div class="retour">
-    <a href="#">Retour en haut de page</a>
+        <i class="fa fa-bolt fa-2x thunder" aria-hidden="true"></i>
+        <a href="#">Retour en haut de page</a>
     </div>
 
 {% endblock %}

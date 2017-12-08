@@ -12,23 +12,23 @@ class Product
  * @var string
  */
 
-    private $id_produit;
+    private $idProduit;
 
-    private $description_produit;
+    private $descriptionProduit;
 
-    private $nom_produit;
+    private $nomProduit;
 
-    private $image_url;
+    private $imageUrl;
 
-    private $cat_produits;
+    private $catProduit;
 
 
-    /**
+     /**
      * @return string
      */
     public function getIdProduit(): string
     {
-        return $this->id_produit;
+        return $this->idProduit;
     }
 
 
@@ -37,15 +37,15 @@ class Product
      */
     public function getDescriptionProduit()
     {
-        return $this->description_produit;
+        return $this->descriptionProduit;
     }
 
     /**
      * @param mixed $description_produit
      */
-    public function setDescriptionProduit($description_produit)
+    public function setDescriptionProduit($descriptionProduit)
     {
-        $this->description_produit = $description_produit;
+        $this->descriptionProduit = $descriptionProduit;
     }
 
     /**
@@ -53,15 +53,15 @@ class Product
      */
     public function getNomProduit()
     {
-        return $this->nom_produit;
+        return $this->nomProduit;
     }
 
     /**
      * @param mixed $nom_produit
      */
-    public function setNomProduit($nom_produit)
+    public function setNomProduit($nomProduit)
     {
-        $this->nom_produit = $nom_produit;
+        $this->nomProduit = $nomProduit;
     }
 
     /**
@@ -69,23 +69,23 @@ class Product
      */
     public function getImageUrl()
     {
-        return $this->image_url;
+        return $this->imageUrl;
     }
 
     /**
      * @param mixed $image_url
      */
-    public function setImageUrl($image_url)
+    public function setImageUrl($imageUrl)
     {
-        $this->image_url = $image_url;
+        $this->imageUrl = $imageUrl;
     }
 
     /**
      * @return mixed
      */
-    public function getCatProduits()
+    public function getCatProduit()
     {
-        return $this->cat_produits;
+        return $this->catProduit;
     }
 
 

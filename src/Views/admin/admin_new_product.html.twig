@@ -7,31 +7,49 @@
         <div class="col-md-offset-2 col-md-8 col-xs-12">
             <fieldset>
                 <legend>Ajouter un produit</legend>
-                <form action="index.php?section=admin&page=admin_new_product" method="post">
+                <form action="index.php?section=admin&page=admin_new_product" method="post" enctype="multipart/form-data">
                     {{ form.update ('nomProduit','Nom du produit',product.nomProduit , 'text') }}
-                    {% if errors.nomProduit is defined %}{{ errors.nomProduit }}{% endif %}
-                    <div class="form-group">
-                    <label for="catProduit">Catégorie du produit</label>
-                    <select name="catPro duit" class="form-control">
-                        <option name="catProduit" value="friandises"selected>Friandises Magiques</option>
-                        <option name="catProduit" value="farces">Farces et Artifices</option>
-                        <option name="catProduit" value="accessoires">Accessoires</option>
-                        <option name="catProduit" value="packs">Packs</option>
-                    </select>
+                    <div class="error">
+                        {% if errors.nomProduit is defined %}
+                            {{ errors.nomProduit }}
+                        {% endif %}
+                    </div>
+                    <div class="form-group control-label required">
+                    <label for="categorie">Catégorie du produit</label>
+
+                        <select id="categorie" name="categorie" class="form-control">
+                            <option value="friandises" {% if product.catProduit == "friandises" %}selected{% endif %}>Friandises magiques</option>
+                            <option value="farces" {% if product.catProduit == "farces" %}selected{% endif %}>Farces et artifices</option>
+                            <option value="accessoires" {% if product.catProduit == "accessoires" %}selected{% endif %}>Accessoires</option>
+                            <option value="packs" {% if product.catProduit == "packs" %}selected{% endif %}>Packs magiques</option>
+                        </select>
                     </div>
                     {{ form.updatearea('descriptionProduit', 'Description du produit', product.descriptionProduit) }}
-                    {% if errors.descriptionProduit is defined %}{{ errors.descriptionProduit }}{% endif %}
-                    {#<div class="form-group">#}
-                        {#<label for="imgUpload">Sélectionnez votre image</label>#}
-                        {#<input type="file" id="imgUpload">#}
-                        {#<p class="help-block">Formats acceptés : jpg, png, gif</p>#}
-                        {#<p class="help-block">Votre fichier doit être inférieur à 1MO.</p>#}
-                    {#</div>#}
+                    <div class="error">
+                        {% if errors.descriptionProduit is defined %}
+                            {{ errors.descriptionProduit }}
+                        {% endif %}
+                    </div>
+                    <div class="form-group control-label required">
+                        <label for="imgUpload">Sélectionnez votre image</label>
+                        <input name="imgUpload" type="file" id="imgUpload">
+                        <p class="help-block">Formats acceptés : jpg, png, gif</p>
+                        <p class="help-block">Votre fichier doit être inférieur à 2 MO.</p>
+                        <div class="error">
+                            {% if errors.image is defined %}
+                                {{ errors.image }}
+                            {% endif %}
+                            {% if erreur_image is defined %}
+                                {{ erreur_image }}
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    {% if errors.imageUpload is defined %}{{ errors.imageUpload }}{% endif %}
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary btn-contact">Enregistrer</button>
                         <a href="index.php?section=admin&page=admin_products" class="btn btn-danger ">Annuler</a>
                     </div>
-
                 </form>
             </fieldset>
         </div>
