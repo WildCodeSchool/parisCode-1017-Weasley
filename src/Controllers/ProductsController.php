@@ -51,7 +51,6 @@ class ProductsController extends Controller
 
                 $result = $upload->upload($uploadedFile);
                 if (!empty($result)) {
-
                     return $this->twig->render('admin/admin_new_product.html.twig', array(
                         'erreur_image' => $result
                     ));
