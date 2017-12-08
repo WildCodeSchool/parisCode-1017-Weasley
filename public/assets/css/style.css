@@ -23,6 +23,7 @@ body {
 h2{
     font-family: 'Berkshire Swash', cursive;
     color: #C69627;
+
 }
 
 /*image du header Weasley's Wizard Wheezes*/
@@ -194,12 +195,6 @@ form{
     margin-top: -37px;
 }
 
-.un{
-    text-align: center;
-    color: black;
-    font-family: 'Poppins', cursive;
-    padding-top: 30px;
-}
 
 /*Carte Pre au lard*/
 .caption_map{
@@ -209,17 +204,16 @@ form{
 /*Section Home "retrouver nos produits"*/
 div .retrouvez h2 {
     text-align: center;
-    color: black;
     padding-bottom: 20px;
     padding-top: 20px;
 
 }
 /*Cartouche des claims des catégories*/
 .claim {
-    color: #F5F5DC;
+    color: black;
     text-align: center;
     font-family: 'Berkshire Swash', cursive;
-    background-color: black;
+    background-image:url(../../assets/pictures/textures/parchemin.jpg);
     float: left;
     display:inline;
     padding: 5px;
