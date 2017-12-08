@@ -14,9 +14,33 @@
         <div class="col-md-offset-2 col-md-8 col-xs-12">
         <form action="index.php?section=contact" method="post">
             {{ form.input ('nom','Votre nom','Nom', 'text') }}
+            <div class="error">
+                {% if errors.nom is defined %}
+                    {{ errors.nom }}
+                {% endif %}
+            </div>
+
             {{ form.input ('prenom','Votre prénom','Prénom', 'text') }}
+            <div class="error">
+                {% if errors.prenom is defined %}
+                    {{ errors.prenom }}
+                {% endif %}
+            </div>
+
             {{ form.input ('email','Votre email','Dumbledoore@mail.com', 'email') }}
+            <div class="error">
+                {% if errors.email is defined %}
+                    {{ errors.email }}
+                {% endif %}
+            </div>
+
             {{ form.textarea ('message', 'Votre message', 'Votre message...') }}
+            <div class="error">
+                {% if errors.message is defined %}
+                    {{ errors.message }}
+                {% endif %}
+            </div>
+
             {#<div class="g-recaptcha" data-sitekey="your_site_key"></div>#}
             <div class="form-group">
                 <button type="submit" class="btn btn-primary btn-contact">Envoyer</button>

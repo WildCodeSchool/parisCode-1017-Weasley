@@ -10,7 +10,11 @@
                 <legend>Modifier le produit</legend>
                 <form action="index.php?section=admin&page=admin_update_products&id={{ product.idProduit }}" method="post" enctype="multipart/form-data">
                     {{ form.update ('nom','Nom du produit',product.nomProduit , 'text') }}
-                    {% if errors.nom is defined %}{{ errors.nom }}{% endif %}
+                    <div class="error">
+                        {% if errors.nom is defined %}
+                            {{ errors.nom }}
+                        {% endif %}
+                    </div>
                     <div class="form-group">
                     <label for="categorie">Catégorie du produit</label>
                     <select id="categorie" name="categorie" class="form-control">
@@ -21,7 +25,11 @@
                     </select>
                     </div>
                     {{ form.updatearea('description', 'Description du produit', product.descriptionProduit) }}
-                    {% if errors.description is defined %}{{ errors.description }}{% endif %}
+                    <div class="error">
+                        {% if errors.description is defined %}
+                            {{ errors.description }}
+                        {% endif %}
+                    </div>
                     <div class="form-group control-label required">
                         <label for="imgUpload">Sélectionnez votre image</label>
                         <input name="imgUpload" type="file" id="imgUpload">

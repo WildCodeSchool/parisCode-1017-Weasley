@@ -6,16 +6,17 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <style>
-        html{
-            background-color: red;
-        }
-    </style>
+
 </head>
 <body>
-    <h1 style="color: green;">{{ email }}</h1>
-    <h1 style="color: blue;">{{ nom }}</h1>
-    <h1 style="color: yellow;">{{ prenom }}</h1>
-    <h1 style="color: purple;">{{ message }}</h1>
+    <h1>Bonjour admin! Vous avez reçu le mail suivant:</h1>
+    <p style="font-size: 16px"><span style="font-weight: bold">nom: </span>{{ nom }}</p>
+    <p style="font-size: 16px"><span style="font-weight: bold">prenom: </span>{{ prenom }}</p>
+    <p style="font-size: 16px"><span style="font-weight: bold">email de l'expéditeur: </span>{{ email }}</p>
+
+    <p style="font-weight: bold; font-size: 16px">message: </p>
+    <p style="font-size: 16px">{{ message }}</p>
+
+
 </body>
 </html>
